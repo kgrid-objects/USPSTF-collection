@@ -30,6 +30,19 @@
             ]
           }
         ]
+      },
+      {
+        "@type": [
+          "Service",
+          "CLI"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "uspstf_high_body_mass_index/cli_service",
+          "@type": [
+            "Python"
+          ]
+        }
       }
     ],
     "koio:hasKnowledge": {
