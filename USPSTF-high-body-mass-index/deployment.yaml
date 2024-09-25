@@ -1,0 +1,7 @@
+/hbmi:
+  post:    
+    engine: 
+      name: org.kgrid.python-activator
+      package: uspstf_high_body_mass_index.activator_service
+      module: activator-service
+      function: apply
