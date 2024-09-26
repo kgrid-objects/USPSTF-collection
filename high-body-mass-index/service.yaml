@@ -8,7 +8,7 @@ info:
     email: kgrid-developers@umich.edu
     url: 'http://kgrid.org'
 servers:
-  - url: /endpoints/USPSTF-hight-body-mass-index
+  - url: /endpoints/hight-body-mass-index
     description: Calculate high bmi inclusion
 tags:
   - name: KO Endpoints

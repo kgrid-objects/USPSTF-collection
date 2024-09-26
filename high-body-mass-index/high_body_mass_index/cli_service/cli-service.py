@@ -6,7 +6,7 @@ import os
 import json
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_dir)
-from knowledge import get_bmi_category_knowledge
+from knowledge import get_high_body_mass_index_classification
 
 def main():
     # Create argument parser
@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
 
     # Calculate high BMI inclusion
-    result = get_bmi_category_knowledge({"age": args.age, "bmi_percentile": args.bmi_percentile})
+    result = get_high_body_mass_index_classification(args.age, args.bmi_percentile)
     
     print(json.dumps(result,indent=4))    
 

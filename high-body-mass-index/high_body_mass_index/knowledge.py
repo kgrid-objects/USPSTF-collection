@@ -1,6 +1,10 @@
-def get_bmi_category_knowledge(input):
-    age = input['age']
-    bmi_percentile = input['bmi_percentile']
+def get_high_body_mass_index_classification(age, bmi_percentile):
+    """
+    Parameters:
+    - age (int): Age of the person.
+    - bmi_percentile (float): bmi percentile for age and sex.
+    """
+    
     if age < 6 or age > 18 or bmi_percentile < 95:
         return {
             "inclusion": False

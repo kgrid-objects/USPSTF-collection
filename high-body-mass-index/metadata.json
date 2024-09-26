@@ -1,6 +1,6 @@
 {
     "@context": "https://kgrid.org/koio/2.0/context",
-    "@id": "USPSTF-hight-body-mass-index",
+    "@id": "hight-body-mass-index",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
     "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
@@ -38,7 +38,7 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "uspstf_high_body_mass_index/cli_service",
+          "@id": "high_body_mass_index/cli_service",
           "@type": [
             "Python"
           ]
@@ -52,7 +52,8 @@
         "Function"
       ],
       "implementedBy": [
-        "uspstf_high_body_mass_index/knowledge.py"
-      ]
+        "high_body_mass_index/knowledge.py"
+      ],
+      "hasTest": "tests/test_knowledge.py"
     }
   }
