@@ -18,7 +18,7 @@ def get_statin_use(age, has_cardiovascular_risk_factors, ten_year_CVD_risk):
             return {
                 "inclusion": True,
                 "recommendation": "The USPSTF recommends that clinicians selectively offer a statin for the primary prevention of CVD for adults aged 40 to 75 years who have 1 or more CVD risk factors (i.e dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year risk of a cardiovascular event of 7.5% to less than 10%. The likelihood of benefit is smaller in this group than in persons with a 10-year risk of 10% or greater.",
-                "grade": "B",
+                "grade": "C",
                 "URL": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart"
                 }
     elif age >= 76:
@@ -28,8 +28,7 @@ def get_statin_use(age, has_cardiovascular_risk_factors, ten_year_CVD_risk):
                 "grade": "I",
                 "URL": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart"
                 }   
-    else:
-        return {
-            "inclusion": False
-            }
+    return {
+        "inclusion": False    
+        }
         

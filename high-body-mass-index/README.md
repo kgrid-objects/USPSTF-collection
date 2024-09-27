@@ -15,7 +15,7 @@ python-activator run --collection-path /path/to/collection/USPSTF-collection
 ### CLI service
 Here is an example of using the cli
 ```bash
-python high_body_mass_index/cli_service/cli-service.py   
+python high_body_mass_index/cli_service/cli-service.py  -a 17 -p 97  
 ```
 
 You can also make the python file executable using chmod to be able to execute it without using python command:

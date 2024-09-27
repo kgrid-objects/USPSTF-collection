@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication'
+  description: |
+                The USPSTF recommends that:
+                For adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year cardiovascular disease (CVD) risk of 10% or greater:
+                Initiate a statin.
+                Grade: B
+
+                For adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk of 7.5% to less than 10%:
+                Selectively offer a statin.
+                Grade: C
+
+                For adults 76 years or older:
+                The evidence is insufficient to recommend for or against starting a statin.
+                Grade: I
+  contact:
+    name: KGrid Team
+    email: kgrid-developers@umich.edu
+    url: 'http://kgrid.org'
+servers:
+  - url: /endpoints/statin-use-prevention-cardiovascular
+    description: Calculate statin use inclusion
+tags:
+  - name: KO Endpoints
+    description: statin use calculation Endpoints    
+paths:
+  /StatinUse:
+    post:
+      summary: Calculate statin use inclusion.
+      description: Calculates statin use inclusion.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:  
+                age:
+                  type: number
+                  format: float
+                  description: Age of the person
+                  example: 45             
+                has_cardiovascular_risk_factors:
+                  type: boolean
+                  description: Whether this person has CVD risk factors (i.e dyslipidemia, diabetes, hypertension, or smoking) or not.
+                  example: true 
+                ten_year_CVD_risk:
+                  type: number
+                  format: float
+                  description: The probability that an individual will have a cardiovascular event (such as a heart attack or stroke) within the next 10 years (0 to 100).
+                  example: 10  
+      responses:
+        '200':
+          description: Successfully calculated statin use inclusion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inclusion:
+                    type: number
+                    format: float
+                    description: inclusion
+                    example: 0
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: 'https://demo.kgrid.org/schemas/openapischemas.yaml#/components/schemas/genericerror'

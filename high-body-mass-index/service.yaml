@@ -2,7 +2,9 @@ openapi: 3.0.0
 info:
   version: '1.0'
   title: 'High Body Mass Index in Children and Adolescents: Interventions'
-  description: 'The USPSTF recommends that clinicians provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.'
+  description: 'Children and adolescents 6 years or older:  
+                The USPSTF recommends that Clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.
+                Grade: B'
   contact:
     name: KGrid Team
     email: kgrid-developers@umich.edu
@@ -37,7 +39,7 @@ paths:
                   example: 70.0 
       responses:
         '200':
-          description: Successfully calculated bmi value.
+          description: Successfully calculated high bmi inclusion.
           content:
             application/json:
               schema:
