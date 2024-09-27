@@ -1,10 +1,9 @@
 ## Assumptions
 It is assumed that KO services can receive the following as input parameters
-    - age (int): Age of the person.
-    - bmi (float): body mass index
+    - pregnant (bool): Indicated if the person is pregnant.
 
-## Knowledge Representation
-The function get_diabetes_screening_classification at diabetes_screening/knowledge.py is the knowledge representation for this recommendation.
+## Knowledge Representation  
+The function get_pregnancy_healthy_weight_gain_recommendation at pregnancy_healthy_weight_gain/knowledge.py is the knowledge representation for this recommendation.
 
 ## Usage
 ### Activator service
@@ -17,11 +16,13 @@ python-activator run --collection-path /path/to/collection/USPSTF-collection
 ### CLI service
 Here is an example of using the cli
 ```bash
-python diabetes_screening/cli_service/cli-service.py  -a 36 -b 26  
+python pregnancy_healthy_weight_gain/cli_service/cli-service.py --pregnant
+python pregnancy_healthy_weight_gain/cli_service/cli-service.py --not-pregnant
 ```
 
 You can also make the python file executable using chmod to be able to execute it without using python command:
 ```bash
-chmod +x diabetes_screening/cli_service/cli-service.py
-diabetes_screening/cli_service/cli-service.py -a 36 -b 26
+chmod +x pregnancy_healthy_weight_gain/cli_service/cli-service.py
+pregnancy_healthy_weight_gain/cli_service/cli-service.py --pregnant
+pregnancy_healthy_weight_gain/cli_service/cli-service.py --not-pregnant
 ```

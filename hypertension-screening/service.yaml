@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Hypertension in Adults: Screening'
+  description: |
+                Adults 18 years or older without known hypertension:
+                The USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.
+                Grade: A
+  contact:
+    name: KGrid Team
+    email: kgrid-developers@umich.edu
+    url: 'http://kgrid.org'
+servers:
+  - url: /endpoints/hypertension-screening
+    description: Calculate hypertension screening inclusion
+tags:
+  - name: KO Endpoints
+    description: hypertension screening inclusion calculation Endpoints    
+paths:
+  /check-inclusion:
+    post:
+      summary: Calculate hypertension screening inclusion.
+      description: Calculates hypertension screening inclusion.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:  
+                age:
+                  type: number
+                  format: float
+                  description: Age of the person
+                  example: 35             
+                hypertension:
+                  type: boolean
+                  description: Indicated whether the person diagnosed for hypertension or not.
+                  example: false
+      responses:
+        '200':
+          description: Successfully calculated hypertension screening inclusion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inclusion:
+                    type: number
+                    format: float
+                    description: inclusion
+                    example: 0
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: 'https://demo.kgrid.org/schemas/openapischemas.yaml#/components/schemas/genericerror'
