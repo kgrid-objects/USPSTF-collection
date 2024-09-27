@@ -10,7 +10,7 @@ from knowledge import get_high_body_mass_index_classification
 
 def main():
     # Create argument parser
-    parser = argparse.ArgumentParser(description="The USPSTF recommends that clinicians provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.")
+    parser = argparse.ArgumentParser(description="Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B", formatter_class=argparse.RawTextHelpFormatter)
 
     # Add arguments for weight and height
     parser.add_argument("-a", "--age", type=float, required=True, help="Age of the person")

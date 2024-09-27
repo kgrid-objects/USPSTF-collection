@@ -1,9 +1,65 @@
 [
   {
-    "status": "uninitialized",
-    "error": "FileNotFoundError(2, 'No such file or directory')",
-    "@id": ".git",
-    "local_url": ".git"
+    "@context": "https://kgrid.org/koio/2.0/context",
+    "@id": "diabetes-screening",
+    "koio:kgrid": "2",
+    "@type": "koio:KnowledgeObject",
+    "dc:title": "Prediabetes and Type 2 Diabetes: Screening",
+    "dc:identifier": "ark:DiabetesScreening",
+    "version": "v1.0",
+    "dc:description": "Adults aged 35 to 70 years who have overweight or obesity:\n The USPSTF recommends screening for prediabetes and type 2 diabetes.  Clinicians should offer or refer patients with prediabetes to effective preventive interventions.\nGrade: B",
+    "koio:contributors": "Kgrid Team",
+    "koio:keywords": [
+      "Type 2 Diabetes",
+      "Prediabetes",
+      "USPSTF",
+      "Screening"
+    ],
+    "koio:hasService": [
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": [
+          {
+            "@id": ".",
+            "@type": [
+              "https://kgrid.org/specs/activationSpec.html#object",
+              "Python"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": [
+          "Service",
+          "CLI"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "diabetes_screening/cli_service",
+          "@type": [
+            "Python"
+          ]
+        }
+      }
+    ],
+    "koio:hasKnowledge": {
+      "@id": "knowledge",
+      "@type": [
+        "Knowledge",
+        "Function"
+      ],
+      "implementedBy": [
+        "diabetes_screening/knowledge.py"
+      ],
+      "hasTest": "tests/test_knowledge.py"
+    },
+    "status": "loaded",
+    "error": "",
+    "local_url": "diabetes-screening"
   },
   {
     "@context": "https://kgrid.org/koio/2.0/context",
@@ -75,7 +131,7 @@
     "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
     "dc:identifier": "ark:HBMI",
     "version": "v1.0",
-    "dc:description": "The USPSTF recommends that clinicians provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (\u226595th percentile for age and sex) to comprehensive, intensive behavioral interventions.",
+    "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (\u226595th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
     "koio:contributors": "Kgrid Team",
     "koio:keywords": [
       "High bmi",

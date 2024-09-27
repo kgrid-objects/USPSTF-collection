@@ -1,6 +1,10 @@
 ## Assumptions
 Inclusion criteria include children and adolescents 6 years or older. It is assumed that USPSTF recommendations consider adolescents to be people with age <=18.
 
+It is assumed that KO services can receive the following as input parameters
+    - age (int): Age of the person.
+    - bmi_percentile (float): bmi percentile for age and sex.
+
 ## Knowledge Representation
 The function get_high_body_mass_index_classification at high_body_mass_index/knowledge.py is the knowledge representation for this recommendation.
 

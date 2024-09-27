@@ -1,0 +1,7 @@
+/check-inclusion:
+  post:    
+    engine: 
+      name: org.kgrid.python-activator
+      package: diabetes_screening.activator_service
+      module: activator-service
+      function: apply
