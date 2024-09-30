@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions'
+  description: |
+                Adults with a BMI ≥30:
+                The USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.
+                Grade: B
+  contact:
+    name: KGrid Team
+    email: kgrid-developers@umich.edu
+    url: 'http://kgrid.org'
+servers:
+  - url: /endpoints/prevent-obesity-morbidity-mortality
+    description: Provide obesity recommendation
+tags:
+  - name: KO Endpoints
+    description: obesity recommendation Endpoints    
+paths:
+  /check-inclusion:
+    post:
+      summary: Provide obesity recommendation.
+      description: Provide obesity recommendation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:  
+                age:
+                  type: number
+                  format: float
+                  description: Age of the person
+                  example: 35             
+                bmi:
+                  type: number
+                  format: float
+                  description: body mass index
+                  example: 30.0 
+      responses:
+        '200':
+          description: Successfully provide obesity recommendation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inclusion:
+                    type: number
+                    format: float
+                    description: inclusion
+                    example: 0
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: 'https://demo.kgrid.org/schemas/openapischemas.yaml#/components/schemas/genericerror'
