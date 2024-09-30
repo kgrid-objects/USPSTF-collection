@@ -1,5 +1,11 @@
 [
   {
+    "status": "uninitialized",
+    "error": "FileNotFoundError(2, 'No such file or directory')",
+    "@id": ".git",
+    "local_url": ".git"
+  },
+  {
     "@context": "https://kgrid.org/koio/2.0/context",
     "@id": "diabetes-screening",
     "koio:kgrid": "2",
@@ -63,7 +69,7 @@
   },
   {
     "@context": "https://kgrid.org/koio/2.0/context",
-    "@id": "statin-use-prevention-cardiovascular",
+    "@id": "cardiovascular-prevention-statin-use",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
     "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
@@ -101,7 +107,7 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "statin_use_prevention_cardiovascular/cli_service",
+          "@id": "cardiovascular_prevention_statin_use/cli_service",
           "@type": [
             "Python"
           ]
@@ -115,13 +121,13 @@
         "Function"
       ],
       "implementedBy": [
-        "statin_use_prevention_cardiovascular/knowledge.py"
+        "cardiovascular_prevention_statin_use/knowledge.py"
       ],
       "hasTest": "tests/test_knowledge.py"
     },
     "status": "loaded",
     "error": "",
-    "local_url": "statin_use_prevention_cardiovascular"
+    "local_url": "cardiovascular_prevention_statin_use"
   },
   {
     "@context": "https://kgrid.org/koio/2.0/context",
@@ -184,6 +190,69 @@
     "status": "loaded",
     "error": "",
     "local_url": "high-body-mass-index"
+  },
+  {
+    "@context": "https://kgrid.org/koio/2.0/context",
+    "@id": "cardiovascular-prevention-diet-activity",
+    "koio:kgrid": "2",
+    "@type": "koio:KnowledgeObject",
+    "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
+    "dc:identifier": "ark:CardiovascularDietActivity",
+    "version": "v1.0",
+    "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
+    "koio:contributors": "Kgrid Team",
+    "koio:keywords": [
+      "Healthy diet",
+      "Healthy activity",
+      "Cardiovascular Disease",
+      "USPSTF",
+      "Counseling"
+    ],
+    "koio:hasService": [
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": [
+          {
+            "@id": ".",
+            "@type": [
+              "https://kgrid.org/specs/activationSpec.html#object",
+              "Python"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": [
+          "Service",
+          "CLI"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "cardiovascular_prevention_diet_activity/cli_service",
+          "@type": [
+            "Python"
+          ]
+        }
+      }
+    ],
+    "koio:hasKnowledge": {
+      "@id": "knowledge",
+      "@type": [
+        "Knowledge",
+        "Function"
+      ],
+      "implementedBy": [
+        "cardiovascular_prevention_diet_activity/knowledge.py"
+      ],
+      "hasTest": "tests/test_knowledge.py"
+    },
+    "status": "loaded",
+    "error": "",
+    "local_url": "cardiovascular-prevention-diet-activity"
   },
   {
     "@context": "https://kgrid.org/koio/2.0/context",

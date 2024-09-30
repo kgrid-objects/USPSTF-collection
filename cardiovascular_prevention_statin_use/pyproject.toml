@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "statin-use-prevention-cardiovascular"
+name = "cardiovascular-prevention-statin-use"
 version = "0.1.0"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]

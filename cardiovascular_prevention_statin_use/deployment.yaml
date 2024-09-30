@@ -2,6 +2,6 @@
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: statin_use_prevention_cardiovascular.activator_service
+      package: cardiovascular_prevention_statin_use.activator_service
       module: activator-service
       function: apply

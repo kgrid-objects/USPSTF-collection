@@ -15,7 +15,7 @@ def main():
     # Add arguments for weight and height
     parser.add_argument("-a", "--age", type=float, required=True, help="Age of the person")
     parser.add_argument("-c", "--has_cardiovascular_risk_factors", action='store_true', help="Indicate if the person has cardiovascular risk factors (e.g., dyslipidemia, diabetes, hypertension, or smoking).")
-    parser.add_argument("--no-cardiovascular-risk-factors", action='store_false', dest='has_cardiovascular_risk_factors', help="Indicate if the person does NOT have cardiovascular risk factors.")
+    parser.add_argument("--no_cardiovascular_risk_factors", action='store_false', dest='has_cardiovascular_risk_factors', help="Indicate if the person does NOT have cardiovascular risk factors.")
 
     parser.add_argument("-t", "--ten_year_CVD_risk", type=float, required=True, help="The probability that an individual will have a cardiovascular event (such as a heart attack or stroke) within the next 10 years (0 to 100).")
 

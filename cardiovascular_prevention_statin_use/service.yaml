@@ -20,7 +20,7 @@ info:
     email: kgrid-developers@umich.edu
     url: 'http://kgrid.org'
 servers:
-  - url: /endpoints/statin-use-prevention-cardiovascular
+  - url: /endpoints/cardiovascular-prevention-statin-use
     description: Calculate statin use inclusion
 tags:
   - name: KO Endpoints

@@ -1,18 +1,19 @@
 {
     "@context": "https://kgrid.org/koio/2.0/context",
-    "@id": "statin-use-prevention-cardiovascular",
+    "@id": "cardiovascular-prevention-diet-activity",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
-    "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
-    "dc:identifier": "ark:StatinUse",
+    "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
+    "dc:identifier": "ark:CardiovascularDietActivity",
     "version": "v1.0",
-    "dc:description": "The USPSTF recommends that:\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year cardiovascular disease (CVD) risk of 10% or greater:\nInitiate a statin.\nGrade: B\n\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk of 7.5% to less than 10%:\nSelectively offer a statin.\nGrade: C\n\nFor adults 76 years or older:\nThe evidence is insufficient to recommend for or against starting a statin.\nGrade: I",
+    "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
     "koio:contributors": "Kgrid Team",
     "koio:keywords": [
-      "Statin use",
+      "Healthy diet",
+      "Healthy activity",
       "Cardiovascular Disease",
       "USPSTF",
-      "Preventive Medication"
+      "Counseling"
     ],
     "koio:hasService": [      
       {
@@ -38,7 +39,7 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "statin_use_prevention_cardiovascular/cli_service",
+          "@id": "cardiovascular_prevention_diet_activity/cli_service",
           "@type": [
             "Python"
           ]
@@ -52,7 +53,7 @@
         "Function"
       ],
       "implementedBy": [
-        "statin_use_prevention_cardiovascular/knowledge.py"
+        "cardiovascular_prevention_diet_activity/knowledge.py"
       ],
       "hasTest": "tests/test_knowledge.py"
     }

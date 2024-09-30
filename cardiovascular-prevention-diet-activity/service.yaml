@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions'
+  description: |
+                The USPSTF recommends that:
+                For adults 18 years or older at increased risk of cardiovascular disease (CVD):
+                Provide behavioral counseling to promote a healthy diet and physical activity.
+                Grade: B
+  contact:
+    name: KGrid Team
+    email: kgrid-developers@umich.edu
+    url: 'http://kgrid.org'
+servers:
+  - url: /endpoints/cardiovascular-prevention-diet-activity
+    description: Calculate behavioral counseling inclusion
+tags:
+  - name: KO Endpoints
+    description: Behavioral counseling calculation Endpoints    
+paths:
+  /StatinUse:
+    post:
+      summary: Calculate behavioral counseling inclusion.
+      description: Calculates behavioral counseling inclusion.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:  
+                age:
+                  type: number
+                  format: float
+                  description: Age of the person
+                  example: 45             
+                has_cardiovascular_risk_factors:
+                  type: boolean
+                  description: Whether this person has CVD risk factors (i.e dyslipidemia, diabetes, hypertension, or smoking) or not.
+                  example: true                 
+      responses:
+        '200':
+          description: Successfully calculated statin use inclusion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inclusion:
+                    type: number
+                    format: float
+                    description: inclusion
+                    example: 0
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: 'https://demo.kgrid.org/schemas/openapischemas.yaml#/components/schemas/genericerror'

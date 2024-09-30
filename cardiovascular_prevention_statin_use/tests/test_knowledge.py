@@ -1,4 +1,4 @@
-from statin_use_prevention_cardiovascular.knowledge import get_statin_use
+from cardiovascular_prevention_statin_use.knowledge import get_statin_use
 def test_knowledge():
     assert not get_statin_use(age = 30, has_cardiovascular_risk_factors = True, ten_year_CVD_risk = 15)["inclusion"] 
     assert get_statin_use(age = 40, has_cardiovascular_risk_factors = True, ten_year_CVD_risk = 15)["inclusion"] 

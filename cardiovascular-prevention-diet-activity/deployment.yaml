@@ -1,0 +1,7 @@
+/StatinUse:
+  post:    
+    engine: 
+      name: org.kgrid.python-activator
+      package: cardiovascular_prevention_diet_activity.activator_service
+      module: activator-service
+      function: apply
