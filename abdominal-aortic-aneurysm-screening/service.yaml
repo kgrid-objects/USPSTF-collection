@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Abdominal Aortic Aneurysm: Screening'
+  description: |
+                The USPSTF recommends that:
+                For men aged 65 to 75 years who have ever smoked:
+                Perform 1-time screening for abdominal aortic aneurysm (AAA) with ultrasonography in men who have a history of smoking.
+                Grade B
+                
+                For men aged 65 to 75 years who have never smoked:
+                Selectively offer screening to men who do not have a history of smoking, rather than routinely screening all men in this group
+                Grade C
+                
+                For women who have never smoked and have no family history of AAA:
+                Do not screen women who have never smoked and do not have a family history of AAA.
+                Grade D
+                
+                For women aged 65 to 75 years who have ever smoked or have a family history of AAA:
+                Evidence is insufficient to assess the balance of benefits and harms of screening for AAA with ultrasonography in women aged 65 to 75 years who have ever smoked or have a family history of AAA.
+                Grade I
+  contact:
+    name: KGrid Team
+    email: kgrid-developers@umich.edu
+    url: 'http://kgrid.org'
+servers:
+  - url: /endpoints/abdominal-aortic-aneurysm-screening
+    description: Calculate abdominal aortic aneurysm screening inclusion
+tags:
+  - name: KO Endpoints
+    description: abdominal aortic aneurysm screening inclusion calculation Endpoints    
+paths:
+  /check-inclusion:
+    post:
+      summary: Calculate abdominal aortic aneurysm screening inclusion.
+      description: Calculates abdominal aortic aneurysm screening inclusion.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:  
+                age:
+                  type: number
+                  format: float
+                  description: Age of the person
+                  example: 65   
+                gender:
+                  type: number
+                  format: float
+                  description: -Gender of the individual (0 for women, 1 for men).
+                  example: 1            
+                has_never_smoked:
+                  type: boolean
+                  description: Whether this person has never smoked or not.
+                  example: true 
+
+      responses:
+        '200':
+          description: Successfully calculated abdominal aortic aneurysm screening inclusion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inclusion:
+                    type: number
+                    format: float
+                    description: inclusion
+                    example: 0
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: 'https://demo.kgrid.org/schemas/openapischemas.yaml#/components/schemas/genericerror'

@@ -40,7 +40,7 @@ paths:
                   example: true                 
       responses:
         '200':
-          description: Successfully calculated statin use inclusion.
+          description: Successfully calculated behavioral counseling inclusion.
           content:
             application/json:
               schema:
