@@ -46,11 +46,11 @@
                 <label>Gender: <input type="text" id="gender" oninput="fetchRecommendations()"></label>
                 <label>Has never smoked: <input type="text" id="has_never_smoked" oninput="fetchRecommendations()"></label>
                 <label>Pregnant: <input type="text" id="pregnant" oninput="fetchRecommendations()"></label>
-                <label>bmi: <input type="text" id="bmi" oninput="fetchRecommendations()"></label>
-                <label>has_cardiovascular_risk_factors: <input type="text" id="has_cardiovascular_risk_factors" oninput="fetchRecommendations()"></label>
-                <label>bmi_percentile: <input type="text" id="bmi_percentile" oninput="fetchRecommendations()"></label>
-                <label>hypertension: <input type="text" id="hypertension" oninput="fetchRecommendations()"></label>
-                <label>ten_year_CVD_risk: <input type="text" id="ten_year_CVD_risk" oninput="fetchRecommendations()"></label>
+                <label>Bmi: <input type="text" id="bmi" oninput="fetchRecommendations()"></label>
+                <label>Has cardiovascular risk factors: <input type="text" id="has_cardiovascular_risk_factors" oninput="fetchRecommendations()"></label>
+                <label>Bmi percentile: <input type="text" id="bmi_percentile" oninput="fetchRecommendations()"></label>
+                <label>Hypertension: <input type="text" id="hypertension" oninput="fetchRecommendations()"></label>
+                <label>Ten year CVD risk: <input type="text" id="ten_year_CVD_risk" oninput="fetchRecommendations()"></label>
 
                 
             </div>
@@ -121,7 +121,7 @@
             // Clear previous recommendations
             const recommendationsDiv = document.getElementById('recommendations');
             recommendationsDiv.innerHTML = '';
-            //alert(endpoints)
+
 
             for (const endpoint of endpoints) {
                 const endpointUrl = `${apiUrl}/endpoints/${endpoint["@id"]}`;
@@ -132,7 +132,7 @@
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ age: Number(age), weight: Number(weight), height: Number(height), gender: Number(gender), has_never_smoked: Boolean(has_never_smoked), has_cardiovascular_risk_factors: Boolean(has_cardiovascular_risk_factors), bmi: Number(bmi), bmi_percentile: Number(bmi_percentile), hypertension: Boolean(hypertension), pregnant: Boolean(pregnant), ten_year_CVD_risk: Number(ten_year_CVD_risk)  })
+                        body: JSON.stringify({ age: Number(age), weight: Number(weight), height: Number(height), gender: Number(gender), has_never_smoked: toBoolean(has_never_smoked), has_cardiovascular_risk_factors: toBoolean(has_cardiovascular_risk_factors), bmi: Number(bmi), bmi_percentile: Number(bmi_percentile), hypertension: toBoolean(hypertension), pregnant: toBoolean(pregnant), ten_year_CVD_risk: Number(ten_year_CVD_risk)  })
                     });
                     
                     const result = await response.json();
@@ -145,6 +145,16 @@
                     recommendationsDiv.appendChild(errorDiv);
                 }
             }
+        }
+        function toBoolean(value) {
+            // Convert the input to a lowercase string for case-insensitive comparison
+            const strValue = String(value).toLowerCase();
+        
+            // List of values that should be considered as false
+            const falseValues = ["false", "0", "0.0", "none"];
+        
+            // Return false if the value is in the list of falseValues; otherwise, true
+            return !falseValues.includes(strValue);
         }
     </script>
 </body>

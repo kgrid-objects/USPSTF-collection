@@ -1,4 +1,4 @@
-/StatinUse:
+/check-inclusion:
   post:    
     engine: 
       name: org.kgrid.python-activator
