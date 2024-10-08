@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Data Selector</title>
+    <style>
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        .column {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .patient-info, .recommendations {
+            margin-top: 20px;
+        }
+        .patient-info input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column: Patient Selector & Info -->
+        <div class="column" id="patient-column">
+            <h2>Select a Patient</h2>
+            <button onclick="loadPatientData(0)">Patient 1</button>
+            <button onclick="loadPatientData(1)">Patient 2</button>
+            <button onclick="loadPatientData(2)">Patient 3</button>
+            <button onclick="loadPatientData(3)">Patient 4</button>
+            <button onclick="loadPatientData(4)">Patient 5</button>
+            
+            <div class="patient-info">
+                <h3>Patient Info</h3>
+                <label>Age: <input type="text" id="age" oninput="fetchRecommendations()"></label>
+                <label>Weight: <input type="text" id="weight" oninput="fetchRecommendations()"></label>
+                <label>Height: <input type="text" id="height" oninput="fetchRecommendations()"></label>
+                <label>Gender: <input type="text" id="gender" oninput="fetchRecommendations()"></label>
+                <label>Has never smoked: <input type="text" id="has_never_smoked" oninput="fetchRecommendations()"></label>
+                <label>Pregnant: <input type="text" id="pregnant" oninput="fetchRecommendations()"></label>
+                <label>bmi: <input type="text" id="bmi" oninput="fetchRecommendations()"></label>
+                <label>has_cardiovascular_risk_factors: <input type="text" id="has_cardiovascular_risk_factors" oninput="fetchRecommendations()"></label>
+                <label>bmi_percentile: <input type="text" id="bmi_percentile" oninput="fetchRecommendations()"></label>
+                <label>hypertension: <input type="text" id="hypertension" oninput="fetchRecommendations()"></label>
+                <label>ten_year_CVD_risk: <input type="text" id="ten_year_CVD_risk" oninput="fetchRecommendations()"></label>
+
+                
+            </div>
+        </div>
+
+        <!-- Right Column: Recommendations -->
+        <div class="column" id="recommendations-column">
+            <h2>Recommendations</h2>
+            <div class="recommendations" id="recommendations">
+                <!-- Recommendations will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiUrl = "https://uspstf-collection-b68f2ecc738e.herokuapp.com";
+        let endpoints = [];
+        
+        const patients = [
+            { age: 30, weight: 70, height: 175, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30 },
+            { age: 40, weight: 80, height: 180, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  },
+            { age: 50, weight: 90, height: 165, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  },
+            { age: 60, weight: 100, height: 170, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30 },
+            { age: 70, weight: 110, height: 160, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  }
+        ];
+        
+        window.onload = async function() {
+            // Fetch the list of recommendation endpoints on page load
+            try {
+                const response = await fetch(`${apiUrl}/endpoints`);                
+                endpoints = await response.json();
+            } catch (error) {
+                document.getElementById('recommendations').innerText = "Error fetching endpoints: " + error;
+            }
+        };
+
+        function loadPatientData(index) {
+            const patient = patients[index];
+            document.getElementById('age').value = patient.age;
+            document.getElementById('weight').value = patient.weight;
+            document.getElementById('height').value = patient.height;
+            document.getElementById('gender').value = patient.gender;
+            document.getElementById('has_never_smoked').value = patient.has_never_smoked;
+            document.getElementById('has_cardiovascular_risk_factors').value = patient.has_cardiovascular_risk_factors;
+            document.getElementById('bmi').value = patient.bmi;
+            document.getElementById('bmi_percentile').value = patient.bmi_percentile;
+            document.getElementById('hypertension').value = patient.hypertension;
+            document.getElementById('pregnant').value = patient.pregnant;
+            document.getElementById('ten_year_CVD_risk').value = patient.ten_year_CVD_risk;
+            
+            // Fetch recommendations after loading the patient data
+            fetchRecommendations();
+        }
+
+        async function fetchRecommendations() {
+
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const gender = document.getElementById('gender').value;
+            const has_never_smoked = document.getElementById('has_never_smoked').value;
+            const has_cardiovascular_risk_factors = document.getElementById('has_cardiovascular_risk_factors').value;
+            const bmi = document.getElementById('bmi').value;
+            const bmi_percentile = document.getElementById('bmi_percentile').value;
+            const hypertension = document.getElementById('hypertension').value;
+            const pregnant = document.getElementById('pregnant').value;
+            const ten_year_CVD_risk = document.getElementById('ten_year_CVD_risk').value;
+            // Clear previous recommendations
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.innerHTML = '';
+            //alert(endpoints)
+
+            for (const endpoint of endpoints) {
+                const endpointUrl = `${apiUrl}/endpoints/${endpoint["@id"]}`;
+
+                try {
+                    const response = await fetch(endpointUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ age: Number(age), weight: Number(weight), height: Number(height), gender: Number(gender), has_never_smoked: Boolean(has_never_smoked), has_cardiovascular_risk_factors: Boolean(has_cardiovascular_risk_factors), bmi: Number(bmi), bmi_percentile: Number(bmi_percentile), hypertension: Boolean(hypertension), pregnant: Boolean(pregnant), ten_year_CVD_risk: Number(ten_year_CVD_risk)  })
+                    });
+                    
+                    const result = await response.json();
+                    const recommendation = document.createElement('div');
+                    recommendation.innerText = `Endpoint: ${endpoint["@id"]}\nResponse: ${JSON.stringify(result)}\n\n`;
+                    recommendationsDiv.appendChild(recommendation);
+                } catch (error) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.innerText = `Error fetching recommendation from ${endpoint["@id"]}: ${error}`;
+                    recommendationsDiv.appendChild(errorDiv);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
