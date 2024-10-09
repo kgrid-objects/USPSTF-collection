@@ -32,17 +32,15 @@
         <!-- Left Column: Patient Selector & Info -->
         <div class="column" id="patient-column">
             <h2>Select a Patient</h2>
-            <button onclick="loadPatientData(0)">Patient 1</button>
-            <button onclick="loadPatientData(1)">Patient 2</button>
-            <button onclick="loadPatientData(2)">Patient 3</button>
-            <button onclick="loadPatientData(3)">Patient 4</button>
-            <button onclick="loadPatientData(4)">Patient 5</button>
+            <button class="patient-button" data-index="0">Patient 1</button>
+            <button class="patient-button" data-index="1">Patient 2</button>
+            <button class="patient-button" data-index="2">Patient 3</button>
+            <button class="patient-button" data-index="3">Patient 4</button>
+            <button class="patient-button" data-index="4">Patient 5</button>
             
             <div class="patient-info">
                 <h3>Patient Info</h3>
                 <label>Age: <input type="text" id="age" oninput="fetchRecommendations()"></label>
-                <label>Weight: <input type="text" id="weight" oninput="fetchRecommendations()"></label>
-                <label>Height: <input type="text" id="height" oninput="fetchRecommendations()"></label>
                 <label>Gender: <input type="text" id="gender" oninput="fetchRecommendations()"></label>
                 <label>Has never smoked: <input type="text" id="has_never_smoked" oninput="fetchRecommendations()"></label>
                 <label>Pregnant: <input type="text" id="pregnant" oninput="fetchRecommendations()"></label>
@@ -70,11 +68,11 @@
         let endpoints = [];
         
         const patients = [
-            { age: 30, weight: 70, height: 175, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30 },
-            { age: 40, weight: 80, height: 180, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  },
-            { age: 50, weight: 90, height: 165, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  },
-            { age: 60, weight: 100, height: 170, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30 },
-            { age: 70, weight: 110, height: 160, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  }
+            { age: 30, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30 },
+            { age: 40, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  },
+            { age: 50, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  },
+            { age: 60, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30 },
+            { age: 70, gender: 1, has_never_smoked: true, has_cardiovascular_risk_factors: true,bmi: 25, bmi_percentile: 29,hypertension: true, pregnant: false, ten_year_CVD_risk: 30  }
         ];
         
         window.onload = async function() {
@@ -87,11 +85,31 @@
             }
         };
 
+        // Disable patient buttons for a short period
+        function disablePatientButtons(duration) {
+            const buttons = document.querySelectorAll('.patient-button');
+            buttons.forEach(button => {
+                button.disabled = true; // Disable button
+            });
+
+            setTimeout(() => {
+                buttons.forEach(button => {
+                    button.disabled = false; // Re-enable button
+                });
+            }, duration);
+        }
+
+        // Attach event listener to patient buttons
+        document.querySelectorAll('.patient-button').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                loadPatientData(index);
+                disablePatientButtons(500); // Disable buttons for 2 seconds
+            });
+        });
+
         function loadPatientData(index) {
             const patient = patients[index];
             document.getElementById('age').value = patient.age;
-            document.getElementById('weight').value = patient.weight;
-            document.getElementById('height').value = patient.height;
             document.getElementById('gender').value = patient.gender;
             document.getElementById('has_never_smoked').value = patient.has_never_smoked;
             document.getElementById('has_cardiovascular_risk_factors').value = patient.has_cardiovascular_risk_factors;
@@ -105,11 +123,34 @@
             fetchRecommendations();
         }
 
+        // Utility debounce function used to add delay for fetching recommendations on input text boxes
+        function debounce(func, delay) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        // Debounced fetchRecommendations function
+        const debouncedFetchRecommendations = debounce(fetchRecommendations, 500);
+
+        // Add event listeners to the input fields with the debounced function
+        document.getElementById('age').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('gender').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('has_never_smoked').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('has_cardiovascular_risk_factors').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('bmi').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('bmi_percentile').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('hypertension').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('pregnant').addEventListener('input', debouncedFetchRecommendations);
+        document.getElementById('ten_year_CVD_risk').addEventListener('input', debouncedFetchRecommendations);
+
+
+
         async function fetchRecommendations() {
 
             const age = document.getElementById('age').value;
-            const weight = document.getElementById('weight').value;
-            const height = document.getElementById('height').value;
             const gender = document.getElementById('gender').value;
             const has_never_smoked = document.getElementById('has_never_smoked').value;
             const has_cardiovascular_risk_factors = document.getElementById('has_cardiovascular_risk_factors').value;
@@ -121,7 +162,7 @@
             // Clear previous recommendations
             const recommendationsDiv = document.getElementById('recommendations');
             recommendationsDiv.innerHTML = '';
-
+            const allRecommendations = [];
 
             for (const endpoint of endpoints) {
                 const endpointUrl = `${apiUrl}/endpoints/${endpoint["@id"]}`;
@@ -132,20 +173,37 @@
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ age: Number(age), weight: Number(weight), height: Number(height), gender: Number(gender), has_never_smoked: toBoolean(has_never_smoked), has_cardiovascular_risk_factors: toBoolean(has_cardiovascular_risk_factors), bmi: Number(bmi), bmi_percentile: Number(bmi_percentile), hypertension: toBoolean(hypertension), pregnant: toBoolean(pregnant), ten_year_CVD_risk: Number(ten_year_CVD_risk)  })
+                        body: JSON.stringify({ age: Number(age), gender: Number(gender), has_never_smoked: toBoolean(has_never_smoked), has_cardiovascular_risk_factors: toBoolean(has_cardiovascular_risk_factors), bmi: Number(bmi), bmi_percentile: Number(bmi_percentile), hypertension: toBoolean(hypertension), pregnant: toBoolean(pregnant), ten_year_CVD_risk: Number(ten_year_CVD_risk)  })
                     });
                     
                     const result = await response.json();
-                    const recommendation = document.createElement('div');
-                    recommendation.innerText = `Endpoint: ${endpoint["@id"]}\nResponse: ${JSON.stringify(result)}\n\n`;
-                    recommendationsDiv.appendChild(recommendation);
+                    
+                    allRecommendations.push({
+                        endpoint: endpoint["@id"],
+                        response: result
+                    });
+
                 } catch (error) {
                     const errorDiv = document.createElement('div');
                     errorDiv.innerText = `Error fetching recommendation from ${endpoint["@id"]}: ${error}`;
                     recommendationsDiv.appendChild(errorDiv);
                 }
             }
+            // Sort recommendations
+            allRecommendations.sort((a, b) => {
+                // Replace 'title' with the appropriate property to sort by
+                return a.response.result.title.localeCompare(b.response.result.title);
+            });
+
+            // Display sorted recommendations
+            allRecommendations.forEach(item => {
+                const recommendation = document.createElement('div');
+                recommendation.innerText = `Endpoint: ${item.endpoint}\nResponse: ${JSON.stringify(item.response)}\n\n`;
+                recommendationsDiv.appendChild(recommendation);
+            });
+
         }
+
         function toBoolean(value) {
             // Convert the input to a lowercase string for case-insensitive comparison
             const strValue = String(value).toLowerCase();

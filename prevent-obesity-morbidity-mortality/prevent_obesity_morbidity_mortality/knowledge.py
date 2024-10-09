@@ -8,12 +8,14 @@ def get_obesity_recommendation(age, bmi):
     if age >= 18 and bmi >= 30:
         return {
             "inclusion": True,
+            "title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
             "recommendation": "The USPSTF recommends that clinicians offer or refer adults with a body mass index (BMI) of 30 or higher (calculated as weight in kilograms divided by height in meters squared) to intensive, multicomponent behavioral interventions.",
             "grade": "B",
             "URL": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions"
             }
     else:
         return {
-            "inclusion": False
+            "inclusion": False,
+            "title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions"
             }
         
