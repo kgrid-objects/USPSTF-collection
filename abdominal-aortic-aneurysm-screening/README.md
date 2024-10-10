@@ -17,13 +17,13 @@ python-activator run --collection-path /path/to/collection/USPSTF-collection
 ### CLI service
 Here is an example of using the cli
 ```bash
-python abdominal_aortic_aneurysm_screening/cli_service/cli-service.py  -a 65 -g 1 --has_never_smoked  
-python abdominal_aortic_aneurysm_screening/cli_service/cli-service.py  -a 65 -g 1 --has_ever_smoked  
+python abdominal_aortic_aneurysm_screening/cli_service/cli_service.py  -a 65 -g 1 --has_never_smoked  
+python abdominal_aortic_aneurysm_screening/cli_service/cli_service.py  -a 65 -g 1 --has_ever_smoked  
 ```
 
 You can also make the python file executable using chmod to be able to execute it without using python command:
 ```bash
-chmod +x abdominal_aortic_aneurysm_screening/cli_service/cli-service.py
-abdominal_aortic_aneurysm_screening/cli_service/cli-service.py -a 65 -g 1 --has_never_smoked  
-abdominal_aortic_aneurysm_screening/cli_service/cli-service.py -a 65 -g 1 --has_ever_smoked  
+chmod +x abdominal_aortic_aneurysm_screening/cli_service/cli_service.py
+abdominal_aortic_aneurysm_screening/cli_service/cli_service.py -a 65 -g 1 --has_never_smoked  
+abdominal_aortic_aneurysm_screening/cli_service/cli_service.py -a 65 -g 1 --has_ever_smoked  
 ```

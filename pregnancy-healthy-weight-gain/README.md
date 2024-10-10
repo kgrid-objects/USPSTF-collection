@@ -16,13 +16,13 @@ python-activator run --collection-path /path/to/collection/USPSTF-collection
 ### CLI service
 Here is an example of using the cli
 ```bash
-python pregnancy_healthy_weight_gain/cli_service/cli-service.py --pregnant
-python pregnancy_healthy_weight_gain/cli_service/cli-service.py --not-pregnant
+python pregnancy_healthy_weight_gain/cli_service/cli_service.py --pregnant
+python pregnancy_healthy_weight_gain/cli_service/cli_service.py --not-pregnant
 ```
 
 You can also make the python file executable using chmod to be able to execute it without using python command:
 ```bash
-chmod +x pregnancy_healthy_weight_gain/cli_service/cli-service.py
-pregnancy_healthy_weight_gain/cli_service/cli-service.py --pregnant
-pregnancy_healthy_weight_gain/cli_service/cli-service.py --not-pregnant
+chmod +x pregnancy_healthy_weight_gain/cli_service/cli_service.py
+pregnancy_healthy_weight_gain/cli_service/cli_service.py --pregnant
+pregnancy_healthy_weight_gain/cli_service/cli_service.py --not-pregnant
 ```

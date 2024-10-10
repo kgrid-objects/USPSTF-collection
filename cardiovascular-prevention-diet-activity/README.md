@@ -17,13 +17,13 @@ python-activator run --collection-path /path/to/collection/USPSTF-collection
 ### CLI service
 Here is an example of using the cli
 ```bash
-python cardiovascular_prevention_diet_activity/cli_service/cli-service.py  -a 40 --has_cardiovascular_risk_factors
-python cardiovascular_prevention_diet_activity/cli_service/cli-service.py  -a 40 --no_cardiovascular_risk_factors
+python cardiovascular_prevention_diet_activity/cli_service/cli_service.py  -a 40 --has_cardiovascular_risk_factors
+python cardiovascular_prevention_diet_activity/cli_service/cli_service.py  -a 40 --no_cardiovascular_risk_factors
 ```
 
 You can also make the python file executable using chmod to be able to execute it without using python command:
 ```bash
-chmod +x cardiovascular_prevention_diet_activity/cli_service/cli-service.py
-cardiovascular_prevention_diet_activity/cli_service/cli-service.py -a 40 --has_cardiovascular_risk_factors
-cardiovascular_prevention_diet_activity/cli_service/cli-service.py -a 40 --no_cardiovascular_risk_factors
+chmod +x cardiovascular_prevention_diet_activity/cli_service/cli_service.py
+cardiovascular_prevention_diet_activity/cli_service/cli_service.py -a 40 --has_cardiovascular_risk_factors
+cardiovascular_prevention_diet_activity/cli_service/cli_service.py -a 40 --no_cardiovascular_risk_factors
 ```

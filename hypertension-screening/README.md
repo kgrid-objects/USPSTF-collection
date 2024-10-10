@@ -17,13 +17,13 @@ python-activator run --collection-path /path/to/collection/USPSTF-collection
 ### CLI service
 Here is an example of using the cli
 ```bash
-python hypertension_screening/cli_service/cli-service.py  -a 30 --hypertension
-python hypertension_screening/cli_service/cli-service.py  -a 30 --no-hypertension
+python hypertension_screening/cli_service/cli_service.py  -a 30 --hypertension
+python hypertension_screening/cli_service/cli_service.py  -a 30 --no-hypertension
 ```
 
 You can also make the python file executable using chmod to be able to execute it without using python command:
 ```bash
-chmod +x hypertension_screening/cli_service/cli-service.py
-hypertension_screening/cli_service/cli-service.py -a 30 --hypertension
-hypertension_screening/cli_service/cli-service.py -a 30 --no-hypertension
+chmod +x hypertension_screening/cli_service/cli_service.py
+hypertension_screening/cli_service/cli_service.py -a 30 --hypertension
+hypertension_screening/cli_service/cli_service.py -a 30 --no-hypertension
 ```
