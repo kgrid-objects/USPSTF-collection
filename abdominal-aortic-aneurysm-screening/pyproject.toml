@@ -10,7 +10,7 @@ python = "^3.10"
 pytest = "^8.3.3"
 
 [tool.poetry.scripts]
-abdominal-aortic-aneurysm-screening = "abdominal_aortic_aneurysm_screening.cli_service.cli-service:main"
+abdominal-aortic-aneurysm-screening = "abdominal-aortic-aneurysm-screening.abdominal_aortic_aneurysm_screening.cli_service.cli-service:main"
 
 [build-system]
 requires = ["poetry-core"]
