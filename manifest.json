@@ -1,0 +1,38 @@
+[
+    { 
+        "@id": "abdominal-aortic-aneurysm-screening",
+        "url": "abdominal-aortic-aneurysm-screening.zip"
+    },
+    { 
+        "@id": "cardiovascular-prevention-diet-activity",
+        "url": "cardiovascular-prevention-diet-activity.zip"
+    },
+    { 
+        "@id": "cardiovascular-prevention-statin-use",
+        "url": "cardiovascular-prevention-statin-use.zip"
+    },
+    { 
+        "@id": "diabetes-screening",
+        "url": "diabetes-screening.zip"
+    }
+    ,
+    { 
+        "@id": "high-body-mass-index",
+        "url": "high-body-mass-index.zip"
+    }
+    ,
+    { 
+        "@id": "hypertension-screening",
+        "url": "hypertension-screening.zip"
+    }
+    ,
+    { 
+        "@id": "pregnancy-healthy-weight-gain",
+        "url": "pregnancy-healthy-weight-gain.zip"
+    }
+    ,
+    {
+      "@id": "prevent-obesity-morbidity-mortality",
+      "url": "prevent-obesity-morbidity-mortality.zip"
+    }
+  ]
