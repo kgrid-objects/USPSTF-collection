@@ -23,7 +23,7 @@ This collection implements 8 knowledge objects, using [KGrid 2.0](https://github
 See knowledge object information page or the USPSTF page link for more detail on each knowledge object.
 
 ## Demo app
-The USPSTF collection [demo app](https://kgrid-objects.github.io/USPSTF-collection/), which is located in the [demo folder](./demo/), utilizes the knowledge objects in this repository to deliver precision prevention, providing tailored preventive recommendations for individual patients. 
+The USPSTF collection [demo app](https://kgrid-objects.github.io/USPSTF-collection/demo/), which is located in the [demo folder](./demo/), utilizes the knowledge objects in this repository to deliver precision prevention, providing tailored preventive recommendations for individual patients. 
 
 For development, run the following in demo folder to make a virtual local server:
 ```
