@@ -16,7 +16,7 @@ def main():
     parser.add_argument("-a", "--age", type=float, required=True, help="Age of the person")
     parser.add_argument("-g", "--gender", type=float, required=True, help="Gender of the individual (0 for women, 1 for men).")
    
-    parser.add_argument("-s", "--has_never_smoked", action='store_true', help="Indicate if the person has never smoked.")
+    parser.add_argument("--has_never_smoked", action='store_true', help="Indicate if the person has never smoked.")
     parser.add_argument("--has_ever_smoked", action='store_false', dest='has_never_smoked', help="Indicate if the person has ever smoked.")
 
     # Parse the arguments
