@@ -6,9 +6,11 @@ authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 pytest = "^8.3.3"
 
+[tool.poetry.scripts]
+cardiovascular-prevention-diet-activity = "cardiovascular_prevention_diet_activity.cli_service.cli_service:main"
 
 [build-system]
 requires = ["poetry-core"]
