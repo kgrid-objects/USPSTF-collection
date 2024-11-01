@@ -1,5 +1,10 @@
 {
-  "@context": "https://kgrid.org/koio/2.0/context",
+  "@context": [
+    "https://kgrid.org/koio/2.0/context",
+    {
+      "spdx": "https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/"
+    }
+  ],
   "@id": "cardiovascular-prevention-diet-activity",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
@@ -54,7 +59,14 @@
         "@id": "cardiovascular_prevention_diet_activity/knowledge.py",
         "@type": "Function"
       },
-      "hasTest": "tests/test_knowledge.py"
+      "spdx:test": ["tests/test_knowledge.py"],
+      "spdx:documentation": [
+        "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd"
+      ]
     }
+  ],
+  "spdx:documentation": [
+    "https://colab.research.google.com/drive/1r6PodT5n75qKLBbtTWIC1dNwwz3FrVWr?usp=sharing",
+    "README.md"
   ]
 }

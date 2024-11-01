@@ -55,5 +55,6 @@
       },
       "hasTest": "tests/test_knowledge.py"
     }
-  ]
+  ],
+  "dc:source":"https://github.com/kgrid-objects/USPSTF-collection/tree/main/cardiovascular-prevention-statin-use"
 }
