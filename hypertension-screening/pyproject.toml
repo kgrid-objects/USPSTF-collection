@@ -5,8 +5,7 @@ description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-[tool.poetry.include]
-files = ["metadata.json"]
+include = ["metadata.json"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
