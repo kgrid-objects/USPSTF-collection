@@ -4,11 +4,16 @@ import argparse
 import sys
 import os
 import json
+from hypertension_screening import ExtendedKo
+
+
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(parent_dir)
 from knowledge import get_hypertension_screening_classification
 
 def main():
+    ko_instance = ExtendedKo()
+    print(ko_instance.get_version())
     # Create argument parser
     parser = argparse.ArgumentParser(description="Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A", formatter_class=argparse.RawTextHelpFormatter)
 

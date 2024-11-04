@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
+ko = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.1.0-py3-none-any.whl"}
 
 [tool.poetry.scripts]
 hypertension-screening = "hypertension_screening.cli_service.cli_service:main"
