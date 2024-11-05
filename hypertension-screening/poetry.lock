@@ -43,12 +43,12 @@ description = "SDK for KGrid 2.0 Knowledge objects"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "ko-0.1.0-py3-none-any.whl", hash = "sha256:872b1edcdd9d9229b86d5ffb6366e4eafed032b423aedeb509509d8fdc03a5b9"},
+    {file = "ko-0.1.0-py3-none-any.whl", hash = "sha256:40e18ec0b63381a91c04dcdefd6fffa3b3b66cf1c0ed40d01629d3ab51a47469"},
 ]
 
 [package.source]
-type = "url"
-url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.1.0-py3-none-any.whl"
+type = "file"
+url = "../../python-sdk/dist/ko-0.1.0-py3-none-any.whl"
 
 [[package]]
 name = "packaging"
@@ -112,4 +112,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d2c1edc68437c8750b3dd08f06c0e3c6a7b5fbb9cd96089b15d094f0e682bb49"
+content-hash = "bfba2c8a59d363b7f04dd60bbedb45dc9287162a5463f6a0b3956e3c14995133"

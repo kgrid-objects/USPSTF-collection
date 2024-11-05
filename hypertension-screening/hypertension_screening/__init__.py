@@ -1,1 +1,1 @@
-from .ExtendedKo import ExtendedKo
+from .hypertension_screening import hypertension_screening
