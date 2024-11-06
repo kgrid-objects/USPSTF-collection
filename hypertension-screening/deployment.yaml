@@ -3,5 +3,5 @@
     engine: 
       name: org.kgrid.python-activator
       package: hypertension_screening.activator_service
-      module: activator-service
+      module: activator_service
       function: apply
