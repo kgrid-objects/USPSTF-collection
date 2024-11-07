@@ -2,6 +2,6 @@
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: hypertension_screening.activator_service
-      module: activator_service
+      package: hypertension_screening
+      module: hypertension_screening
       function: apply

@@ -1,6 +1,6 @@
 
 from hypertension_screening import hypertension_screening
-from hypertension_screening.activator_service import activator_service
+from hypertension_screening.hypertension_screening import apply
 
 def test_get_version():  
     ko_instance = hypertension_screening()
@@ -21,8 +21,12 @@ def test_execute():
         }, "get_hypertension_screening_classification")["title"]
 
 def test_activator_function():
-    assert "Hypertension in Adults: Screening" == activator_service.apply({
+    assert "Hypertension in Adults: Screening" == apply({
         "age":20,
         "hypertension":False
         })["title"]
+    
+def test_execute1():
+    ko_instance = hypertension_screening()
+    assert "Hypertension in Adults: Screening" == ko_instance.execute1(age=20,hypertension=False)["title"]
     
