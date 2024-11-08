@@ -1,7 +1,7 @@
-/StatinUse:
+/check-inclusion:
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: cardiovascular_prevention_statin_use.activator_service
-      module: activator-service
+      package: cardiovascular_prevention_statin_use
+      module: cardiovascular_prevention_statin_use
       function: apply

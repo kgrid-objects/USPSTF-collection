@@ -13,7 +13,7 @@ Access our interactive [Jupyter notebook tutorial](https://colab.research.google
 ### Activator service
 Follow the instruction at [python activator](https://github.com/kgrid/python-activator/blob/main/README.md) repo to install python activator and see different ways of running the python activator and activating this KO.
 
-One way o activate this KO is to clone the USPSTF collection and use the local_manifest.json file: 
+One way to activate this KO is to clone the USPSTF collection and use the local_manifest.json file: 
 ```bash
 python-activator run --collection-path /path/to/collection/USPSTF-collection
 ```

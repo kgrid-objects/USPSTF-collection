@@ -8,9 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
+ko = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.2.1-py3-none-any.whl"}
 
 [tool.poetry.scripts]
-cardiovascular-prevention-statin-use = "cardiovascular_prevention_statin_use.cli_service.cli_service:main"
+cardiovascular-prevention-statin-use = "cardiovascular_prevention_statin_use.cardiovascular_prevention_statin_use:cli"
 
 [build-system]
 requires = ["poetry-core"]
