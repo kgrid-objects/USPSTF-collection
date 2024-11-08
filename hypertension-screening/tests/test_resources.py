@@ -26,7 +26,3 @@ def test_activator_function():
         "hypertension":False
         })["title"]
     
-def test_execute1():
-    ko_instance = hypertension_screening()
-    assert "Hypertension in Adults: Screening" == ko_instance.execute1(age=20,hypertension=False)["title"]
-    

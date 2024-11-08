@@ -11,10 +11,7 @@ def get_hypertension_screening_classification(age, hypertension):
             "title": "Hypertension in Adults: Screening",
             "recommendation": "The USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.",
             "grade": "A",
-            "URL": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening"
-            }
+            "URL": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+        }
     else:
-        return {
-            "inclusion": False,
-            "title": "Hypertension in Adults: Screening"
-            }
+        return {"inclusion": False, "title": "Hypertension in Adults: Screening"}
