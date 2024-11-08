@@ -1,4 +1,6 @@
 ## Assumptions
+This KO is implemented using [Python SDK](https://github.com/kgrid/python-sdk)
+
 It is assumed that KO services can receive the following as input parameters
     - age (int): Age of the person.
     - hypertension (bool): Indicated whether the person diagnosed for hypertension or not.
@@ -62,11 +64,9 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 
 ```python
 import json
-from hypertension_screening.knowledge import get_hypertension_screening_classification
 from hypertension_screening import hypertension_screening
 
 ko_instance = hypertension_screening()
 print(ko_instance.get_version())
-
-print(json.dumps(get_hypertension_screening_classification(age= 65, hypertension= False), indent=4))
+print(json.dumps(ko_instance.execute({"age":30,"hypertension":False}), indent=4))
 ```
