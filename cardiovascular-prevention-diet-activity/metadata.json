@@ -10,7 +10,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
   "dc:identifier": "ark:CardiovascularDietActivity",
-  "version": "v1.0",
+  "version": "v1.1",
   "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [
@@ -44,11 +44,26 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "cardiovascular_prevention_diet_activity/cli_service",
+        "@id": "cardiovascular_prevention_diet_activity.cardiovascular_prevention_diet_activity:cli",
         "@type": [
           "Python"
         ]
       }
+    },
+    {
+      "@type": [
+        "Service",
+        "API"
+      ],
+      "dependsOn": "knowledge",
+      "implementedBy": [
+        {
+          "@id": "uvicorn cardiovascular_prevention_diet_activity.cardiovascular_prevention_diet_activity:app",
+          "@type": [
+            "Python"
+          ]
+        }
+      ]
     }
   ],
   "koio:hasKnowledge": [
@@ -59,14 +74,42 @@
         "@id": "cardiovascular_prevention_diet_activity/knowledge.py",
         "@type": "Function"
       },
-      "spdx:test": ["tests/test_knowledge.py"],
-      "spdx:documentation": [
-        "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd"
+      "koio:hasTest": [
+        {
+          "@id": "tests/test_knowledge.py",
+          "dc:title": "Knowledge test",
+          "@type": "koio:Test",
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+        },
+        {
+          "@id": "tests/test_resources.py",
+          "@type": "koio:Test",
+          "dc:title": "Implementation tests",
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+        }
+      ],
+      "koio:hasDocumentation": [
+        {
+          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
+          "@type": "koio:Documentation",
+          "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
+          "dc:description": "This is the USPSTF documentation webpage for Healthy Diet and Physical Activity for Cardiovascular Disease Prevention recommendation."
+        }
       ]
     }
   ],
-  "spdx:documentation": [
-    "https://colab.research.google.com/drive/1r6PodT5n75qKLBbtTWIC1dNwwz3FrVWr?usp=sharing",
-    "README.md"
+  "koio:hasDocumentation": [
+    {
+      "@id": "https://colab.research.google.com/drive/1r6PodT5n75qKLBbtTWIC1dNwwz3FrVWr?usp=sharing",
+      "@type": "koio:Documentation",
+      "dc:title": "Using the Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors Knowledge Object: A Step-by-Step Tutorial",
+      "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-diet-activity knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+    },
+    {
+      "@id": "README.md",
+      "@type": "koio:Documentation",
+      "dc:title": "README.md",
+      "dc:description": "read me file."
+    }
   ]
 }

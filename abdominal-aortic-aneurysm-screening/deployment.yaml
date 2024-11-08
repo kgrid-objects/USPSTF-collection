@@ -2,6 +2,6 @@
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: abdominal_aortic_aneurysm_screening.activator_service
-      module: activator-service
+      package: abdominal_aortic_aneurysm_screening
+      module: abdominal_aortic_aneurysm_screening
       function: apply

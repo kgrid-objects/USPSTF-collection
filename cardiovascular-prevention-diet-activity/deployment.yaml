@@ -2,6 +2,6 @@
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: cardiovascular_prevention_diet_activity.activator_service
-      module: activator-service
+      package: cardiovascular_prevention_diet_activity
+      module: cardiovascular_prevention_diet_activity
       function: apply

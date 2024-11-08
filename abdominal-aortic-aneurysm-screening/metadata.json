@@ -5,7 +5,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Abdominal Aortic Aneurysm: Screening",
   "dc:identifier": "ark:AbdominalAorticAneurysmScreening",
-  "version": "v1.0",
+  "version": "v1.1",
   "dc:description": "The USPSTF recommends that:\nFor men aged 65 to 75 years who have ever smoked:\nPerform 1-time screening for abdominal aortic aneurysm (AAA) with ultrasonography in men who have a history of smoking.\nGrade B\n\nFor men aged 65 to 75 years who have never smoked:\nSelectively offer screening to men who do not have a history of smoking, rather than routinely screening all men in this group\nGrade C\n\nFor women who have never smoked and have no family history of AAA:\nDo not screen women who have never smoked and do not have a family history of AAA.\nGrade D\n\nFor women aged 65 to 75 years who have ever smoked or have a family history of AAA:\nEvidence is insufficient to assess the balance of benefits and harms of screening for AAA with ultrasonography in women aged 65 to 75 years who have ever smoked or have a family history of AAA.\nGrade I",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [
