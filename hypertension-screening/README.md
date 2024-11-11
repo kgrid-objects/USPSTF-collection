@@ -1,6 +1,6 @@
-## Assumptions
-This KO is implemented using [Python SDK](https://github.com/kgrid/python-sdk)
+Note: This KO is implemented using [Python SDK](https://github.com/kgrid/python-sdk)
 
+## Assumptions
 It is assumed that KO services can receive the following as input parameters
     - age (int): Age of the person.
     - hypertension (bool): Indicated whether the person diagnosed for hypertension or not.
@@ -42,6 +42,7 @@ pip install https://github.com/kgrid-objects/USPSTF-collection/archive/refs/head
 ### API service
 Once the KO is installed you can run the API service using
 ```bash
+pip install uvicorn 
 uvicorn hypertension_screening.hypertension_screening:app
 ```
 

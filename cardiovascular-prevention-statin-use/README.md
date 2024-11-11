@@ -1,3 +1,5 @@
+Note: This KO is implemented using [Python SDK](https://github.com/kgrid/python-sdk)
+
 ## Assumptions
 The KO services can receive the following as input parameters
     - age (int): Age of the person.
@@ -41,6 +43,7 @@ pip install https://github.com/kgrid-objects/USPSTF-collection/archive/refs/head
 ### API service
 Once the KO is installed you can run the API service using
 ```bash
+pip install uvicorn 
 uvicorn cardiovascular_prevention_statin_use.cardiovascular_prevention_statin_use:app
 ```
 

@@ -1,6 +1,6 @@
-## Assumptions
-This KO is implemented using [Python SDK](https://github.com/kgrid/python-sdk)
+Note: This KO is implemented using [Python SDK](https://github.com/kgrid/python-sdk)
 
+## Assumptions
 The KO services can receive the following as input parameters
     - age (int): Age of the person.
     - has_cardiovascular_risk_factors (bool): Whether this person has CVD risk factors (i.e dyslipidemia, diabetes, hypertension, or smoking) or not.
@@ -41,6 +41,7 @@ pip install https://github.com/kgrid-objects/USPSTF-collection/archive/refs/head
 ### API service
 Once the KO is installed you can run the API service using
 ```bash
+pip install uvicorn 
 uvicorn cardiovascular_prevention_diet_activity.cardiovascular_prevention_diet_activity:app
 ```
 

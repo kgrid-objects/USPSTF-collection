@@ -5,12 +5,12 @@ from cardiovascular_prevention_statin_use.cardiovascular_prevention_statin_use i
 def test_get_version():  
     ko_instance = cardiovascular_prevention_statin_use()
     version = ko_instance.get_version()
-    assert version == "v1.0"
+    assert version == "v1.1"
     
 def test_metadata():
     ko_instance = cardiovascular_prevention_statin_use()
     version = ko_instance.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.0"
+    assert version == "v1.1"
 
 
 def test_execute():
@@ -24,6 +24,7 @@ def test_execute():
 def test_activator_function():
     assert "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication" == apply({
         "age":20,
-        "has_cardiovascular_risk_factors":False
+        "has_cardiovascular_risk_factors":False,
+        "ten_year_CVD_risk":15
         })["title"]
     
