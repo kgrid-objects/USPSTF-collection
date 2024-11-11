@@ -1,11 +1,11 @@
 {
   "@context": "https://kgrid.org/koio/2.0/context",
-  "@id": "hight-body-mass-index",
+  "@id": "high-body-mass-index",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
   "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
   "dc:identifier": "ark:HBMI",
-  "version": "v1.0",
+  "version": "v1.1",
   "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [
@@ -38,11 +38,26 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "high_body_mass_index/cli_service",
+        "@id": "high_body_mass_index.high_body_mass_index:cli",
         "@type": [
           "Python"
         ]
       }
+    },
+    {
+      "@type": [
+        "Service",
+        "API"
+      ],
+      "dependsOn": "knowledge",
+      "implementedBy": [
+        {
+          "@id": "uvicorn high_body_mass_index.high_body_mass_index:app",
+          "@type": [
+            "Python"
+          ]
+        }
+      ]
     }
   ],
   "koio:hasKnowledge": [
@@ -53,7 +68,36 @@
         "@id": "high_body_mass_index/knowledge.py",
         "@type": "Function"
       },
-      "hasTest": "tests/test_knowledge.py"
+      "koio:hasTest": [
+        {
+          "@id": "tests/test_knowledge.py",
+          "dc:title": "Knowledge test",
+          "@type": "koio:Test",
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+        },
+        {
+          "@id": "tests/test_resources.py",
+          "@type": "koio:Test",
+          "dc:title": "Implementation tests",
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+        }
+      ],
+      "koio:hasDocumentation": [
+        {
+          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
+          "@type": "koio:Documentation",
+          "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
+          "dc:description": "This is the USPSTF documentation webpage for High Body Mass Index in Children and Adolescents Interventions recommendation."
+        }
+      ]
+    }
+  ],
+  "koio:hasDocumentation": [
+    {
+      "@id": "README.md",
+      "@type": "koio:Documentation",
+      "dc:title": "README.md",
+      "dc:description": "read me file."
     }
   ]
 }

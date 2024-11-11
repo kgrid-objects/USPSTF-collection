@@ -1,7 +1,7 @@
-/hbmi:
+/check-inclusion:
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: high_body_mass_index.activator_service
-      module: activator-service
+      package: high_body_mass_index
+      module: high_body_mass_index
       function: apply

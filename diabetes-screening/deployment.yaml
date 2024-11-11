@@ -2,6 +2,6 @@
   post:    
     engine: 
       name: org.kgrid.python-activator
-      package: diabetes_screening.activator_service
-      module: activator-service
+      package: diabetes_screening
+      module: diabetes_screening
       function: apply

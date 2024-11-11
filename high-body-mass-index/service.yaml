@@ -11,13 +11,13 @@ info:
     email: kgrid-developers@umich.edu
     url: 'http://kgrid.org'
 servers:
-  - url: /endpoints/hight-body-mass-index
+  - url: /endpoints/high-body-mass-index
     description: Calculate high bmi inclusion
 tags:
   - name: KO Endpoints
     description: high bmi inclusion calculation Endpoints    
 paths:
-  /hbmi:
+  /check-inclusion:
     post:
       summary: Calculate high bmi inclusion.
       description: Calculates high bmi inclusion.
