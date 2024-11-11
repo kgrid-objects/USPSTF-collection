@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pregnancy-healthy-weight-gain"
-version = "0.1.0"
+version = "1.1"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
@@ -8,9 +8,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
+ko = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.2.1-py3-none-any.whl"}
 
 [tool.poetry.scripts]
-pregnancy-healthy-weight-gain = "pregnancy_healthy_weight_gain.cli_service.cli_service:main"
+pregnancy-healthy-weight-gain = "pregnancy_healthy_weight_gain.pregnancy_healthy_weight_gain:cli"
 
 [build-system]
 requires = ["poetry-core"]
