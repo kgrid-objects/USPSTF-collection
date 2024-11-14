@@ -10,7 +10,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
   "dc:identifier": "ark:CardiovascularDietActivity",
-  "version": "v1.1",
+  "version": "v1.2",
   "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [

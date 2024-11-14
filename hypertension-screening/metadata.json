@@ -5,7 +5,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Hypertension in Adults: Screening",
   "dc:identifier": "ark:HypertensionScreening",
-  "version": "v1.2",
+  "version": "v1.3",
   "dc:description": "Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [

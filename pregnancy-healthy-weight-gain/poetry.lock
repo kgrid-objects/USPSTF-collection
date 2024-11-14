@@ -50,8 +50,8 @@ files = [
 api = ["fastapi (>=0.115.4,<0.116.0)"]
 
 [package.source]
-type = "file"
-url = "../../python-sdk/dist/kgrid-0.2.3-py3-none-any.whl"
+type = "url"
+url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/kgrid-0.2.3-py3-none-any.whl"
 
 [[package]]
 name = "packaging"
@@ -115,4 +115,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1fa749f945e745ff6d2415648a5fc4a345eab240c451a46077f57d5745a251cf"
+content-hash = "2d31ae2e76fb94c463153eba3de81a4038acb215d4989b64a2c32212da5486e1"

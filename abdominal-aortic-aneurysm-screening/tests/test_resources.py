@@ -4,11 +4,11 @@ from abdominal_aortic_aneurysm_screening import apply
 
 def test_get_version():  
     version = abdominal_aortic_aneurysm_screening.get_version()
-    assert version == "v1.1"
+    assert version == "v1.2"
     
 def test_metadata():
     version = abdominal_aortic_aneurysm_screening.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.1"
+    assert version == "v1.2"
 
 
 def test_execute():
