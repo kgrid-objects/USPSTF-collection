@@ -62,7 +62,7 @@
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "abdominal_aortic_aneurysm_screening/knowledge.py",
+        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
         "@type": "Function"
       },
       "koio:hasTest": [

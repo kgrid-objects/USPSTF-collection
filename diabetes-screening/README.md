@@ -66,7 +66,6 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 import json
 from diabetes_screening import diabetes_screening
 
-ko_instance = diabetes_screening()
-print(ko_instance.get_version())
-print(json.dumps(ko_instance.execute({"age":35,"bmi": 30}), indent=4))
+print(diabetes_screening.get_version())
+print(json.dumps(diabetes_screening.execute({"age":35,"bmi": 30}), indent=4))
 ```

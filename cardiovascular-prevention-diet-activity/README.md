@@ -66,7 +66,6 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 import json
 from cardiovascular_prevention_diet_activity import cardiovascular_prevention_diet_activity
 
-ko_instance = cardiovascular_prevention_diet_activity()
-print(ko_instance.get_version())
-print(json.dumps(ko_instance.execute({"age":20,"has_cardiovascular_risk_factors":True}), indent=4))
+print(cardiovascular_prevention_diet_activity.get_version())
+print(json.dumps(cardiovascular_prevention_diet_activity.execute({"age":20,"has_cardiovascular_risk_factors":True}), indent=4))
 ```

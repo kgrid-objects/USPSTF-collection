@@ -1,29 +1,34 @@
-from ko.ko import Ko
-
-from prevent_obesity_morbidity_mortality.knowledge import get_obesity_recommendation
+from kgrid import Ko
 
 
-class prevent_obesity_morbidity_mortality(Ko):
+
+class Prevent_obesity_morbidity_mortality(Ko):
     def __init__(self):
-        super().__init__(__package__, [get_obesity_recommendation])
-        self.add_endpoint("/check-inclusion", tags=["prevent_obesity_morbidity_mortality"])
+        super().__init__(__package__)
+
+    @staticmethod
+    def get_obesity_recommendation(age, bmi):
+        """
+        Parameters:
+        - age (int): Age of the person.
+        - bmi (float): body mass index.
+        """
+        
+        if age >= 18 and bmi >= 30:
+            return {
+                "inclusion": True,
+                "title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
+                "recommendation": "The USPSTF recommends that clinicians offer or refer adults with a body mass index (BMI) of 30 or higher (calculated as weight in kilograms divided by height in meters squared) to intensive, multicomponent behavioral interventions.",
+                "grade": "B",
+                "URL": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions"
+                }
+        else:
+            return {
+                "inclusion": False,
+                "title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions"
+                }
+        
+
+prevent_obesity_morbidity_mortality = Prevent_obesity_morbidity_mortality()
 
 
-ko_instance = prevent_obesity_morbidity_mortality()
-app = ko_instance.app
-
-ko_instance.define_cli()
-ko_instance.add_argument(
-    "-a", "--age", type=float, required=True, help="Age of the person"
-)
-ko_instance.add_argument(
-    "-b", "--bmi", type=float, required=True, help="body mass index"
-)
-
-
-def cli():
-    ko_instance.execute_cli()
-
-
-def apply(input):
-    return ko_instance.execute(input)

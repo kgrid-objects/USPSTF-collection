@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
-ko = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.2.1-py3-none-any.whl"}
+kgrid = {path = "/home/faridsei/dev/code/python-sdk/dist/kgrid-0.2.3-py3-none-any.whl", extras = ["api"]}
 
 [tool.poetry.scripts]
 abdominal-aortic-aneurysm-screening = "abdominal_aortic_aneurysm_screening.abdominal_aortic_aneurysm_screening:cli"

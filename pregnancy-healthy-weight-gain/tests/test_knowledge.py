@@ -1,7 +1,7 @@
-from pregnancy_healthy_weight_gain.knowledge import get_pregnancy_healthy_weight_gain_recommendation
+from pregnancy_healthy_weight_gain import pregnancy_healthy_weight_gain
 def test_knowledge():
-    assert get_pregnancy_healthy_weight_gain_recommendation(pregnant= True)["inclusion"] 
-    assert not get_pregnancy_healthy_weight_gain_recommendation(pregnant= False)["inclusion"] 
+    assert pregnancy_healthy_weight_gain.get_pregnancy_healthy_weight_gain_recommendation(pregnant= True)["inclusion"] 
+    assert not pregnancy_healthy_weight_gain.get_pregnancy_healthy_weight_gain_recommendation(pregnant= False)["inclusion"] 
 
 
 

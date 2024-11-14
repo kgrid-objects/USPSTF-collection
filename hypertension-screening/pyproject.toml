@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hypertension-screening"
-version = "1.1"
+version = "1.2"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
@@ -10,7 +10,8 @@ include = ["metadata.json"]
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
-ko = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.2.1-py3-none-any.whl"}
+kgrid = {path = "/home/faridsei/dev/code/python-sdk/dist/kgrid-0.2.3-py3-none-any.whl", extras = ["api"]}
+
 
 [tool.poetry.scripts]
 hypertension-screening = "hypertension_screening.hypertension_screening:cli"

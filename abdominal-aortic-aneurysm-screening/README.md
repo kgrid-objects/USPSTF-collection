@@ -68,7 +68,6 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 import json
 from abdominal_aortic_aneurysm_screening import abdominal_aortic_aneurysm_screening
 
-ko_instance = abdominal_aortic_aneurysm_screening()
-print(ko_instance.get_version())
-print(json.dumps(ko_instance.execute({"age":20,"gender": 0,"has_never_smoked":False}), indent=4))
+print(abdominal_aortic_aneurysm_screening.get_version())
+print(json.dumps(abdominal_aortic_aneurysm_screening.execute({"age":20,"gender": 0,"has_never_smoked":False}), indent=4))
 ```

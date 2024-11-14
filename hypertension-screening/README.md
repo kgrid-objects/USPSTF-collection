@@ -67,7 +67,6 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 import json
 from hypertension_screening import hypertension_screening
 
-ko_instance = hypertension_screening()
-print(ko_instance.get_version())
-print(json.dumps(ko_instance.execute({"age":30,"hypertension":False}), indent=4))
+print(hypertension_screening.get_version())
+print(json.dumps(hypertension_screening.execute({"age":30,"hypertension":False}), indent=4))
 ```

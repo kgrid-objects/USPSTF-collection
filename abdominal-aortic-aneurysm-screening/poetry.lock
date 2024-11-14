@@ -60,13 +60,13 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "fastapi"
-version = "0.115.4"
+version = "0.115.5"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fastapi-0.115.4-py3-none-any.whl", hash = "sha256:0b504a063ffb3cf96a5e27dc1bc32c80ca743a2528574f9cdc77daa2d31b4742"},
-    {file = "fastapi-0.115.4.tar.gz", hash = "sha256:db653475586b091cb8b2fec2ac54a680ac6a158e07406e1abae31679e8826349"},
+    {file = "fastapi-0.115.5-py3-none-any.whl", hash = "sha256:596b95adbe1474da47049e802f9a65ab2ffa9c2b07e7efee70eb8a66c9f2f796"},
+    {file = "fastapi-0.115.5.tar.gz", hash = "sha256:0e7a4d0dc0d01c68df21887cce0945e72d3c48b9f4f79dfe7a7d53aa08fbb289"},
 ]
 
 [package.dependencies]
@@ -104,21 +104,24 @@ files = [
 ]
 
 [[package]]
-name = "ko"
-version = "0.2.1"
+name = "kgrid"
+version = "0.2.3"
 description = "SDK for KGrid 2.0 Knowledge objects"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "ko-0.2.1-py3-none-any.whl", hash = "sha256:92df6985c43cf4889097238eb9af64ba531d56d842514b09c7a5d29e5565de90"},
+    {file = "kgrid-0.2.3-py3-none-any.whl", hash = "sha256:635514e197948863941983ded3f3d2bb019f08439869a0f34de9ec52edcfc145"},
 ]
 
 [package.dependencies]
-fastapi = ">=0.115.4,<0.116.0"
+fastapi = {version = ">=0.115.4,<0.116.0", optional = true, markers = "extra == \"api\""}
+
+[package.extras]
+api = ["fastapi (>=0.115.4,<0.116.0)"]
 
 [package.source]
-type = "url"
-url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/ko-0.2.1-py3-none-any.whl"
+type = "file"
+url = "../../python-sdk/dist/kgrid-0.2.3-py3-none-any.whl"
 
 [[package]]
 name = "packaging"
@@ -322,13 +325,13 @@ full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart (>=0.0.7
 
 [[package]]
 name = "tomli"
-version = "2.0.2"
+version = "2.1.0"
 description = "A lil' TOML parser"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "tomli-2.0.2-py3-none-any.whl", hash = "sha256:2ebe24485c53d303f690b0ec092806a085f07af5a5aa1464f3931eec36caaa38"},
-    {file = "tomli-2.0.2.tar.gz", hash = "sha256:d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"},
+    {file = "tomli-2.1.0-py3-none-any.whl", hash = "sha256:a5c57c3d1c56f5ccdf89f6523458f60ef716e210fc47c4cfb188c5ba473e0391"},
+    {file = "tomli-2.1.0.tar.gz", hash = "sha256:3f646cae2aec94e17d04973e4249548320197cfabdf130015d023de4b74d8ab8"},
 ]
 
 [[package]]
@@ -345,4 +348,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "dff05884c1e02ec6a6bbbef24e33a1692a5985d54c3595dce1b0f62359b53a31"
+content-hash = "df23dc4f768a344ee5a5a8689ae9c07b27b66b5846ee2974316727f022b9ee81"

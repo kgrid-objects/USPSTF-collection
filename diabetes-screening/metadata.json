@@ -65,7 +65,7 @@
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "diabetes_screening/knowledge.py",
+        "@id": "diabetes_screening/diabetes_screening.py",
         "@type": "Function"
       },
       "koio:hasTest": [

@@ -69,7 +69,6 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 import json
 from cardiovascular_prevention_statin_use import cardiovascular_prevention_statin_use
 
-ko_instance = cardiovascular_prevention_statin_use()
-print(ko_instance.get_version())
-print(json.dumps(ko_instance.execute({"age":20,"has_cardiovascular_risk_factors":True, "ten_year_CVD_risk": 5}), indent=4))
+print(cardiovascular_prevention_statin_use.get_version())
+print(json.dumps(cardiovascular_prevention_statin_use.execute({"age":20,"has_cardiovascular_risk_factors":True, "ten_year_CVD_risk": 5}), indent=4))
 ```

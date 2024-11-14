@@ -1,7 +1,0 @@
-/check-inclusion:
-  post:    
-    engine: 
-      name: org.kgrid.python-activator
-      package: pregnancy_healthy_weight_gain
-      module: pregnancy_healthy_weight_gain
-      function: apply

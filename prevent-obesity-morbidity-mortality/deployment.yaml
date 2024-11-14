@@ -1,7 +1,0 @@
-/check-inclusion:
-  post:    
-    engine: 
-      name: org.kgrid.python-activator
-      package: prevent_obesity_morbidity_mortality
-      module: prevent_obesity_morbidity_mortality
-      function: apply

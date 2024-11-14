@@ -68,7 +68,6 @@ This section demonstrates how the knowledge embedded in this knowledge object ca
 import json
 from high_body_mass_index import high_body_mass_index
 
-ko_instance = high_body_mass_index()
-print(ko_instance.get_version())
-print(json.dumps(ko_instance.execute({"age":17,"bmi_percentile": 95}), indent=4))
+print(high_body_mass_index.get_version())
+print(json.dumps(high_body_mass_index.execute({"age":17,"bmi_percentile": 95}), indent=4))
 ```

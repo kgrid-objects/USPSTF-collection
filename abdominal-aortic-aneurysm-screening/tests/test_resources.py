@@ -1,21 +1,18 @@
 
 from abdominal_aortic_aneurysm_screening import abdominal_aortic_aneurysm_screening
-from abdominal_aortic_aneurysm_screening.abdominal_aortic_aneurysm_screening import apply
+from abdominal_aortic_aneurysm_screening import apply
 
 def test_get_version():  
-    ko_instance = abdominal_aortic_aneurysm_screening()
-    version = ko_instance.get_version()
-    assert version == "v1.0"
+    version = abdominal_aortic_aneurysm_screening.get_version()
+    assert version == "v1.1"
     
 def test_metadata():
-    ko_instance = abdominal_aortic_aneurysm_screening()
-    version = ko_instance.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.0"
+    version = abdominal_aortic_aneurysm_screening.get_metadata().get('version', 'Unknown version')
+    assert version == "v1.1"
 
 
 def test_execute():
-    ko_instance = abdominal_aortic_aneurysm_screening()
-    assert "Abdominal Aortic Aneurysm: Screening" == ko_instance.execute({
+    assert "Abdominal Aortic Aneurysm: Screening" == abdominal_aortic_aneurysm_screening.execute({
         "age":20,
         "gender": 0,
         "has_never_smoked":False

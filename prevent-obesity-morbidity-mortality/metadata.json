@@ -17,58 +17,14 @@
     "USPSTF",
     "Counseling"
   ],
-  "koio:hasService": [
-    {
-      "@type": [
-        "Service",
-        "API"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
-    },
-    {
-      "@type": [
-        "Service",
-        "CLI"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": {
-        "@id": "prevent_obesity_morbidity_mortality.prevent_obesity_morbidity_mortality:cli",
-        "@type": [
-          "Python"
-        ]
-      }
-    },
-    {
-      "@type": [
-        "Service",
-        "API"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": "uvicorn prevent_obesity_morbidity_mortality.prevent_obesity_morbidity_mortality:app",
-          "@type": [
-            "Python"
-          ]
-        }
-      ]
-    }
+  "koio:hasService": [    
   ],
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "prevent_obesity_morbidity_mortality/knowledge.py",
+        "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
         "@type": "Function"
       },
       "koio:hasTest": [
