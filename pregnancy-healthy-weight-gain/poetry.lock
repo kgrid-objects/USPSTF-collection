@@ -38,12 +38,12 @@ files = [
 
 [[package]]
 name = "kgrid"
-version = "0.2.3"
+version = "0.2.4"
 description = "SDK for KGrid 2.0 Knowledge objects"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "kgrid-0.2.3-py3-none-any.whl", hash = "sha256:635514e197948863941983ded3f3d2bb019f08439869a0f34de9ec52edcfc145"},
+    {file = "kgrid-0.2.4-py3-none-any.whl", hash = "sha256:b7c6bac004ceb2a1f62ec76264e5eeb78347aa908eb0692e8d3e0ed06c7e362a"},
 ]
 
 [package.extras]
@@ -51,7 +51,7 @@ api = ["fastapi (>=0.115.4,<0.116.0)"]
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/kgrid-0.2.3-py3-none-any.whl"
+url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/kgrid-0.2.4-py3-none-any.whl"
 
 [[package]]
 name = "packaging"
@@ -115,4 +115,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "2d31ae2e76fb94c463153eba3de81a4038acb215d4989b64a2c32212da5486e1"
+content-hash = "429838f618200c9189c494e3ebecbad78e86f4f2ec75901b86e77e62d945b614"

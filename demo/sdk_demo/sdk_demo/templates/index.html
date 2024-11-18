@@ -345,13 +345,13 @@
             // Sort recommendations by grade then by title
             const gradeOrder = { "A": 1, "B": 2, "C": 3, "D": 4, "I": 5 };
 
-            /*allRecommendations.sort((a, b) => {
+            allRecommendations.sort((a, b) => {
                 const gradeComparison = gradeOrder[a.response.result.grade] - gradeOrder[b.response.result.grade];
                 if (gradeComparison !== 0) {
                     return gradeComparison; // Sort by grade if they are different
                 }
                 return a.response.result.title.localeCompare(b.response.result.title); // Sort by title if grades are the same
-            });*/
+            });
 
             // Display sorted recommendations
             allRecommendations.forEach(item => {
