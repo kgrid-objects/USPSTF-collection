@@ -17,6 +17,7 @@ hypertension-screening = {url = "https://github.com/kgrid-objects/USPSTF-collect
 pregnancy-healthy-weight-gain = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/pregnancy-healthy-weight-gain/dist/pregnancy_healthy_weight_gain-1.2-py3-none-any.whl"}
 prevent-obesity-morbidity-mortality = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/prevent-obesity-morbidity-mortality/dist/prevent_obesity_morbidity_mortality-1.2-py3-none-any.whl"}
 kgrid = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/kgrid-0.2.3-py3-none-any.whl"}
+uspstf-collection = {url = "https://github.com/kgrid/python-sdk/releases/download/1.0/uspstf_collection-0.1.0-py3-none-any.whl"}
 
 
 [build-system]

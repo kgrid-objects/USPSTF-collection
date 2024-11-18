@@ -606,6 +606,29 @@ files = [
 ]
 
 [[package]]
+name = "uspstf-collection"
+version = "0.1.0"
+description = ""
+optional = false
+python-versions = ">=3.10,<4.0"
+files = [
+    {file = "uspstf_collection-0.1.0-py3-none-any.whl", hash = "sha256:6372c2d1485f2c37789b924c17a133d9763fec9537157c66e58a1fc66fb6e9a8"},
+]
+
+[package.dependencies]
+abdominal_aortic_aneurysm_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.1-py3-none-any.whl"}
+cardiovascular_prevention_diet_activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.2-py3-none-any.whl"}
+cardiovascular_prevention_statin_use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.2-py3-none-any.whl"}
+diabetes_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.2-py3-none-any.whl"}
+high_body_mass_index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.2-py3-none-any.whl"}
+hypertension_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.3-py3-none-any.whl"}
+kgrid = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/kgrid-0.2.3-py3-none-any.whl"}
+
+[package.source]
+type = "url"
+url = "https://github.com/kgrid/python-sdk/releases/download/1.0/uspstf_collection-0.1.0-py3-none-any.whl"
+
+[[package]]
 name = "werkzeug"
 version = "3.1.3"
 description = "The comprehensive WSGI web application library."
@@ -625,4 +648,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "a7e5eaf1567cf0275817701a2717b2ed8258396a0f726dd6ee20457ebd99f3e5"
+content-hash = "399c4b97b15b73075373b10459a41fc22197d0ceaa35e8a8e9a5115cceef9ed7"
