@@ -8,12 +8,6 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 flask = "^3.1.0"
-abdominal-aortic-aneurysm-screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.1-py3-none-any.whl"}
-cardiovascular-prevention-diet-activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.2-py3-none-any.whl"}
-cardiovascular-prevention-statin-use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.2-py3-none-any.whl"}
-diabetes-screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.2-py3-none-any.whl"}
-high-body-mass-index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.2-py3-none-any.whl"}
-hypertension-screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.3-py3-none-any.whl"}
 pregnancy-healthy-weight-gain = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/pregnancy-healthy-weight-gain/dist/pregnancy_healthy_weight_gain-1.2-py3-none-any.whl"}
 prevent-obesity-morbidity-mortality = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/prevent-obesity-morbidity-mortality/dist/prevent_obesity_morbidity_mortality-1.2-py3-none-any.whl"}
 kgrid = {url = "https://github.com/kgrid/python-sdk/raw/refs/heads/main/dist/kgrid-0.2.3-py3-none-any.whl"}
