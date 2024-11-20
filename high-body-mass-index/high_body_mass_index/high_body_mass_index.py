@@ -1,5 +1,5 @@
-from kgrid import Ko_API
-from kgrid import Ko_CLI
+from kgrid_sdk import Ko_API
+from kgrid_sdk import Ko_CLI
 
 
 
@@ -9,7 +9,7 @@ class High_body_mass_index(Ko_API,Ko_CLI):
         self.add_endpoint("/check-inclusion", tags=["high_body_mass_index"])
         
     @staticmethod
-    def get_high_body_mass_index_classification(age, bmi_percentile):
+    def get_high_body_mass_index_classification(age:int, bmi_percentile:float):
         """
         Parameters:
         - age (int): Age of the person.

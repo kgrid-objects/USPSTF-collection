@@ -4,11 +4,11 @@ from cardiovascular_prevention_diet_activity import apply
 
 def test_get_version():  
     version = cardiovascular_prevention_diet_activity.get_version()
-    assert version == "v1.2"
+    assert version == "v1.3"
     
 def test_metadata():
     version = cardiovascular_prevention_diet_activity.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.2"
+    assert version == "v1.3"
 
 
 def test_execute():

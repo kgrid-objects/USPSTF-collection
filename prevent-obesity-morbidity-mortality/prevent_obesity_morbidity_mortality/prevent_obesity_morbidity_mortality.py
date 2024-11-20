@@ -1,4 +1,4 @@
-from kgrid import Ko
+from kgrid_sdk import Ko
 
 
 

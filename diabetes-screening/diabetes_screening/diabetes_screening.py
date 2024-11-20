@@ -1,5 +1,5 @@
-from kgrid import Ko_API
-from kgrid import Ko_CLI
+from kgrid_sdk import Ko_API
+from kgrid_sdk import Ko_CLI
 
 
 
