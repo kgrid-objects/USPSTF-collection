@@ -4,11 +4,11 @@ from diabetes_screening import apply
 
 def test_get_version():  
     version = diabetes_screening.get_version()
-    assert version == "v1.3"
+    assert version == "v1.4"
     
 def test_metadata():
     version = diabetes_screening.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.3"
+    assert version == "v1.4"
 
 
 def test_execute():

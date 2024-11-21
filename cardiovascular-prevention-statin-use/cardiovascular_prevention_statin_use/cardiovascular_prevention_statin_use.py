@@ -5,7 +5,7 @@ from kgrid_sdk import Ko_CLI
 
 class Cardiovascular_prevention_statin_use(Ko_API,Ko_CLI):
     def __init__(self):
-        super().__init__(__package__, [self.get_statin_use])
+        super().__init__( [self.get_statin_use])
         self.add_endpoint("/check-inclusion", tags=["cardiovascular_prevention_statin_use"])
 
     @staticmethod

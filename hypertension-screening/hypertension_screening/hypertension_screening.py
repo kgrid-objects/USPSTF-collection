@@ -5,7 +5,7 @@ from kgrid_sdk import Ko_CLI
 
 class Hypertension_screening(Ko_API, Ko_CLI):
     def __init__(self):
-        super().__init__(__package__, [self.get_hypertension_screening_classification])
+        super().__init__( [self.get_hypertension_screening_classification])
         self.add_endpoint("/check-inclusion", tags=["hypertension_screening"])
 
  

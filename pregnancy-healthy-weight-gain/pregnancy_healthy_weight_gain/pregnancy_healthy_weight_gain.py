@@ -3,7 +3,7 @@ from kgrid_sdk import Ko_Execution
 
 class Pregnancy_healthy_weight_gain(Ko_Execution):
     def __init__(self):
-        super().__init__(__package__, [self.get_pregnancy_healthy_weight_gain_recommendation])
+        super().__init__( [self.get_pregnancy_healthy_weight_gain_recommendation])
 
     @staticmethod
     def get_pregnancy_healthy_weight_gain_recommendation(pregnant):

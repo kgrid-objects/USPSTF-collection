@@ -4,7 +4,7 @@ from kgrid_sdk import Ko_CLI
 
 class Abdominal_aortic_aneurysm_screening(Ko_API,Ko_CLI):
     def __init__(self):
-        super().__init__(__package__, [self.get_abdominal_aortic_aneurysm_screening])
+        super().__init__( [self.get_abdominal_aortic_aneurysm_screening])
         self.add_endpoint("/check-inclusion", tags=["abdominal_aortic_aneurysm_screening"])
     
     @staticmethod

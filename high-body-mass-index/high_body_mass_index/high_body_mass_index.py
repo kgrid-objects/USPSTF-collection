@@ -5,7 +5,7 @@ from kgrid_sdk import Ko_CLI
 
 class High_body_mass_index(Ko_API,Ko_CLI):
     def __init__(self):
-        super().__init__(__package__, [self.get_high_body_mass_index_classification])
+        super().__init__( [self.get_high_body_mass_index_classification])
         self.add_endpoint("/check-inclusion", tags=["high_body_mass_index"])
         
     @staticmethod

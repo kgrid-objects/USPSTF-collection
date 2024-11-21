@@ -5,7 +5,7 @@ from kgrid_sdk import Ko_CLI
 
 class Diabetes_screening(Ko_API,Ko_CLI):
     def __init__(self):
-        super().__init__(__package__, [self.get_diabetes_screening_classification])
+        super().__init__( [self.get_diabetes_screening_classification])
         self.add_endpoint("/check-inclusion", tags=["diabetes_screening"])
         
     @staticmethod

@@ -4,7 +4,7 @@ from kgrid_sdk import Ko
 
 class Prevent_obesity_morbidity_mortality(Ko):
     def __init__(self):
-        super().__init__(__package__)
+        super().__init__()
 
     @staticmethod
     def get_obesity_recommendation(age, bmi):
