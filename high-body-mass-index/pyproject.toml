@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "high-body-mass-index"
-version = "1.4"
+version = "1.5"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-include = ["metadata.json"]
+packages = [
+    { include = "high_body_mass_index" },
+    { include = "metadata.json", from = ".", to = "high_body_mass_index" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

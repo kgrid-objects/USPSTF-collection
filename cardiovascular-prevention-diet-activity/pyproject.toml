@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "cardiovascular-prevention-diet-activity"
-version = "1.4"
+version = "1.5"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-include = ["metadata.json"]
+packages = [
+    { include = "cardiovascular_prevention_diet_activity" },
+    { include = "metadata.json", from = ".", to = "cardiovascular_prevention_diet_activity" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

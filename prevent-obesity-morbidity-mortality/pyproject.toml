@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "prevent-obesity-morbidity-mortality"
-version = "1.4"
+version = "1.5"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-include = ["metadata.json"]
+packages = [
+    { include = "prevent_obesity_morbidity_mortality" },
+    { include = "metadata.json", from = ".", to = "prevent_obesity_morbidity_mortality" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

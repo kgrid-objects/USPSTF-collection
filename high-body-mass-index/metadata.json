@@ -5,7 +5,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
   "dc:identifier": "ark:HBMI",
-  "version": "v1.4",
+  "version": "v1.5",
   "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [

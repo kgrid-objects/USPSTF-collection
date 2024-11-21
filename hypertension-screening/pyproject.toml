@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "hypertension-screening"
-version = "1.5"
+version = "1.6"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-include = ["metadata.json"]
+packages = [
+    { include = "hypertension_screening" },
+    { include = "metadata.json", from = ".", to = "hypertension_screening" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -4,11 +4,11 @@ from high_body_mass_index import apply
 
 def test_get_version():  
     version = high_body_mass_index.get_version()
-    assert version == "v1.4"
+    assert version == "v1.5"
     
 def test_metadata():
     version = high_body_mass_index.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.4"
+    assert version == "v1.5"
 
 
 def test_execute():

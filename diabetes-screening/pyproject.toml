@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "diabetes-screening"
-version = "1.4"
+version = "1.5"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-include = ["metadata.json"]
+packages = [
+    { include = "diabetes_screening" },
+    { include = "metadata.json", from = ".", to = "diabetes_screening" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

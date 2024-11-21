@@ -1,11 +1,14 @@
 [tool.poetry]
 name = "pregnancy-healthy-weight-gain"
-version = "1.3"
+version = "1.5"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
-include = ["metadata.json"]
+packages = [
+    { include = "pregnancy_healthy_weight_gain" },
+    { include = "metadata.json", from = ".", to = "pregnancy_healthy_weight_gain" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

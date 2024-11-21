@@ -4,12 +4,12 @@ from hypertension_screening import apply
 
 def test_get_version():
     version = hypertension_screening.get_version()
-    assert version == "v1.5"
+    assert version == "v1.6"
 
 
 def test_metadata():
     version = hypertension_screening.get_metadata().get("version", "Unknown version")
-    assert version == "v1.5"
+    assert version == "v1.6"
 
 
 def test_execute():
