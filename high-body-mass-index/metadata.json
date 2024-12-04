@@ -38,7 +38,7 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "high_body_mass_index.high_body_mass_index:cli",
+        "@id": "high_body_mass_index/high_body_mass_index.py",
         "@type": [
           "Python"
         ]
@@ -52,7 +52,7 @@
       "dependsOn": "knowledge",
       "implementedBy": [
         {
-          "@id": "uvicorn high_body_mass_index.high_body_mass_index:app",
+          "@id": "high_body_mass_index/high_body_mass_index.py",
           "@type": [
             "Python"
           ]

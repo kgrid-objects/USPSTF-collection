@@ -38,7 +38,7 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "cardiovascular_prevention_statin_use.cardiovascular_prevention_statin_use:cli",
+        "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
         "@type": [
           "Python"
         ]
@@ -52,7 +52,7 @@
       "dependsOn": "knowledge",
       "implementedBy": [
         {
-          "@id": "uvicorn cardiovascular_prevention_statin_use.cardiovascular_prevention_statin_use:app",
+          "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
           "@type": [
             "Python"
           ]

@@ -38,7 +38,7 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "diabetes_screening.diabetes_screening:cli",
+        "@id": "diabetes_screening/diabetes_screening.py",
         "@type": [
           "Python"
         ]
@@ -52,7 +52,7 @@
       "dependsOn": "knowledge",
       "implementedBy": [
         {
-          "@id": "uvicorn diabetes_screening.diabetes_screening:app",
+          "@id": "diabetes_screening/diabetes_screening.py",
           "@type": [
             "Python"
           ]

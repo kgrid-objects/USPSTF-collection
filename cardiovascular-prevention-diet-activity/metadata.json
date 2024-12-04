@@ -44,7 +44,7 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "cardiovascular_prevention_diet_activity.cardiovascular_prevention_diet_activity:cli",
+        "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
         "@type": [
           "Python"
         ]
@@ -58,7 +58,7 @@
       "dependsOn": "knowledge",
       "implementedBy": [
         {
-          "@id": "uvicorn cardiovascular_prevention_diet_activity.cardiovascular_prevention_diet_activity:app",
+          "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
           "@type": [
             "Python"
           ]
@@ -71,7 +71,7 @@
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "cardiovascular_prevention_diet_activity/knowledge.py",
+        "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
         "@type": "Function"
       },
       "koio:hasTest": [

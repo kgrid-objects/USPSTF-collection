@@ -35,7 +35,7 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "abdominal_aortic_aneurysm_screening.abdominal_aortic_aneurysm_screening:cli",
+        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
         "@type": [
           "Python"
         ]
@@ -49,7 +49,7 @@
       "dependsOn": "knowledge",
       "implementedBy": [
         {
-          "@id": "uvicorn abdominal_aortic_aneurysm_screening.abdominal_aortic_aneurysm_screening:app",
+          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
           "@type": [
             "Python"
           ]

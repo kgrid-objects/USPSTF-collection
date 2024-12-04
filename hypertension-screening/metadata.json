@@ -37,7 +37,7 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "hypertension_screening.hypertension_screening:cli",
+        "@id": "hypertension_screening/hypertension_screening.py",
         "@type": [
           "Python"
         ]
@@ -51,7 +51,7 @@
       "dependsOn": "knowledge",
       "implementedBy": [
         {
-          "@id": "uvicorn hypertension_screening.hypertension_screening:app",
+          "@id": "hypertension_screening/hypertension_screening.py",
           "@type": [
             "Python"
           ]
