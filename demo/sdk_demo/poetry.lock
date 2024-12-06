@@ -272,21 +272,21 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
-name = "kgrid_sdk"
+name = "kgrid-sdk"
 version = "0.0.5"
 description = "SDK for KGrid 2.0 Knowledge objects"
 optional = false
-python-versions = ">=3.10,<4.0"
+python-versions = "<4.0,>=3.10"
 files = [
     {file = "kgrid_sdk-0.0.5-py3-none-any.whl", hash = "sha256:c9d4eacea7d52606e64834b9caaad39f8a3834f663fdbbec19c30bfd781d6870"},
+    {file = "kgrid_sdk-0.0.5.tar.gz", hash = "sha256:e1498aa6ab8d3d7410a06f2ce1b51921af113fa2e93206197aff818e0c8a8cd2"},
 ]
+
+[package.dependencies]
+fastapi = {version = ">=0.115.4,<0.116.0", optional = true, markers = "extra == \"api\""}
 
 [package.extras]
 api = ["fastapi (>=0.115.4,<0.116.0)"]
-
-[package.source]
-type = "file"
-url = "../../../python-sdk/dist/kgrid_sdk-0.0.5-py3-none-any.whl"
 
 [[package]]
 name = "markupsafe"
