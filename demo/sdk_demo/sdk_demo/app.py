@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 
-@app.route("/")
+@app.route("/recommendations")
 def index():
     # Render the HTML page with patient data
     return render_template("index.html")
