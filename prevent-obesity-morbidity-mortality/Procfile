@@ -1,0 +1,1 @@
+web: python demo/sdk_demo/sdk_demo/app.py
