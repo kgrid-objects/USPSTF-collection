@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "abdominal-aortic-aneurysm-screening"
-version = "1.4"
+version = "1.5"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
@@ -12,7 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
-kgrid-sdk = {version = "^0.0.4", extras = ["api"]}
+kgrid-sdk = {version = "^0.0.5", extras = ["api"]}
 
 [tool.poetry.scripts]
 abdominal-aortic-aneurysm-screening = "abdominal_aortic_aneurysm_screening.abdominal_aortic_aneurysm_screening:cli"

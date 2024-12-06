@@ -1,13 +1,11 @@
 
 from pregnancy_healthy_weight_gain import pregnancy_healthy_weight_gain
-
+version = "v1.6"
 def test_get_version():  
-    version = pregnancy_healthy_weight_gain.get_version()
-    assert version == "v1.5"
+    assert version == pregnancy_healthy_weight_gain.get_version()
     
 def test_metadata():
-    version = pregnancy_healthy_weight_gain.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.5"
+    assert version == pregnancy_healthy_weight_gain.get_metadata().get('version', 'Unknown version')
 
 def test_execute():
     assert "Healthy Weight and Weight Gain In Pregnancy: Behavioral Counseling Interventions" == pregnancy_healthy_weight_gain.execute({

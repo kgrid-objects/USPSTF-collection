@@ -5,7 +5,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Prediabetes and Type 2 Diabetes: Screening",
   "dc:identifier": "ark:DiabetesScreening",
-  "version": "v1.5",
+  "version": "v1.6",
   "dc:description": "Adults aged 35 to 70 years who have overweight or obesity:\n The USPSTF recommends screening for prediabetes and type 2 diabetes.  Clinicians should offer or refer patients with prediabetes to effective preventive interventions.\nGrade: B",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [

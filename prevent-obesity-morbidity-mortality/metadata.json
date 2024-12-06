@@ -5,7 +5,7 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
   "dc:identifier": "ark:PreventObesityMorbidityMortality",
-  "version": "v1.5",
+  "version": "v1.6",
   "dc:description": "Adults with a BMI ≥30:\nThe USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.\nGrade: B",
   "koio:contributors": "Kgrid Team",
   "koio:keywords": [

@@ -1,13 +1,11 @@
 
 from prevent_obesity_morbidity_mortality import prevent_obesity_morbidity_mortality
-
+version = "v1.6"
 def test_get_version():  
-    version = prevent_obesity_morbidity_mortality.get_version()
-    assert version == "v1.5"
+    assert version == prevent_obesity_morbidity_mortality.get_version()
     
 def test_metadata():
-    version = prevent_obesity_morbidity_mortality.get_metadata().get('version', 'Unknown version')
-    assert version == "v1.5"
+    assert version == prevent_obesity_morbidity_mortality.get_metadata().get('version', 'Unknown version')
 
 
 def test_direct_call():
