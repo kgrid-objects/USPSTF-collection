@@ -19,13 +19,13 @@ def index1():
     # Render the HTML page with patient data
     return render_template("index1.html")
 
-@app.route("/launch")
+@app.route("/launch.html")
 def launch():
     # Render the HTML page with patient data
     return render_template("launch.html")
 
-@app.route("/app")
-def app():
+@app.route("/app.html")
+def app1():
     # Render the HTML page with patient data
     return render_template("app.html")
 
