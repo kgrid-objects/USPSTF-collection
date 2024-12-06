@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, jsonify, request
 
 from pregnancy_healthy_weight_gain import pregnancy_healthy_weight_gain
@@ -26,7 +27,8 @@ def get_result():
     return jsonify(result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port,debug=True)
     
 # export FLASK_APP=sdk_demo.app:app 
 # flask run 
