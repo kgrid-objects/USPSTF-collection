@@ -14,6 +14,11 @@ def index():
     # Render the HTML page with patient data
     return render_template("index.html")
 
+@app.route("/")
+def index1():
+    # Render the HTML page with patient data
+    return render_template("index1.html")
+
 @app.route("/get_result", methods=["POST"])
 def get_result():
     patient_data = request.get_json()
