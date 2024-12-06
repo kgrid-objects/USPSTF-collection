@@ -5,7 +5,7 @@ from pregnancy_healthy_weight_gain import pregnancy_healthy_weight_gain
 from prevent_obesity_morbidity_mortality import prevent_obesity_morbidity_mortality
 from uspstf_knowledgebase import USPSTF_KnowledgeBase
 
-app = Flask(__name__)
+app = Flask(__name__,  static_folder='static')
 
 
 
