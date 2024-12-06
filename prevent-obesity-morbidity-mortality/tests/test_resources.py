@@ -1,6 +1,6 @@
 
 from prevent_obesity_morbidity_mortality import prevent_obesity_morbidity_mortality
-version = "v1.6"
+version = "v1.7"
 def test_get_version():  
     assert version == prevent_obesity_morbidity_mortality.get_version()
     
