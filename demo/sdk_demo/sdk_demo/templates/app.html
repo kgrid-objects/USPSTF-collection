@@ -32,7 +32,6 @@
 
     async function doRequests() {
       console.log(myApp.smart)
-      var loincs = [encodeURIComponent("http://loinc.org|4548-4")] //4548-4 = HgA1C  //4544-3 = hematocrit
       var obs = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
         headers: {
           "Accept": "application/json+fhir",
@@ -41,22 +40,34 @@
       }).then(function (data) {
         return data
       })
-      //test obs
-      console.log(obs)
+ 
       var response = await obs.json()
-
       console.log(response)
 
       var toInsert = ""
       var birthDate = response.birthDate;
       var name = response.name[0].text;
       var gender = response.gender;
+
+      var loincs = [encodeURIComponent("http://loinc.org|29463-7")] 
+      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&limit=50&code="+loincs.join(","), {
+        headers: {
+          "Accept": "application/json+fhir",
+          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
+        }
+      }).then(function (data) {
+        return data
+      })
+
+      response = await obs.json()
+      log(response)
+
       var input = {
         "birthDate": birthDate,
         "gender" : gender,
-        "name": name
+        "name": name,
+        "bmi": response.entry[0]
       }
-      console.log(input);
       toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>";
       // //if there is no entry, then there was no test found
       //       if (!response.entry[0]){
