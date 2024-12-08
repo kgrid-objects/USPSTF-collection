@@ -61,7 +61,6 @@
       console.log(obs)
       response = await obs.json()
       console.log(response)
-      alert(obs.entry[0].resource.valueQuantity?.value);
       if (response && response.entry && response.entry.length > 0) {
         const observation = response.entry[0].resource;
         const weight = observation.valueQuantity?.value;
