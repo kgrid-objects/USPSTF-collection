@@ -50,7 +50,7 @@
       var gender = response.gender;
 
       var loincs = [encodeURIComponent("http://loinc.org|29463-7")] 
-      var obs = await fetch(myApp.smart.state.serverUrl + "/Observation/" + myApp.smart.patient.id, {
+      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code="+loincs.join(","), {
         headers: {
           "Accept": "application/json+fhir",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -58,15 +58,18 @@
       }).then(function (data) {
         return data
       })
+
       response = await obs.json()
-      console.log(response)
+      log(response)
 
       var input = {
         "birthDate": birthDate,
         "gender" : gender,
-        "name": name
+        "name": name,
+        "weight": response.entry[0]
       }
-      toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>";
+      var weight = response.entry[0]
+      toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + "<br>";
       // //if there is no entry, then there was no test found
       //       if (!response.entry[0]){
 
