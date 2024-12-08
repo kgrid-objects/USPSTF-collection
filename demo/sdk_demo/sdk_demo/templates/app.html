@@ -32,7 +32,7 @@
 
     async function doRequests() {
       console.log(myApp.smart)
-      var obs = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
+      var patient = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
         headers: {
           "Accept": "application/json+fhir",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -41,7 +41,7 @@
         return data
       })
  
-      var response = await obs.json()
+      var response = await patient.json()
       console.log(response)
 
       var toInsert = ""
@@ -50,7 +50,7 @@
       var gender = response.gender;
 
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
-      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7", {
+      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=http://loinc.org/29463-7&_count=1&_sort=-date", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -61,13 +61,25 @@
       console.log(obs)
       response = await obs.json()
       console.log(response)
+      alert(obs.entry[0].resource.valueQuantity?.value);
+      if (response && response.entry && response.entry.length > 0) {
+        const observation = response.entry[0].resource;
+        const weight = observation.valueQuantity?.value;
+        const unit = observation.valueQuantity?.unit;
+        console.log(`Body weight: ${weight} ${unit}`);
+      } else {
+        console.log("No body weight observation found.");
+      }
 
       var input = {
         "birthDate": birthDate,
         "gender" : gender,
-        "name": name
+        "name": name,
+        "weight": weight,
+        "weightUnit": unit
       }
       var weight = response.entry[0]
+      toInsert += JSON.stringify(input);
       toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + "<br>";
       // //if there is no entry, then there was no test found
       //       if (!response.entry[0]){
