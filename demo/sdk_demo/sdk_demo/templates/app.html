@@ -32,9 +32,9 @@
 
     async function doRequests() {
       var toInsert = ""
-      var birthDate = patient.birthDate;
-      var name = patient.name[0].text;
-      var gender = patient.gender;
+      var birthDate 
+      var name 
+      var gender 
       var weight; 
       var unit; 
 
@@ -50,7 +50,9 @@
  
       var patient = await response.json()
       console.log(patient)
-
+      var birthDate = patient.birthDate;
+      var name = patient.name[0].text;
+      var gender = patient.gender;
 
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
       response = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
