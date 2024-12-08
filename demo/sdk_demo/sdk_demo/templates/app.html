@@ -31,8 +31,15 @@
       })
 
     async function doRequests() {
+      var toInsert = ""
+      var birthDate = patient.birthDate;
+      var name = patient.name[0].text;
+      var gender = patient.gender;
+      var weight; 
+      var unit; 
+
       console.log(myApp.smart)
-      var patient = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
+      var response = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
         headers: {
           "Accept": "application/json+fhir",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -41,16 +48,12 @@
         return data
       })
  
-      var response = await patient.json()
-      console.log(response)
+      var patient = await response.json()
+      console.log(patient)
 
-      var toInsert = ""
-      var birthDate = response.birthDate;
-      var name = response.name[0].text;
-      var gender = response.gender;
 
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
-      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
+      response = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -58,13 +61,13 @@
       }).then(function (data) {
         return data
       })
-      console.log(obs)
-      response = await obs.json()
       console.log(response)
-      if (response && response.entry && response.entry.length > 0) {
-        const observation = response.entry[0].resource;
-        const weight = observation.valueQuantity?.value;
-        const unit = observation.valueQuantity?.unit;
+      observations = await response.json()
+      console.log(observations)
+      if (observations && observations.entry && observations.entry.length > 0) {
+        const observation = observations.entry[0].resource;
+        weight = observation.valueQuantity?.value;
+        unit = observation.valueQuantity?.unit;
         console.log(`Body weight: ${weight} ${unit}`);
       } else {
         console.log("No body weight observation found.");
@@ -77,7 +80,7 @@
         "weight": weight,
         "weightUnit": unit
       }
-      var weight = response.entry[0]
+      
       toInsert += JSON.stringify(input);
       toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + "<br>";
       // //if there is no entry, then there was no test found
