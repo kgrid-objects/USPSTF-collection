@@ -36,62 +36,71 @@
       var name 
       var gender 
       var weight; 
-      var unit; 
+      var weightUnit; 
+      var height; 
+      var heightUnit; 
 
       console.log(myApp.smart)
-      var response = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
+      
+      //1. get demographics
+      var patient = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
         headers: {
           "Accept": "application/json+fhir",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
         }
-      }).then(function (data) {
-        return data
-      })
+      }).then((res) => res.json());
  
-      var patient = await response.json()
       console.log(patient)
       var birthDate = patient.birthDate;
       var name = patient.name[0].text;
       var gender = patient.gender;
 
+      //2. get weight
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
-      response = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
+      var weightObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
         }
-      }).then(function (data) {
-        return data
-      })
-      console.log(response)
-      observations = await response.json()
-      console.log(observations)
-      if (observations && observations.entry && observations.entry.length > 0) {
-        const observation = observations.entry[0].resource;
-        weight = observation.valueQuantity?.value;
-        unit = observation.valueQuantity?.unit;
-        console.log(`Body weight: ${weight} ${unit}`);
-      } else {
-        console.log("No body weight observation found.");
-      }
+      }).then((res) => res.json());
+      console.log(weightObservations)
+      const weightObservation = weightObservations.entry?.[0]?.resource;
+      weight = weightObservation?.valueQuantity?.value
+      weightUnit = weightObservation?.valueQuantity?.unit;
+
+
+      //3. get height
+      loincs = [encodeURIComponent("http://loinc.org/8302-2")] 
+      var heightObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=8302-2&_count=1&_sort=-date", {
+        headers: {
+          "Accept": "application/fhir+json",
+          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
+        }
+      }).then((res) => res.json());
+      console.log(heightObservations)
+      const heightObservation = heightObservations.entry?.[0]?.resource;
+      height = heightObservation?.valueQuantity?.value
+      heightUnit = heightObservation?.valueQuantity?.unit;
 
       var input = {
         "birthDate": birthDate,
         "gender" : gender,
         "name": name,
         "weight": weight,
-        "weightUnit": unit
+        "weightUnit": weightUnit,
+        "height": height,
+        "heightUnit": heightUnit
       }
-      
+      console.log(input)
       toInsert += JSON.stringify(input);
-      toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + "<br>";
+      toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + " "+ weightUnit +"<br>";
       // //if there is no entry, then there was no test found
       //       if (!response.entry[0]){
 
       //         toInsert += "We could not find you were tested for HgA1C at this provider."
 
       //       }else{
-      toInsert += "The patient resource is <br>" + JSON.stringify(response)
+      toInsert += "The patient data is <br>" + JSON.stringify(input)
 
       // toInsert += "Your HgA1C was tested on "+response.entry[0].resource.effectiveDateTime+"<br/><br/>"
 
