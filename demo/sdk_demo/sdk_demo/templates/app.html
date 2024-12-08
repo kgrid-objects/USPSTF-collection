@@ -50,7 +50,7 @@
       var gender = response.gender;
 
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
-      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=http://loinc.org/29463-7&_count=1&_sort=-date", {
+      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -65,8 +65,7 @@
       var input = {
         "birthDate": birthDate,
         "gender" : gender,
-        "name": name,
-        "weight": response.entry[0]
+        "name": name
       }
       var weight = response.entry[0]
       toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + "<br>";
