@@ -50,15 +50,15 @@
       var gender = response.gender;
 
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
-      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
+      obs = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=http://loinc.org/29463-7&_count=1&_sort=-date", {
         headers: {
-          "Accept": "application/json+fhir",
+          "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
         }
       }).then(function (data) {
         return data
       })
-
+      log(obs)
       response = await obs.json()
       log(response)
 
