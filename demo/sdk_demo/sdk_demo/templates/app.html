@@ -163,6 +163,10 @@
     }
 
     function calculateBMIWithConversion(weight, weightUnit, height, heightUnit) {
+      if (!(weight && weightUnit && height && heightUnit)) {
+        return undefined;
+      }
+
       // Convert weight to kilograms if necessary
       if (weightUnit.toLowerCase() === "lbs") {
         weight = weight * 0.453592; // 1 lb = 0.453592 kg
