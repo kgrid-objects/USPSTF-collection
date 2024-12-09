@@ -84,7 +84,7 @@
 
       //4. get smoking status
       loincs = [encodeURIComponent("http://loinc.org/72166-2")] 
-      var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=8302-2&_count=1&_sort=-date", {
+      var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=72166-2&_count=1&_sort=-date", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
