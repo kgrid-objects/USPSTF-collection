@@ -236,6 +236,17 @@
       const hdl = hdlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
       const ldl = ldlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
       const hasDiabetes = diabetes?.entry?.length > 0;
+
+      log1={
+        "age":age,
+        "isSmoker":isSmoker,
+        "systolicBp":systolicBp,
+        "hdl":hdl,
+        "ldl":ldl,
+        "Diabetes":diabetes
+
+      }
+      console.log(log1);
     
       // Determine risk factors
       return {
