@@ -216,11 +216,12 @@
       const headers = { "Accept": "application/json+fhir", "Authorization": `Bearer ${myApp.smart.state.tokenResponse.access_token}` };
     
       // Fetch relevant observations and conditions
-      const [patient, smokingStatus, bp, cholesterol, diabetes] = await Promise.all([
+      const [patient, smokingStatus, bp, hdlCholesterol,ldlCholesterol, diabetes] = await Promise.all([
         fetch(`${myApp.smart.state.serverUrl}/Patient/${myApp.smart.patient.id}`, { headers }).then(res => res.json()),
         fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=72166-2`, { headers }).then(res => res.json()),
         fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=8480-6`, { headers }).then(res => res.json()),
-        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=2085-9,13457-7`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=2085-9`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=13457-7`, { headers }).then(res => res.json()),
         fetch(`${myApp.smart.state.serverUrl}/Condition?patient=${myApp.smart.patient.id}&code=44054006`, { headers }).then(res => res.json())
       ]);
     
@@ -228,8 +229,8 @@
       const age = new Date().getFullYear() - new Date(patient.birthDate).getFullYear();
       const isSmoker = smokingStatus?.entry?.[0]?.resource?.valueCodeableConcept?.text === "Current smoker";
       const systolicBp = bp?.entry?.[0]?.resource?.valueQuantity?.value;
-      const hdlCholesterol = cholesterol?.entry?.find(entry => entry.resource.code.coding[0].code === "2085-9")?.resource?.valueQuantity?.value;
-      const ldlCholesterol = cholesterol?.entry?.find(entry => entry.resource.code.coding[0].code === "13457-7")?.resource?.valueQuantity?.value;
+      const hdl = hdlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
+      const ldl = ldlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
       const hasDiabetes = diabetes?.entry?.length > 0;
     
       // Determine risk factors
