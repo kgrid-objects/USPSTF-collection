@@ -197,8 +197,8 @@
 </head>
 <body>
     <h1 id="patient" style="text-align: center;"></h1>
-    <div id="loading" style="display: none;">
-      <div class="spinner"></div>
+    <div id="loading" style="display: none;text-align: center;">
+      <div class="spinner"  style="display: none;text-align: center;"></div>
     </div>
     <div class="container">
       
@@ -464,6 +464,8 @@
             document.getElementById('pregnant').value = patient.pregnant;
             document.getElementById('ten_year_CVD_risk').value = patient.tenYearCVDRisk;
             
+            const loadingElement = document.getElementById("loading");
+            loadingElement.style.display = "block";
             // Fetch recommendations after loading the patient data
             fetchRecommendations();
         }
@@ -512,7 +514,7 @@
 
             const endpointUrl = `/get_result`;
             const loadingElement = document.getElementById("loading");
-            loadingElement.style.display = "block";
+
             try {
                 const response = await fetch(endpointUrl, {
                     method: 'POST',
