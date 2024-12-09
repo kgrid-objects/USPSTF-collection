@@ -32,13 +32,16 @@
 
     async function doRequests() {
       var toInsert = ""
-      var birthDate 
-      var name 
-      var gender 
+      var birthDate;
+      var age; 
+      var name; 
+      var gender; 
+      var genderCode; 
       var weight; 
       var weightUnit; 
       var height; 
       var heightUnit; 
+      var bmi;
       var smokingCode;
       var smokingStatus;
       var hasNeverSmoked;
@@ -53,9 +56,11 @@
       }).then((res) => res.json());
  
       console.log(patient)
-      var birthDate = patient.birthDate;
-      var name = patient.name[0].text;
-      var gender = patient.gender;
+      birthDate = patient.birthDate;
+      age = calculateAge(birthDate);
+      name = patient.name[0].text;
+      gender = patient.gender;
+      genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
 
       //2. get weight
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
@@ -84,6 +89,8 @@
       height = heightObservation?.valueQuantity?.value
       heightUnit = heightObservation?.valueQuantity?.unit;
 
+      bmi=calculateBMIWithConversion(weight,weightUnit,height,heightUnit)
+
       //4. get smoking status
       loincs = [encodeURIComponent("http://loinc.org/72166-2")] 
       var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=72166-2&_count=1&_sort=-date", {
@@ -109,11 +116,14 @@
 
       var input = {
         "birthDate": birthDate,
+        "age": age,
         "gender" : gender,
+        "genderCode" : genderCode,
         "name": name,
         "weight": weight,
         "weightUnit": weightUnit,
         "height": height,
+        "bmi":bmi,
         "heightUnit": heightUnit,
         "smokingStatus": smokingStatus,
         "hasNeverSmoked": hasNeverSmoked
@@ -137,6 +147,57 @@
       $("#main").html(toInsert)
 
     }
+
+    function calculateBMIWithConversion(weight, weightUnit, height, heightUnit) {
+      // Convert weight to kilograms if necessary
+      if (weightUnit.toLowerCase() === "lbs") {
+        weight = weight * 0.453592; // 1 lb = 0.453592 kg
+      } else if (weightUnit.toLowerCase() !== "kg") {
+        return undefined;
+      }
+    
+      // Convert height to meters if necessary
+      if (heightUnit.toLowerCase() === "cm") {
+        height = height / 100; // 1 cm = 0.01 m
+      } else if (heightUnit.toLowerCase() === "in") {
+        height = height * 0.0254; // 1 inch = 0.0254 m
+      } else if (heightUnit.toLowerCase() !== "m") {
+        return undefined;
+      }
+    
+      // Ensure valid height and weight
+      if (weight <= 0 || height <= 0) {
+        return undefined;
+      }
+    
+      // Calculate BMI
+      const bmi = weight / (height ** 2);
+      return Math.round(bmi * 100) / 100; // Round to two decimal places
+    }
+
+    function calculateAge(birthDate) {
+      // Parse the birth date string into a Date object
+      const birthDateObj = new Date(birthDate);
+      
+      // Get today's date
+      const today = new Date();
+      
+      // Calculate the age
+      let age = today.getFullYear() - birthDateObj.getFullYear();
+    
+      // Adjust if the birthday hasn't occurred yet this year
+      const isBirthdayPassed = (
+        today.getMonth() > birthDateObj.getMonth() || 
+        (today.getMonth() === birthDateObj.getMonth() && today.getDate() >= birthDateObj.getDate())
+      );
+      
+      if (!isBirthdayPassed) {
+        age--;
+      }
+    
+      return age;
+    }
+    
   </script>
 
 </body>
