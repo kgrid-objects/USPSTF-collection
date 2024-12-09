@@ -228,6 +228,7 @@
       var smokingStatus;
       var hasNeverSmoked;
       var pregnant;
+      var tenYearCVDRisk;
       console.log(myApp.smart)
 
       //1. get demographics
@@ -271,7 +272,7 @@
       var heightUnit = heightObservation?.valueQuantity?.unit;
 
       var bmi = calculateBMIWithConversion(weight, weightUnit, height, heightUnit)
-
+      if (!bmi) bmi = 0;
      
       const smokingObservation = smokingObservations.entry?.[0]?.resource;
       if (smokingObservation) {
@@ -313,6 +314,9 @@
         riskFactors.dyslipidemia ||               // Dyslipidemia
         riskFactors.hasDiabetes;
 
+      if(hasCardiovascularRiskFactors)
+        tenYearCVDRisk=10;   //replace this with a risk calculator (temporary for demo) 
+
       var input = {
         "birthDate": birthDate,
         "age": age,
@@ -328,7 +332,8 @@
         "smokingStatus": smokingStatus,
         "hasNeverSmoked": hasNeverSmoked,
         "hasCardiovascularRiskFactors": hasCardiovascularRiskFactors,
-        "pregnant": pregnant
+        "pregnant": pregnant,
+        "tenYearCVDRisk" : tenYearCVDRisk
       }
       console.log(input)
       loadPatientData(input)
