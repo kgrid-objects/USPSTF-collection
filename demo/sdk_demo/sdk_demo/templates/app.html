@@ -235,6 +235,8 @@
     FHIR.oauth2.ready()
       .then(function (client) {
         myApp.smart = client
+        const loadingElement = document.getElementById("loading");
+        loadingElement.style.display = "block";
         doRequests()
       })
 
@@ -464,8 +466,7 @@
             document.getElementById('pregnant').value = patient.pregnant;
             document.getElementById('ten_year_CVD_risk').value = patient.tenYearCVDRisk;
             
-            const loadingElement = document.getElementById("loading");
-            loadingElement.style.display = "block";
+            
             // Fetch recommendations after loading the patient data
             fetchRecommendations();
         }
