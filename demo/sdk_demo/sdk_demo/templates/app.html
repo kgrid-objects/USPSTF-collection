@@ -116,7 +116,7 @@
       }
 
       //5. hasCardiovascularRiskFactors
-      const riskFactors = await getCvdRiskFactors(patientId, serverUrl, token);
+      const riskFactors = await getCvdRiskFactors();
       console.log(riskFactors)
       // Set the boolean variable HasCardiovascularRiskFactors based on any risk factor
       const hasCardiovascularRiskFactors = 
@@ -212,8 +212,8 @@
       return age;
     }
 
-    async function getCvdRiskFactors(patientId, serverUrl, token) {
-      const headers = { "Accept": "application/json+fhir", "Authorization": `Bearer ${token}` };
+    async function getCvdRiskFactors() {
+      const headers = { "Accept": "application/json+fhir", "Authorization": `Bearer ${myApp.smart.state.tokenResponse.access_token}` };
     
       // Fetch relevant observations and conditions
       const [patient, smokingStatus, bp, cholesterol, diabetes] = await Promise.all([
