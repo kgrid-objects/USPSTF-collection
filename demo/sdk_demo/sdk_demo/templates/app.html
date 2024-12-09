@@ -32,17 +32,6 @@
 
     async function doRequests() {
       var toInsert = ""
-      var birthDate;
-      var age;
-      var name;
-      var gender;
-      var genderCode;
-      var weight;
-      var weightUnit;
-      var height;
-      var heightUnit;
-      var bmi;
-      var bmiPercentile;
       var smokingCode;
       var smokingStatus;
       var hasNeverSmoked;
@@ -57,14 +46,13 @@
       }).then((res) => res.json());
 
       console.log(patient)
-      birthDate = patient.birthDate;
-      age = calculateAge(birthDate);
-      name = patient.name[0].text;
-      gender = patient.gender;
-      genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
+      var birthDate = patient.birthDate;
+      var age = calculateAge(birthDate);
+      var name = patient.name[0].text;
+      var gender = patient.gender;
+      var genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
 
       //2. get weight, height, pregnancy, smoking
-      var loincs = [encodeURIComponent("http://loinc.org/29463-7")]
       headers = {
         "Accept": "application/fhir+json",
         "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -77,14 +65,14 @@
       ]);
       console.log(pregnancyObservations)
       const weightObservation = weightObservations.entry?.[0]?.resource;
-      weight = weightObservation?.valueQuantity?.value
-      weightUnit = weightObservation?.valueQuantity?.unit;
+      var weight = weightObservation?.valueQuantity?.value
+      var weightUnit = weightObservation?.valueQuantity?.unit;
       
       const heightObservation = heightObservations.entry?.[0]?.resource;
-      height = heightObservation?.valueQuantity?.value
-      heightUnit = heightObservation?.valueQuantity?.unit;
+      var height = heightObservation?.valueQuantity?.value
+      var heightUnit = heightObservation?.valueQuantity?.unit;
 
-      bmi = calculateBMIWithConversion(weight, weightUnit, height, heightUnit)
+      var bmi = calculateBMIWithConversion(weight, weightUnit, height, heightUnit)
 
      
       const smokingObservation = smokingObservations.entry?.[0]?.resource;
@@ -121,30 +109,15 @@
         "weightUnit": weightUnit,
         "height": height,
         "bmi": bmi,
-        "bmiPercentile": bmiPercentile,
+        "bmiPercentile": undefined,
         "heightUnit": heightUnit,
         "smokingStatus": smokingStatus,
         "hasNeverSmoked": hasNeverSmoked,
         "hasCardiovascularRiskFactors": hasCardiovascularRiskFactors
       }
       console.log(input)
-      // //if there is no entry, then there was no test found
-      //       if (!response.entry[0]){
-
-      //         toInsert += "We could not find you were tested for HgA1C at this provider."
-
-      //       }else{
       toInsert += "The patient data is <br>" + JSON.stringify(input)
-
-      // toInsert += "Your HgA1C was tested on "+response.entry[0].resource.effectiveDateTime+"<br/><br/>"
-
-      // toInsert += "Your HgA1C was "+response.entry[0].resource.valueQuantity.value+"<br/><br/>"
-
-      // toInsert += "<a href='https://en.wikipedia.org/wiki/Glycated_hemoglobin'>According to wikipedia</a>, A1c is measured primarily to determine the three-month average blood sugar level and can be used as a diagnostic test for diabetes mellitus.  <5.7%	Normal, 5.7-6.4%	Prediabetes, >6.5%	Diabetes."
-      // }
-
       $("#main").html(toInsert)
-
     }
 
     function calculateBMIWithConversion(weight, weightUnit, height, heightUnit) {
