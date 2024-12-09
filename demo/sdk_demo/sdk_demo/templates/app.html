@@ -184,17 +184,13 @@
 </head>
 <body>
     <div class="container">
+      <h1 id="patient"></h1>
         <!-- Left Column: Patient Selector & Info -->
         <div class="lcolumn" id="patient-column">
-            <h1 id="patient"></h1>
-            <button class="patient-button" data-index="0">Patient 1</button>
-            <button class="patient-button" data-index="1">Patient 2</button>
-            <button class="patient-button" data-index="2">Patient 3</button>
-            <button class="patient-button" data-index="3">Patient 4</button>
-            <button class="patient-button" data-index="4">Patient 5</button>
             
+                       
             <div class="patient-info">
-                <h3>Patient Info</h3>
+                <h2>Patient Info</h2>
                 <label>Age: <input type="text" id="age"></label>
                 <label>Gender (male=1, female=0): <input type="text" id="gender"></label>
                 <label>Has never smoked: <input type="text" id="has_never_smoked" ></label>
@@ -249,7 +245,7 @@
       var genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
 
       const recommendationsDiv = document.getElementById('patient');
-      recommendationsDiv.innerHTML = name + '<br>' + birthDate;
+      recommendationsDiv.innerHTML = name + ' - ' + birthDate;
 
       //2. get weight, height, pregnancy, smoking
       headers = {
