@@ -63,51 +63,30 @@
       gender = patient.gender;
       genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
 
-      //2. get weight
+      //2. get weight, height, pregnancy, smoking
       var loincs = [encodeURIComponent("http://loinc.org/29463-7")]
       headers = {
         "Accept": "application/fhir+json",
         "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
       }
-      var [weightObservations, heightObservations, pregnancyObservations] = await Promise.all([
+      var [weightObservations, heightObservations, pregnancyObservations, smokingObservations] = await Promise.all([
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=29463-7&_count=1&_sort=-date", { headers }).then((res) => res.json()),
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
-        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=14902-5&_count=1&_sort=-date", { headers }).then((res) => res.json())
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=82810-3&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=72166-2&_count=1&_sort=-date", { headers }).then((res) => res.json())
       ]);
-      console.log(weightObservations)
       console.log(pregnancyObservations)
       const weightObservation = weightObservations.entry?.[0]?.resource;
       weight = weightObservation?.valueQuantity?.value
       weightUnit = weightObservation?.valueQuantity?.unit;
-      console.log(heightObservations)
+      
       const heightObservation = heightObservations.entry?.[0]?.resource;
       height = heightObservation?.valueQuantity?.value
       heightUnit = heightObservation?.valueQuantity?.unit;
 
-      //3. get height
-      /*loincs = [encodeURIComponent("http://loinc.org/8302-2")]
-      var heightObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", {
-        headers: {
-          "Accept": "application/fhir+json",
-          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
-        }
-      }).then((res) => res.json());
-      console.log(heightObservations)
-      const heightObservation = heightObservations.entry?.[0]?.resource;
-      height = heightObservation?.valueQuantity?.value
-      heightUnit = heightObservation?.valueQuantity?.unit;*/
-
       bmi = calculateBMIWithConversion(weight, weightUnit, height, heightUnit)
 
-      //4. get smoking status
-      loincs = [encodeURIComponent("http://loinc.org/72166-2")]
-      var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=72166-2&_count=1&_sort=-date", {
-        headers: {
-          "Accept": "application/fhir+json",
-          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
-        }
-      }).then((res) => res.json());
-      console.log(smokingObservations)
+     
       const smokingObservation = smokingObservations.entry?.[0]?.resource;
       if (smokingObservation) {
         const coding = smokingObservation.valueCodeableConcept?.coding?.[0];
@@ -122,9 +101,8 @@
         smokingStatus = "unknown"
       }
 
-      //5. hasCardiovascularRiskFactors
+      //3. hasCardiovascularRiskFactors
       const riskFactors = await getCvdRiskFactors();
-      console.log(riskFactors)
       // Set the boolean variable HasCardiovascularRiskFactors based on any risk factor
       const hasCardiovascularRiskFactors =
         riskFactors.age === "High Risk Age" ||   // High age risk
