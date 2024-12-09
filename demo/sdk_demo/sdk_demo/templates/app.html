@@ -95,7 +95,7 @@
       console.log(smokingObservations)
       const smokingObservation = smokingObservations.entry?.[0]?.resource;
       if (smokingObservation) {
-        const coding = observation.valueCodeableConcept?.coding?.[0];
+        const coding = smokingObservation.valueCodeableConcept?.coding?.[0];
         smokingCode = coding?.code; // Extract SNOMED code
         smokingStatus = coding?.display; // Extract human-readable description
         if(smokingCode == "266919005"){
