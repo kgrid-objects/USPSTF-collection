@@ -33,21 +33,21 @@
     async function doRequests() {
       var toInsert = ""
       var birthDate;
-      var age; 
-      var name; 
-      var gender; 
-      var genderCode; 
-      var weight; 
-      var weightUnit; 
-      var height; 
-      var heightUnit; 
+      var age;
+      var name;
+      var gender;
+      var genderCode;
+      var weight;
+      var weightUnit;
+      var height;
+      var heightUnit;
       var bmi;
       var bmiPercentile;
       var smokingCode;
       var smokingStatus;
       var hasNeverSmoked;
       console.log(myApp.smart)
-      
+
       //1. get demographics
       var patient = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
         headers: {
@@ -55,7 +55,7 @@
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
         }
       }).then((res) => res.json());
- 
+
       console.log(patient)
       birthDate = patient.birthDate;
       age = calculateAge(birthDate);
@@ -64,22 +64,29 @@
       genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
 
       //2. get weight
-      var loincs = [encodeURIComponent("http://loinc.org/29463-7")] 
-      var weightObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=29463-7&_count=1&_sort=-date", {
-        headers: {
-          "Accept": "application/fhir+json",
-          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
-        }
-      }).then((res) => res.json());
+      var loincs = [encodeURIComponent("http://loinc.org/29463-7")]
+      headers = {
+        "Accept": "application/fhir+json",
+        "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
+      }
+      var [weightObservations, heightObservation, pregnancyObservation] = await Promise.all([
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=29463-7&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=14902-5&_count=1&_sort=-date", { headers }).then((res) => res.json())
+      ]);
       console.log(weightObservations)
+      console.log(pregnancyObservation)
       const weightObservation = weightObservations.entry?.[0]?.resource;
       weight = weightObservation?.valueQuantity?.value
       weightUnit = weightObservation?.valueQuantity?.unit;
-
+      console.log(heightObservations)
+      const heightObservation = heightObservations.entry?.[0]?.resource;
+      height = heightObservation?.valueQuantity?.value
+      heightUnit = heightObservation?.valueQuantity?.unit;
 
       //3. get height
-      loincs = [encodeURIComponent("http://loinc.org/8302-2")] 
-      var heightObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=8302-2&_count=1&_sort=-date", {
+      /*loincs = [encodeURIComponent("http://loinc.org/8302-2")]
+      var heightObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -88,13 +95,13 @@
       console.log(heightObservations)
       const heightObservation = heightObservations.entry?.[0]?.resource;
       height = heightObservation?.valueQuantity?.value
-      heightUnit = heightObservation?.valueQuantity?.unit;
+      heightUnit = heightObservation?.valueQuantity?.unit;*/
 
-      bmi=calculateBMIWithConversion(weight,weightUnit,height,heightUnit)
+      bmi = calculateBMIWithConversion(weight, weightUnit, height, heightUnit)
 
       //4. get smoking status
-      loincs = [encodeURIComponent("http://loinc.org/72166-2")] 
-      var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=72166-2&_count=1&_sort=-date", {
+      loincs = [encodeURIComponent("http://loinc.org/72166-2")]
+      var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=72166-2&_count=1&_sort=-date", {
         headers: {
           "Accept": "application/fhir+json",
           "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
@@ -106,44 +113,44 @@
         const coding = smokingObservation.valueCodeableConcept?.coding?.[0];
         smokingCode = coding?.code; // Extract SNOMED code
         smokingStatus = coding?.display; // Extract human-readable description
-        if(smokingCode == "266919005"){
-          hasNeverSmoked=true
-        }else if(smokingCode != "266927001"){
-          hasNeverSmoked=false;
+        if (smokingCode == "266919005") {
+          hasNeverSmoked = true
+        } else if (smokingCode != "266927001") {
+          hasNeverSmoked = false;
         }
-      }else{
-        smokingStatus="unknown"
+      } else {
+        smokingStatus = "unknown"
       }
 
       //5. hasCardiovascularRiskFactors
       const riskFactors = await getCvdRiskFactors();
       console.log(riskFactors)
       // Set the boolean variable HasCardiovascularRiskFactors based on any risk factor
-      const hasCardiovascularRiskFactors = 
+      const hasCardiovascularRiskFactors =
         riskFactors.age === "High Risk Age" ||   // High age risk
         riskFactors.isSmoker ||                   // Smoking status
         riskFactors.hypertension ||               // Hypertension
         riskFactors.dyslipidemia ||               // Dyslipidemia
-        riskFactors.hasDiabetes;  
+        riskFactors.hasDiabetes;
 
       var input = {
         "birthDate": birthDate,
         "age": age,
-        "gender" : gender,
-        "genderCode" : genderCode,
+        "gender": gender,
+        "genderCode": genderCode,
         "name": name,
         "weight": weight,
         "weightUnit": weightUnit,
         "height": height,
-        "bmi":bmi,
-        "bmiPercentile":bmiPercentile,
+        "bmi": bmi,
+        "bmiPercentile": bmiPercentile,
         "heightUnit": heightUnit,
         "smokingStatus": smokingStatus,
         "hasNeverSmoked": hasNeverSmoked,
-        "hasCardiovascularRiskFactors" : hasCardiovascularRiskFactors
+        "hasCardiovascularRiskFactors": hasCardiovascularRiskFactors
       }
       console.log(input)
-     // //if there is no entry, then there was no test found
+      // //if there is no entry, then there was no test found
       //       if (!response.entry[0]){
 
       //         toInsert += "We could not find you were tested for HgA1C at this provider."
@@ -173,7 +180,7 @@
       } else if (weightUnit.toLowerCase() !== "kg") {
         return undefined;
       }
-    
+
       // Convert height to meters if necessary
       if (heightUnit.toLowerCase() === "cm") {
         height = height / 100; // 1 cm = 0.01 m
@@ -182,12 +189,12 @@
       } else if (heightUnit.toLowerCase() !== "m") {
         return undefined;
       }
-    
+
       // Ensure valid height and weight
       if (weight <= 0 || height <= 0) {
         return undefined;
       }
-    
+
       // Calculate BMI
       const bmi = weight / (height ** 2);
       return Math.round(bmi * 100) / 100; // Round to two decimal places
@@ -196,31 +203,31 @@
     function calculateAge(birthDate) {
       // Parse the birth date string into a Date object
       const birthDateObj = new Date(birthDate);
-      
+
       // Get today's date
       const today = new Date();
-      
+
       // Calculate the age
       let age = today.getFullYear() - birthDateObj.getFullYear();
-    
+
       // Adjust if the birthday hasn't occurred yet this year
       const isBirthdayPassed = (
-        today.getMonth() > birthDateObj.getMonth() || 
+        today.getMonth() > birthDateObj.getMonth() ||
         (today.getMonth() === birthDateObj.getMonth() && today.getDate() >= birthDateObj.getDate())
       );
-      
+
       if (!isBirthdayPassed) {
         age--;
       }
-    
+
       return age;
     }
 
     async function getCvdRiskFactors() {
       const headers = { "Accept": "application/json+fhir", "Authorization": `Bearer ${myApp.smart.state.tokenResponse.access_token}` };
-    
+
       // Fetch relevant observations and conditions
-      const [patient, smokingStatus, bp, hdlCholesterol,ldlCholesterol, diabetes] = await Promise.all([
+      const [patient, smokingStatus, bp, hdlCholesterol, ldlCholesterol, diabetes] = await Promise.all([
         fetch(`${myApp.smart.state.serverUrl}/Patient/${myApp.smart.patient.id}`, { headers }).then(res => res.json()),
         fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=72166-2`, { headers }).then(res => res.json()),
         fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=8480-6`, { headers }).then(res => res.json()),
@@ -228,7 +235,7 @@
         fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=13457-7`, { headers }).then(res => res.json()),
         fetch(`${myApp.smart.state.serverUrl}/Condition?patient=${myApp.smart.patient.id}&code=44054006`, { headers }).then(res => res.json())
       ]);
-    
+
       // Extract and evaluate risk factors
       const age = new Date().getFullYear() - new Date(patient.birthDate).getFullYear();
       const isSmoker = smokingStatus?.entry?.[0]?.resource?.valueCodeableConcept?.text === "Current smoker";
@@ -237,17 +244,17 @@
       const ldl = ldlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
       const hasDiabetes = diabetes?.entry?.length > 0;
 
-      log1={
-        "age":age,
-        "isSmoker":isSmoker,
-        "systolicBp":systolicBp,
-        "hdl":hdl,
-        "ldl":ldl,
-        "Diabetes":diabetes
+      log1 = {
+        "age": age,
+        "isSmoker": isSmoker,
+        "systolicBp": systolicBp,
+        "hdl": hdl,
+        "ldl": ldl,
+        "Diabetes": diabetes
 
       }
       console.log(log1);
-    
+
       // Determine risk factors
       return {
         age: age >= 45 ? "High Risk Age" : "Normal Age",
@@ -257,7 +264,7 @@
         hasDiabetes
       };
     }
-    
+
   </script>
 
 </body>
