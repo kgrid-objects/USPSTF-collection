@@ -82,6 +82,19 @@
       height = heightObservation?.valueQuantity?.value
       heightUnit = heightObservation?.valueQuantity?.unit;
 
+      //4. get smoking status
+      loincs = [encodeURIComponent("http://loinc.org/72166-2")] 
+      var smokingObservations = await fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id+"&code=8302-2&_count=1&_sort=-date", {
+        headers: {
+          "Accept": "application/fhir+json",
+          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
+        }
+      }).then((res) => res.json());
+      console.log(smokingObservations)
+      const smokingObservation = smokingObservations.entry?.[0]?.resource;
+      const smokingStatus = smokingObservation.valueCodeableConcept?.text || "Unknown";
+
+
       var input = {
         "birthDate": birthDate,
         "gender" : gender,
@@ -89,12 +102,11 @@
         "weight": weight,
         "weightUnit": weightUnit,
         "height": height,
-        "heightUnit": heightUnit
+        "heightUnit": heightUnit,
+        "smoking": smokingStatus
       }
       console.log(input)
-      toInsert += JSON.stringify(input);
-      toInsert += "birthDate:" + birthDate + "<br>gender:" + gender + "<br>name:" + name + "<br>weight:" + weight + " "+ weightUnit +"<br>";
-      // //if there is no entry, then there was no test found
+     // //if there is no entry, then there was no test found
       //       if (!response.entry[0]){
 
       //         toInsert += "We could not find you were tested for HgA1C at this provider."
