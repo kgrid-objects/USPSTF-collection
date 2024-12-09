@@ -69,13 +69,13 @@
         "Accept": "application/fhir+json",
         "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
       }
-      var [weightObservations, heightObservation, pregnancyObservation] = await Promise.all([
+      var [weightObservations, heightObservations, pregnancyObservations] = await Promise.all([
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=29463-7&_count=1&_sort=-date", { headers }).then((res) => res.json()),
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=14902-5&_count=1&_sort=-date", { headers }).then((res) => res.json())
       ]);
       console.log(weightObservations)
-      console.log(pregnancyObservation)
+      console.log(pregnancyObservations)
       const weightObservation = weightObservations.entry?.[0]?.resource;
       weight = weightObservation?.valueQuantity?.value
       weightUnit = weightObservation?.valueQuantity?.unit;
