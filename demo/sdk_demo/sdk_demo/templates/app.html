@@ -186,7 +186,7 @@
     <div class="container">
         <!-- Left Column: Patient Selector & Info -->
         <div class="lcolumn" id="patient-column">
-            <h2>Select a Patient</h2>
+            <h1 id="patient"></h1>
             <button class="patient-button" data-index="0">Patient 1</button>
             <button class="patient-button" data-index="1">Patient 2</button>
             <button class="patient-button" data-index="2">Patient 3</button>
@@ -247,6 +247,9 @@
       var name = patient.name[0].text;
       var gender = patient.gender;
       var genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
+
+      const recommendationsDiv = document.getElementById('patient');
+      recommendationsDiv.innerHTML = name + '<br>' + birthDate;
 
       //2. get weight, height, pregnancy, smoking
       headers = {
