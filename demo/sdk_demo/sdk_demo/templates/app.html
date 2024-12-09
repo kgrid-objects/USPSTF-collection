@@ -35,7 +35,8 @@
       var smokingCode;
       var smokingStatus;
       var hasNeverSmoked;
-      console.log(myApp.smart)
+      var pregnant;
+      //console.log(myApp.smart)
 
       //1. get demographics
       var patient = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
@@ -45,7 +46,7 @@
         }
       }).then((res) => res.json());
 
-      console.log(patient)
+      //console.log(patient)
       var birthDate = patient.birthDate;
       var age = calculateAge(birthDate);
       var name = patient.name[0].text;
@@ -57,11 +58,13 @@
         "Accept": "application/fhir+json",
         "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
       }
-      var [weightObservations, heightObservations, pregnancyObservations, smokingObservations] = await Promise.all([
+      var [weightObservations, heightObservations, pregnancyObservations, smokingObservations, hypertensionQ] = await Promise.all([
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=29463-7&_count=1&_sort=-date", { headers }).then((res) => res.json()),
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
         fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=82810-3&_count=1&_sort=-date", { headers }).then((res) => res.json()),
-        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=72166-2&_count=1&_sort=-date", { headers }).then((res) => res.json())
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=72166-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Condition?patient=" + myApp.smart.patient.id + "&code=38341003&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+
       ]);
       console.log(pregnancyObservations)
       const weightObservation = weightObservations.entry?.[0]?.resource;
@@ -88,6 +91,21 @@
       } else {
         smokingStatus = "unknown"
       }
+      const pregnancyObservation = pregnancyObservations.entry?.[0]?.resource;
+      if (pregnancyObservation) {
+        const coding = pregnancyObservations.valueCodeableConcept?.coding?.[0];
+        pregnancyCode = coding?.code; // Extract SNOMED code
+        pregnancyStatus = coding?.display; // Extract human-readable description
+        if (pregnancyCode == "POS") {
+          pregnant = true
+        } else{
+          pregnant = false;
+        }
+      } else {
+        pregnant = undefined;
+      }
+
+      console.log(hypertensionQ);
 
       //3. hasCardiovascularRiskFactors
       const riskFactors = await getCvdRiskFactors();
@@ -113,9 +131,10 @@
         "heightUnit": heightUnit,
         "smokingStatus": smokingStatus,
         "hasNeverSmoked": hasNeverSmoked,
-        "hasCardiovascularRiskFactors": hasCardiovascularRiskFactors
+        "hasCardiovascularRiskFactors": hasCardiovascularRiskFactors,
+        "pregnant": pregnant
       }
-      console.log(input)
+      //console.log(input)
       toInsert += "The patient data is <br>" + JSON.stringify(input)
       $("#main").html(toInsert)
     }
@@ -204,7 +223,7 @@
         "Diabetes": diabetes
 
       }
-      console.log(log1);
+      //console.log(log1);
 
       // Determine risk factors
       return {
