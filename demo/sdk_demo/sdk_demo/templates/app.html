@@ -39,7 +39,9 @@
       var weightUnit; 
       var height; 
       var heightUnit; 
-
+      var smokingCode;
+      var smokingStatus;
+      var hasNeverSmoked;
       console.log(myApp.smart)
       
       //1. get demographics
@@ -92,8 +94,18 @@
       }).then((res) => res.json());
       console.log(smokingObservations)
       const smokingObservation = smokingObservations.entry?.[0]?.resource;
-      const smokingStatus = smokingObservation.valueCodeableConcept?.text || "Unknown";
-
+      if (smokingObservation) {
+        const coding = observation.valueCodeableConcept?.coding?.[0];
+        smokingCode = coding?.code; // Extract SNOMED code
+        smokingStatus = coding?.display; // Extract human-readable description
+        if(smokingCode == "266919005"){
+          hasNeverSmoked=true
+        }else if(smokingCode != "266927001"){
+          hasNeverSmoked=false;
+        }
+      }else{
+        smokingStatus="unknown"
+      }
 
       var input = {
         "birthDate": birthDate,
@@ -103,7 +115,8 @@
         "weightUnit": weightUnit,
         "height": height,
         "heightUnit": heightUnit,
-        "smoking": smokingStatus
+        "smokingStatus": smokingStatus,
+        "hasNeverSmoked": hasNeverSmoked
       }
       console.log(input)
      // //if there is no entry, then there was no test found
