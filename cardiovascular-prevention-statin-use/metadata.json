@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
   "dc:identifier": "ark:StatinUse",
-  "version": "v1.0",
+  "dc:version": "v1.8",
+  "dc:date": "2024-12-12",
   "dc:description": "The USPSTF recommends that:\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year cardiovascular disease (CVD) risk of 10% or greater:\nInitiate a statin.\nGrade: B\n\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk of 7.5% to less than 10%:\nSelectively offer a statin.\nGrade: C\n\nFor adults 76 years or older:\nThe evidence is insufficient to recommend for or against starting a statin.\nGrade: I",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "Statin use",
     "Cardiovascular Disease",
@@ -21,15 +31,13 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": ".",
+        "@type": [
+          "https://kgrid.org/specs/activationSpec.html#object",
+          "Python"
+        ]
+      }
     },
     {
       "@type": [
@@ -38,7 +46,20 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "cardiovascular_prevention_statin_use/cli_service",
+        "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
+        "@type": [
+          "Python"
+        ]
+      }
+    },
+    {
+      "@type": [
+        "Service",
+        "API"
+      ],
+      "dependsOn": "knowledge",
+      "implementedBy": {
+        "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
         "@type": [
           "Python"
         ]
@@ -50,11 +71,46 @@
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "cardiovascular_prevention_statin_use/knowledge.py",
+        "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
         "@type": "Function"
       },
-      "hasTest": "tests/test_knowledge.py"
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart",
+      "dc:format": "text/html",
+      "dc:date": "2022-08-23",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
+      },
+      "koio:hasTest": [
+        {
+          "@id": "tests/test_knowledge.py",
+          "dc:title": "Knowledge test",
+          "@type": "koio:Test",
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+        },
+        {
+          "@id": "tests/test_resources.py",
+          "@type": "koio:Test",
+          "dc:title": "Implementation tests",
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+        }
+      ],
+      "koio:hasDocumentation": [
+        {
+          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart",
+          "@type": "koio:Documentation",
+          "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
+          "dc:description": "This is the USPSTF documentation webpage for cardiovascular disease prevention statin use recommendation."
+        }
+      ]
     }
   ],
-  "dc:source":"https://github.com/kgrid-objects/USPSTF-collection/tree/main/cardiovascular-prevention-statin-use"
+  "koio:hasDocumentation": [
+    {
+      "@id": "README.md",
+      "@type": "koio:Documentation",
+      "dc:title": "README.md",
+      "dc:description": "read me file."
+    }
+  ]
 }

@@ -1,16 +1,22 @@
 [tool.poetry]
 name = "cardiovascular-prevention-diet-activity"
-version = "0.1.0"
+version = "1.8"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
+packages = [
+    { include = "cardiovascular_prevention_diet_activity" },
+    { include = "metadata.json", from = ".", to = "cardiovascular_prevention_diet_activity" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
+kgrid-sdk = {version = "^1.1", extras = ["api"]}
 
 [tool.poetry.scripts]
-cardiovascular-prevention-diet-activity = "cardiovascular_prevention_diet_activity.cli_service.cli_service:main"
+cardiovascular-prevention-diet-activity = "cardiovascular_prevention_diet_activity.cardiovascular_prevention_diet_activity:cli"
 
 [build-system]
 requires = ["poetry-core"]

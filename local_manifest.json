@@ -6,9 +6,19 @@
     "@type": "koio:KnowledgeObject",
     "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
     "dc:identifier": "ark:StatinUse",
-    "version": "v1.0",
+    "dc:version": "v1.7",
+    "dc:date": "2024-12-12",
     "dc:description": "The USPSTF recommends that:\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year cardiovascular disease (CVD) risk of 10% or greater:\nInitiate a statin.\nGrade: B\n\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk of 7.5% to less than 10%:\nSelectively offer a statin.\nGrade: C\n\nFor adults 76 years or older:\nThe evidence is insufficient to recommend for or against starting a statin.\nGrade: I",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "Statin use",
       "Cardiovascular Disease",
@@ -22,15 +32,13 @@
           "API"
         ],
         "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
+        "implementedBy": {
+          "@id": ".",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
       },
       {
         "@type": [
@@ -39,7 +47,20 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "cardiovascular_prevention_statin_use/cli_service",
+          "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
           "@type": [
             "Python"
           ]
@@ -51,21 +72,51 @@
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "cardiovascular_prevention_statin_use/knowledge.py",
+          "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart",
+        "dc:format": "text/html",
+        "dc:date": "2022-08-23",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart",
+            "@type": "koio:Documentation",
+            "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
+            "dc:description": "This is the USPSTF documentation webpage for cardiovascular disease prevention statin use recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "README.md",
+        "@type": "koio:Documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",
     "error": "",
     "local_url": "cardiovascular-prevention-statin-use"
-  },
-  {
-    "status": "uninitialized",
-    "error": "FileNotFoundError(2, 'No such file or directory')",
-    "@id": ".git",
-    "local_url": ".git"
   },
   {
     "@context": "https://kgrid.org/koio/2.0/context",
@@ -74,9 +125,19 @@
     "@type": "koio:KnowledgeObject",
     "dc:title": "Prediabetes and Type 2 Diabetes: Screening",
     "dc:identifier": "ark:DiabetesScreening",
-    "version": "v1.0",
+    "dc:version": "v1.7",
+    "dc:date": "2024-12-12",
     "dc:description": "Adults aged 35 to 70 years who have overweight or obesity:\n The USPSTF recommends screening for prediabetes and type 2 diabetes.  Clinicians should offer or refer patients with prediabetes to effective preventive interventions.\nGrade: B",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "Type 2 Diabetes",
       "Prediabetes",
@@ -90,15 +151,13 @@
           "API"
         ],
         "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
+        "implementedBy": {
+          "@id": ".",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
       },
       {
         "@type": [
@@ -107,7 +166,20 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "diabetes_screening/cli_service",
+          "@id": "diabetes_screening/diabetes_screening.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "diabetes_screening/diabetes_screening.py",
           "@type": [
             "Python"
           ]
@@ -119,10 +191,46 @@
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "diabetes_screening/knowledge.py",
+          "@id": "diabetes_screening/diabetes_screening.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
+        "dc:format": "text/html",
+        "dc:date": "2021-08-24",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
+            "@type": "koio:Documentation",
+            "dc:title": "Prediabetes and Type 2 Diabetes: Screening",
+            "dc:description": "This is the USPSTF documentation webpage for Prediabetes and Type 2 Diabetes Screening recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "README.md",
+        "@type": "koio:Documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",
@@ -131,14 +239,24 @@
   },
   {
     "@context": "https://kgrid.org/koio/2.0/context",
-    "@id": "hight-body-mass-index",
+    "@id": "high-body-mass-index",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
     "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
     "dc:identifier": "ark:HBMI",
-    "version": "v1.0",
+    "dc:version": "v1.7",
+    "dc:date": "2024-12-12",
     "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (\u226595th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "High bmi",
       "Interventions",
@@ -152,15 +270,13 @@
           "API"
         ],
         "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
+        "implementedBy": {
+          "@id": ".",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
       },
       {
         "@type": [
@@ -169,7 +285,20 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "high_body_mass_index/cli_service",
+          "@id": "high_body_mass_index/high_body_mass_index.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "high_body_mass_index/high_body_mass_index.py",
           "@type": [
             "Python"
           ]
@@ -181,10 +310,46 @@
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "high_body_mass_index/knowledge.py",
+          "@id": "high_body_mass_index/high_body_mass_index.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
+        "dc:format": "text/html",
+        "dc:date": "2024-06-18",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
+            "@type": "koio:Documentation",
+            "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
+            "dc:description": "This is the USPSTF documentation webpage for High Body Mass Index in Children and Adolescents Interventions recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "README.md",
+        "@type": "koio:Documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",
@@ -192,15 +357,30 @@
     "local_url": "high-body-mass-index"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": [
+      "https://kgrid.org/koio/2.0/context",
+      {
+        "spdx": "https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/"
+      }
+    ],
     "@id": "cardiovascular-prevention-diet-activity",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
     "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
     "dc:identifier": "ark:CardiovascularDietActivity",
-    "version": "v1.0",
+    "dc:version": "v1.7",
+    "dc:date": "2024-12-12",
     "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "Healthy diet",
       "Healthy activity",
@@ -215,15 +395,13 @@
           "API"
         ],
         "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
+        "implementedBy": {
+          "@id": ".",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
       },
       {
         "@type": [
@@ -232,7 +410,20 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "cardiovascular_prevention_diet_activity/cli_service",
+          "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
           "@type": [
             "Python"
           ]
@@ -244,10 +435,52 @@
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "cardiovascular_prevention_diet_activity/knowledge.py",
+          "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
+        "dc:format": "text/html",
+        "dc:date": "2020-11-24",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
+            "@type": "koio:Documentation",
+            "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
+            "dc:description": "This is the USPSTF documentation webpage for Healthy Diet and Physical Activity for Cardiovascular Disease Prevention recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "https://colab.research.google.com/drive/1r6PodT5n75qKLBbtTWIC1dNwwz3FrVWr?usp=sharing",
+        "@type": "koio:Documentation",
+        "dc:title": "Using the Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors Knowledge Object: A Step-by-Step Tutorial",
+        "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-diet-activity knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+      },
+      {
+        "@id": "README.md",
+        "@type": "koio:Documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",
@@ -261,9 +494,19 @@
     "@type": "koio:KnowledgeObject",
     "dc:title": "Hypertension in Adults: Screening",
     "dc:identifier": "ark:HypertensionScreening",
-    "version": "v1.0",
+    "dc:version": "v1.8",
+    "dc:date": "2024-12-12",
     "dc:description": "Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "hypertension",
       "USPSTF",
@@ -276,15 +519,13 @@
           "API"
         ],
         "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
+        "implementedBy": {
+          "@id": ".",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
       },
       {
         "@type": [
@@ -293,7 +534,20 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "hypertension_screening/cli_service",
+          "@id": "hypertension_screening/hypertension_screening.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "hypertension_screening/hypertension_screening.py",
           "@type": [
             "Python"
           ]
@@ -305,10 +559,50 @@
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "hypertension_screening/knowledge.py",
+          "@id": "hypertension_screening/hypertension_screening.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+        "dc:format": "text/html",
+        "dc:date": "2021-04-27",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge tests",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+            "@type": "koio:documentation",
+            "dc:title": "Abdominal Aortic Aneurysm: Screening",
+            "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "https://colab.research.google.com/drive/1AwtrDyglFMcCE60sDDOd1FvfOCI_fhQB?usp=sharing",
+        "@type": "koio:documentation",
+        "dc:title": "Using the Hypertension Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
+        "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using a standalone API</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+      },
+      {
+        "@id": "README.md",
+        "@type": "koio:documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",
@@ -322,9 +616,19 @@
     "@type": "koio:KnowledgeObject",
     "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
     "dc:identifier": "ark:PreventObesityMorbidityMortality",
-    "version": "v1.0",
+    "dc:version": "v1.8",
+    "dc:date": "2024-12-12",
     "dc:description": "Adults with a BMI \u226530:\nThe USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.\nGrade: B",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "Weight Loss",
       "Obesity",
@@ -334,46 +638,44 @@
       "USPSTF",
       "Counseling"
     ],
-    "koio:hasService": [
-      {
-        "@type": [
-          "Service",
-          "API"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
-      },
-      {
-        "@type": [
-          "Service",
-          "CLI"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": {
-          "@id": "prevent_obesity_morbidity_mortality/cli_service",
-          "@type": [
-            "Python"
-          ]
-        }
-      }
-    ],
+    "koio:hasService": [],
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "prevent_obesity_morbidity_mortality/knowledge.py",
+          "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
+        "dc:format": "text/html",
+        "dc:date": "2018-09-18",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
+            "@type": "koio:Documentation",
+            "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
+            "dc:description": "This is the USPSTF documentation webpage for Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults Behavioral Interventions recommendation."
+          }
+        ]
       }
     ],
     "status": "loaded",
@@ -387,9 +689,19 @@
     "@type": "koio:KnowledgeObject",
     "dc:title": "Healthy Weight and Weight Gain In Pregnancy: Behavioral Counseling Interventions",
     "dc:identifier": "ark:PregnancyWeight",
-    "version": "v1.0",
+    "dc:version": "v1.7",
+    "dc:date": "2024-12-12",
     "dc:description": "For pregnant adolescents and adults:\nThe USPSTF recommends that clinicians offer effective behavioral counseling interventions aimed at promoting healthy weight gain and preventing excess gestational weight gain in pregnancy.\nGrade B",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "Pregnancy",
       "Weight gain",
@@ -397,46 +709,52 @@
       "USPSTF",
       "Behavioral Counseling Interventions"
     ],
-    "koio:hasService": [
-      {
-        "@type": [
-          "Service",
-          "API"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
-      },
-      {
-        "@type": [
-          "Service",
-          "CLI"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": {
-          "@id": "pregnancy_healthy_weight_gain/cli_service",
-          "@type": [
-            "Python"
-          ]
-        }
-      }
-    ],
+    "koio:hasService": [],
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "pregnancy_healthy_weight_gain/knowledge.py",
+          "@id": "pregnancy_healthy_weight_gain/pregnancy_healthy_weight_gain.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-weight-and-weight-gain-during-pregnancy-behavioral-counseling-interventions",
+        "dc:format": "text/html",
+        "dc:date": "2021-05-25",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-weight-and-weight-gain-during-pregnancy-behavioral-counseling-interventions",
+            "@type": "koio:Documentation",
+            "dc:title": "Healthy Weight and Weight Gain In Pregnancy: Behavioral Counseling Interventions",
+            "dc:description": "This is the USPSTF documentation webpage for Healthy Weight and Weight Gain In Pregnancy Behavioral Counseling Interventions recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "README.md",
+        "@type": "koio:Documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",
@@ -450,9 +768,19 @@
     "@type": "koio:KnowledgeObject",
     "dc:title": "Abdominal Aortic Aneurysm: Screening",
     "dc:identifier": "ark:AbdominalAorticAneurysmScreening",
-    "version": "v1.0",
+    "dc:version": "v1.6",
+    "dc:date": "2024-12-12",
     "dc:description": "The USPSTF recommends that:\nFor men aged 65 to 75 years who have ever smoked:\nPerform 1-time screening for abdominal aortic aneurysm (AAA) with ultrasonography in men who have a history of smoking.\nGrade B\n\nFor men aged 65 to 75 years who have never smoked:\nSelectively offer screening to men who do not have a history of smoking, rather than routinely screening all men in this group\nGrade C\n\nFor women who have never smoked and have no family history of AAA:\nDo not screen women who have never smoked and do not have a family history of AAA.\nGrade D\n\nFor women aged 65 to 75 years who have ever smoked or have a family history of AAA:\nEvidence is insufficient to assess the balance of benefits and harms of screening for AAA with ultrasonography in women aged 65 to 75 years who have ever smoked or have a family history of AAA.\nGrade I",
-    "koio:contributors": "Kgrid Team",
+    "schema:creator": {
+      "@id": "https://kgrid.org",
+      "@type": "team",
+      "schema:givenName": "Knowledge Systems Lab",
+      "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+      "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
     "koio:keywords": [
       "Abdominal Aortic Aneurysm",
       "USPSTF",
@@ -465,15 +793,13 @@
           "API"
         ],
         "dependsOn": "knowledge",
-        "implementedBy": [
-          {
-            "@id": ".",
-            "@type": [
-              "https://kgrid.org/specs/activationSpec.html#object",
-              "Python"
-            ]
-          }
-        ]
+        "implementedBy": {
+          "@id": ".",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
       },
       {
         "@type": [
@@ -482,7 +808,20 @@
         ],
         "dependsOn": "knowledge",
         "implementedBy": {
-          "@id": "abdominal_aortic_aneurysm_screening/cli_service",
+          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "knowledge",
+        "implementedBy": {
+          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
           "@type": [
             "Python"
           ]
@@ -494,10 +833,52 @@
         "@id": "knowledge",
         "@type": "Knowledge",
         "implementedBy": {
-          "@id": "abdominal_aortic_aneurysm_screening/knowledge.py",
+          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
           "@type": "Function"
         },
-        "hasTest": "tests/test_knowledge.py"
+        "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+        "dc:format": "text/html",
+        "dc:date": "2019-12-10",
+        "schema:creator": {
+          "@type": "Organization",
+          "schema:name": "U.S. Preventive Services Task Force"
+        },
+        "koio:hasTest": [
+          {
+            "@id": "tests/test_knowledge.py",
+            "dc:title": "Knowledge test",
+            "@type": "koio:Test",
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          },
+          {
+            "@id": "tests/test_resources.py",
+            "@type": "koio:Test",
+            "dc:title": "Implementation tests",
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          }
+        ],
+        "koio:hasDocumentation": [
+          {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+            "@type": "koio:Documentation",
+            "dc:title": "Abdominal Aortic Aneurysm: Screening",
+            "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
+          }
+        ]
+      }
+    ],
+    "koio:hasDocumentation": [
+      {
+        "@id": "https://colab.research.google.com/drive/1bTMBU_naqDB6jVfQ6g00C8E4WUnwTNB0?usp=sharing",
+        "@type": "koio:Documentation",
+        "dc:title": "Using the Prediabetes and Type 2 Diabetes Screening Knowledge Object: A Step-by-Step Tutorial",
+        "dc:description": "This Google Colab tutorial demonstrates three different ways to use the diabetes-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+      },
+      {
+        "@id": "README.md",
+        "@type": "koio:Documentation",
+        "dc:title": "README.md",
+        "dc:description": "read me file."
       }
     ],
     "status": "loaded",

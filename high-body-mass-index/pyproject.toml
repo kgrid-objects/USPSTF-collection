@@ -1,16 +1,22 @@
 [tool.poetry]
 name = "high-body-mass-index"
-version = "0.1.0"
+version = "1.8"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
+packages = [
+    { include = "high_body_mass_index" },
+    { include = "metadata.json", from = ".", to = "high_body_mass_index" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
+kgrid-sdk = {version = "^1.1", extras = ["api"]}
 
 [tool.poetry.scripts]
-high-body-mass-index = "high_body_mass_index.cli_service.cli_service:main"
+high-body-mass-index = "high_body_mass_index.high_body_mass_index:cli"
 
 [build-system]
 requires = ["poetry-core"]

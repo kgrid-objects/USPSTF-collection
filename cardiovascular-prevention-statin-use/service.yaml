@@ -26,7 +26,7 @@ tags:
   - name: KO Endpoints
     description: statin use calculation Endpoints    
 paths:
-  /StatinUse:
+  /check-inclusion:
     post:
       summary: Calculate statin use inclusion.
       description: Calculates statin use inclusion.

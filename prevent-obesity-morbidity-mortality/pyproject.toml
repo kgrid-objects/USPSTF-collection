@@ -1,16 +1,22 @@
 [tool.poetry]
 name = "prevent-obesity-morbidity-mortality"
-version = "0.1.0"
+version = "1.9"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"
 
+packages = [
+    { include = "prevent_obesity_morbidity_mortality" },
+    { include = "metadata.json", from = ".", to = "prevent_obesity_morbidity_mortality" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
+kgrid-sdk = "^1.1"
 
 [tool.poetry.scripts]
-prevent-obesity-morbidity-mortality = "prevent_obesity_morbidity_mortality.cli_service.cli_service:main"
+prevent-obesity-morbidity-mortality = "prevent_obesity_morbidity_mortality.prevent_obesity_morbidity_mortality:cli"
 
 [build-system]
 requires = ["poetry-core"]

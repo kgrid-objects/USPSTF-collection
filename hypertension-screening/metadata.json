@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Hypertension in Adults: Screening",
   "dc:identifier": "ark:HypertensionScreening",
-  "version": "v1.0",
+  "dc:version": "v1.9",
+  "dc:date": "2024-12-12",
   "dc:description": "Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "hypertension",
     "USPSTF",
@@ -20,15 +30,13 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": ".",
+        "@type": [
+          "https://kgrid.org/specs/activationSpec.html#object",
+          "Python"
+        ]
+      }
     },
     {
       "@type": [
@@ -37,7 +45,20 @@
       ],
       "dependsOn": "knowledge",
       "implementedBy": {
-        "@id": "hypertension_screening/cli_service",
+        "@id": "hypertension_screening/hypertension_screening.py",
+        "@type": [
+          "Python"
+        ]
+      }
+    },
+    {
+      "@type": [
+        "Service",
+        "API"
+      ],
+      "dependsOn": "knowledge",
+      "implementedBy": {
+        "@id": "hypertension_screening/hypertension_screening.py",
         "@type": [
           "Python"
         ]
@@ -49,10 +70,50 @@
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "hypertension_screening/knowledge.py",
+        "@id": "hypertension_screening/hypertension_screening.py",
         "@type": "Function"
       },
-      "hasTest": "tests/test_knowledge.py"
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "dc:format": "text/html",
+      "dc:date": "2021-04-27",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
+      },
+      "koio:hasTest": [
+        {
+          "@id": "tests/test_knowledge.py",
+          "dc:title": "Knowledge tests",
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+        },
+        {
+          "@id": "tests/test_resources.py",
+          "dc:title": "Implementation tests",
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+        }
+      ],
+      "koio:hasDocumentation": [
+        {
+          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+          "@type": "koio:documentation",
+          "dc:title": "Abdominal Aortic Aneurysm: Screening",
+          "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
+        }
+      ]
+    }
+  ],
+  "koio:hasDocumentation": [
+    {
+      "@id": "https://colab.research.google.com/drive/1AwtrDyglFMcCE60sDDOd1FvfOCI_fhQB?usp=sharing",
+      "@type": "koio:documentation",
+      "dc:title": "Using the Hypertension Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
+      "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using a standalone API</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+    },
+    {
+      "@id": "README.md",
+      "@type": "koio:documentation",
+      "dc:title": "README.md",
+      "dc:description": "read me file."
     }
   ]
 }

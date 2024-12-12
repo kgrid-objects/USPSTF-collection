@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
   "dc:identifier": "ark:PreventObesityMorbidityMortality",
-  "version": "v1.0",
+  "dc:version": "v1.9",
+  "dc:date": "2024-12-12",
   "dc:description": "Adults with a BMI ≥30:\nThe USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.\nGrade: B",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "Weight Loss",
     "Obesity",
@@ -17,46 +27,45 @@
     "USPSTF",
     "Counseling"
   ],
-  "koio:hasService": [
-    {
-      "@type": [
-        "Service",
-        "API"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
-    },
-    {
-      "@type": [
-        "Service",
-        "CLI"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": {
-        "@id": "prevent_obesity_morbidity_mortality/cli_service",
-        "@type": [
-          "Python"
-        ]
-      }
-    }
+  "koio:hasService": [    
   ],
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
       "@type": "Knowledge",
       "implementedBy": {
-        "@id": "prevent_obesity_morbidity_mortality/knowledge.py",
+        "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
         "@type": "Function"
       },
-      "hasTest": "tests/test_knowledge.py"
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
+      "dc:format": "text/html",
+      "dc:date": "2018-09-18",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
+      },
+      "koio:hasTest": [
+        {
+          "@id": "tests/test_knowledge.py",
+          "dc:title": "Knowledge test",
+          "@type": "koio:Test",
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+        },
+        {
+          "@id": "tests/test_resources.py",
+          "@type": "koio:Test",
+          "dc:title": "Implementation tests",
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+        }
+      ],
+      "koio:hasDocumentation": [
+        {
+          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
+          "@type": "koio:Documentation",
+          "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
+          "dc:description": "This is the USPSTF documentation webpage for Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults Behavioral Interventions recommendation."
+        }
+      ]
     }
   ]
 }
