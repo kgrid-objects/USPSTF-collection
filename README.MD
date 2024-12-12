@@ -66,6 +66,12 @@ flask run
 Then, access the demo app at http://127.0.0.1:5000 in your browser.
 
 ## How to use these knowledge objects
+### Knowledge object information page
+To open knowledge object information page, open a knowledge object directory (we recommend using microsoft teams). Then run a localvirtual server using
+```bash
+python -m http.server 8001
+```
+and the access http://localhost:8001/ in your browser.
 
 ### Using [python activator](https://github.com/kgrid/python-activator)
 Install the python activator. Run and point it to the manifest file in this repo:

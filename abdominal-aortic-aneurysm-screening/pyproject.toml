@@ -12,7 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest = "^8.3.3"
-kgrid-sdk = "^1"
+kgrid-sdk = {version = "^1", extras = ["api"]}
 
 [tool.poetry.scripts]
 abdominal-aortic-aneurysm-screening = "abdominal_aortic_aneurysm_screening.abdominal_aortic_aneurysm_screening:cli"

@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
   "dc:identifier": "ark:HBMI",
-  "version": "v1.6",
+  "dc:version": "v1.7",
+  "dc:date": "2024-12-12",
   "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "High bmi",
     "Interventions",
@@ -21,15 +31,13 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": ".",
+        "@type": [
+          "https://kgrid.org/specs/activationSpec.html#object",
+          "Python"
+        ]
+      }
     },
     {
       "@type": [
@@ -50,14 +58,12 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": "high_body_mass_index/high_body_mass_index.py",
-          "@type": [
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": "high_body_mass_index/high_body_mass_index.py",
+        "@type": [
+          "Python"
+        ]
+      }
     }
   ],
   "koio:hasKnowledge": [
@@ -67,6 +73,13 @@
       "implementedBy": {
         "@id": "high_body_mass_index/high_body_mass_index.py",
         "@type": "Function"
+      },
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
+      "dc:format": "text/html",
+      "dc:date": "2024-06-18",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
         {

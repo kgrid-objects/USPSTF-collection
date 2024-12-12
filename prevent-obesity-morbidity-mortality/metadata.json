@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
   "dc:identifier": "ark:PreventObesityMorbidityMortality",
-  "version": "v1.7",
+  "dc:version": "v1.8",
+  "dc:date": "2024-12-12",
   "dc:description": "Adults with a BMI ≥30:\nThe USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.\nGrade: B",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "Weight Loss",
     "Obesity",
@@ -26,6 +36,13 @@
       "implementedBy": {
         "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
         "@type": "Function"
+      },
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
+      "dc:format": "text/html",
+      "dc:date": "2018-09-18",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
         {

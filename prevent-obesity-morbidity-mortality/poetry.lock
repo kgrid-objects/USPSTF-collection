@@ -38,13 +38,13 @@ files = [
 
 [[package]]
 name = "kgrid-sdk"
-version = "0.0.5"
+version = "1.0.0"
 description = "SDK for KGrid 2.0 Knowledge objects"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "kgrid_sdk-0.0.5-py3-none-any.whl", hash = "sha256:c9d4eacea7d52606e64834b9caaad39f8a3834f663fdbbec19c30bfd781d6870"},
-    {file = "kgrid_sdk-0.0.5.tar.gz", hash = "sha256:e1498aa6ab8d3d7410a06f2ce1b51921af113fa2e93206197aff818e0c8a8cd2"},
+    {file = "kgrid_sdk-1.0.0-py3-none-any.whl", hash = "sha256:4bbd5907d00f4d5f6a11a8defed1bb885a381768a8f7d65135badda8391b9ae7"},
+    {file = "kgrid_sdk-1.0.0.tar.gz", hash = "sha256:78922853f5fea13e3678a61f803a51b543da137795cc66e5df1ae3c3ef1a320d"},
 ]
 
 [package.extras]
@@ -142,4 +142,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "2e4fb032e7888c78e212ee1c8afc877cc692d59446a69835bf4ebeefd7977f5f"
+content-hash = "3e9fe4f27b9efc70847c9409e11182d931228d1829b281c4df3f96b010f4d1f9"

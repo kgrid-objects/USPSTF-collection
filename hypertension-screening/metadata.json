@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Hypertension in Adults: Screening",
   "dc:identifier": "ark:HypertensionScreening",
-  "version": "v1.7",
+  "dc:version": "v1.8",
+  "dc:date": "2024-12-12",
   "dc:description": "Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "hypertension",
     "USPSTF",
@@ -20,15 +30,13 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": ".",
+        "@type": [
+          "https://kgrid.org/specs/activationSpec.html#object",
+          "Python"
+        ]
+      }
     },
     {
       "@type": [
@@ -49,14 +57,12 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": "hypertension_screening/hypertension_screening.py",
-          "@type": [
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": "hypertension_screening/hypertension_screening.py",
+        "@type": [
+          "Python"
+        ]
+      }
     }
   ],
   "koio:hasKnowledge": [
@@ -66,6 +72,13 @@
       "implementedBy": {
         "@id": "hypertension_screening/hypertension_screening.py",
         "@type": "Function"
+      },
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "dc:format": "text/html",
+      "dc:date": "2021-04-27",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
         {
@@ -78,7 +91,6 @@
           "dc:title": "Implementation tests",
           "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
         }
-
       ],
       "koio:hasDocumentation": [
         {

@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Prediabetes and Type 2 Diabetes: Screening",
   "dc:identifier": "ark:DiabetesScreening",
-  "version": "v1.6",
+  "dc:version": "v1.7",
+  "dc:date": "2024-12-12",
   "dc:description": "Adults aged 35 to 70 years who have overweight or obesity:\n The USPSTF recommends screening for prediabetes and type 2 diabetes.  Clinicians should offer or refer patients with prediabetes to effective preventive interventions.\nGrade: B",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "Type 2 Diabetes",
     "Prediabetes",
@@ -21,15 +31,13 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": ".",
+        "@type": [
+          "https://kgrid.org/specs/activationSpec.html#object",
+          "Python"
+        ]
+      }
     },
     {
       "@type": [
@@ -50,14 +58,12 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": "diabetes_screening/diabetes_screening.py",
-          "@type": [
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": "diabetes_screening/diabetes_screening.py",
+        "@type": [
+          "Python"
+        ]
+      }
     }
   ],
   "koio:hasKnowledge": [
@@ -67,6 +73,13 @@
       "implementedBy": {
         "@id": "diabetes_screening/diabetes_screening.py",
         "@type": "Function"
+      },
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
+      "dc:format": "text/html",
+      "dc:date": "2021-08-24",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
         {
