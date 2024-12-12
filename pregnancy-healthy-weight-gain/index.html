@@ -3,61 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computable Artifact Metadata</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            color: #333;
-        }
-        .metadata {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .metadata p {
-            margin: 5px 0;
-        }
-        .colab-button {
-            position: fixed; /* Stay fixed on screen */
-            top: 20px; /* Distance from top */
-            right: 20px; /* Distance from right */
-            background-color: #f9b233;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .colab-button:hover {
-            background-color: #f79a00; /* Change color on hover */
-        }
-    </style>
+    <title>Computable Artifact Metadata</title>   
 </head>
 <body>
-    <div class="container">
-        
-        <div class="metadata" id="metadata">
-            <!-- Metadata will be loaded here dynamically -->
-        </div>
-        <!-- <a class="colab-button" href="https://colab.research.google.com/drive/1N2R8xdQfKSbWHkthCU5V2Fdm68cOVL6X#scrollTo=LmdWDjK_d2Uq" target="_blank">Open in Google Colab</a> -->
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/jsonld@1.5.0/dist/jsonld.min.js"></script>
     <script>
-        // Fetch metadata from JSON file and display it on the page
-        //fetch('https://raw.githubusercontent.com/kgrid-lab/nephroticsyndrome-computablephenotype/refs/heads/main/metadata.json')
-        //in development environment the fetch only works with remote locations. Use a virtual server like i.e. `python -m http.server 8001`
         fetch('metadata.json')
         .then(response => response.json())
         .then(async (metadata) => {
