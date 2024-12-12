@@ -1,10 +1,5 @@
 {
-  "@context": [
-    "https://kgrid.org/koio/2.0/context",
-    {
-      "spdx": "https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/"
-    }
-  ],
+  "@context": "https://kgrid.org/koio/2.0/context",
   "@id": "cardiovascular-prevention-diet-activity",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
