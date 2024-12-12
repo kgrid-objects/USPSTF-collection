@@ -1,12 +1,12 @@
 
 from diabetes_screening import diabetes_screening
 from diabetes_screening import apply
-version = "v1.7"
+version = "v1.8"
 def test_get_version():  
     assert version == diabetes_screening.get_version()
     
 def test_metadata():
-    assert version == diabetes_screening.get_metadata().get('version', 'Unknown version')
+    assert version == diabetes_screening.get_metadata().get('dc:version', 'Unknown version')
 
 
 def test_execute():

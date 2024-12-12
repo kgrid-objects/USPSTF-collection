@@ -1,12 +1,12 @@
 
 from cardiovascular_prevention_statin_use import cardiovascular_prevention_statin_use
 from cardiovascular_prevention_statin_use import apply
-version = "v1.7"
+version = "v1.8"
 def test_get_version():  
     assert version == cardiovascular_prevention_statin_use.get_version()
     
 def test_metadata():
-    assert version == cardiovascular_prevention_statin_use.get_metadata().get('version', 'Unknown version')
+    assert version == cardiovascular_prevention_statin_use.get_metadata().get('dc:version', 'Unknown version')
 
 
 def test_execute():

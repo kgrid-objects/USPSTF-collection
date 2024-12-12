@@ -1,12 +1,12 @@
 
 from high_body_mass_index import high_body_mass_index
 from high_body_mass_index import apply
-version = "v1.7"
+version = "v1.8"
 def test_get_version():  
     assert version == high_body_mass_index.get_version()
     
 def test_metadata():
-    assert version == high_body_mass_index.get_metadata().get('version', 'Unknown version')
+    assert version == high_body_mass_index.get_metadata().get('dc:version', 'Unknown version')
 
 
 def test_execute():
