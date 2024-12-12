@@ -144,7 +144,7 @@
                 <br/>
 
                 <h2>Creator Information</h2>
-                <p><strong>Name:</strong> ${metadata["schema:creator"]?.['schema:givenName']?? "undefined"} ${metadata["schema:creator"]?.['schema:familyName']?? "undefined"}</p>
+                <p><strong>Name:</strong> ${metadata["schema:creator"]?.["schema:givenName"] ?? metadata["schema:creator"]?.["schema:name"] ?? "undefined"} ${metadata["schema:creator"]?.['schema:familyName']?? ""}</p>
                 <p><strong>Affiliation:</strong> ${metadata["schema:creator"]?.['schema:affiliation']?? "undefined"}</p>
                 <p><strong>Email:</strong> <a href="mailto:${metadata["schema:creator"]?.['schema:email']?? "undefined"}">${metadata["schema:creator"]?.['schema:email']?? "undefined"}</a></p>
                 <p><strong>ORCID:</strong> <a href="${metadata["schema:creator"]?.['@id']?? "undefined"}" target="_blank">${metadata["schema:creator"]?.['@id']?? "undefined"}</a></p>
@@ -190,10 +190,10 @@
                     <p><strong>Format:</strong> ${knowledge["dc:format"]}</p>
                     <p><strong>Date:</strong> ${knowledge["dc:date"]}</p>
                     <h3>Creator Information</h3>
-                    <p><strong>Name:</strong> ${knowledge["schema:creator"]?.['schema:givenName']?? "undefined"} ${knowledge["schema:creator"]?.['schema:familyName']?? "undefined"}</p>
-                    <p><strong>Affiliation:</strong> ${knowledge["schema:creator"]?.['schema:affiliation']?? "undefined"}</p>
-                    <p><strong>Email:</strong> <a href="mailto:${knowledge["schema:creator"]?.['schema:email']?? "undefined"}">${knowledge["schema:creator"]?.['schema:email']?? "undefined"}</a></p>
-                    <p><strong>ORCID:</strong> <a href="${knowledge["schema:creator"]?.['@id']?? "undefined"}" target="_blank">${knowledge["schema:creator"]?.['@id']?? "undefined"}</a></p>
+                    <p><strong>Name:</strong>  ${knowledge["schema:creator"]?.["schema:givenName"] ?? knowledge["schema:creator"]?.["schema:name"] ?? "undefined"} ${knowledge["schema:creator"]?.['schema:familyName']?? ""}</p>
+                    ${knowledge["schema:creator"]?.["schema:affiliation"] ? `<p><strong>Affiliation:</strong> ${knowledge["schema:creator"]["schema:affiliation"]}</p>` : ""}
+                    ${knowledge["schema:creator"]?.["schema:email"] ? `<p><strong>Email:</strong> <a href='mailto:${knowledge["schema:creator"]["schema:email"]}'>${knowledge["schema:creator"]["schema:email"]}</a></p>` : ""}
+                    ${knowledge["schema:creator"]?.["@id"] ? `<p><strong>ORCID:</strong> <a href="${knowledge["schema:creator"]?.["@id"]}" target="_blank">${knowledge["schema:creator"]?.["@id"]}</a></p>` : ""}
 
                     <br/>
                 `;

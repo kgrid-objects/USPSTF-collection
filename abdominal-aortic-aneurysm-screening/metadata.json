@@ -5,9 +5,19 @@
   "@type": "koio:KnowledgeObject",
   "dc:title": "Abdominal Aortic Aneurysm: Screening",
   "dc:identifier": "ark:AbdominalAorticAneurysmScreening",
-  "version": "v1.5",
+  "dc:version": "v1.6",
+  "dc:date": "2024-12-12",
   "dc:description": "The USPSTF recommends that:\nFor men aged 65 to 75 years who have ever smoked:\nPerform 1-time screening for abdominal aortic aneurysm (AAA) with ultrasonography in men who have a history of smoking.\nGrade B\n\nFor men aged 65 to 75 years who have never smoked:\nSelectively offer screening to men who do not have a history of smoking, rather than routinely screening all men in this group\nGrade C\n\nFor women who have never smoked and have no family history of AAA:\nDo not screen women who have never smoked and do not have a family history of AAA.\nGrade D\n\nFor women aged 65 to 75 years who have ever smoked or have a family history of AAA:\nEvidence is insufficient to assess the balance of benefits and harms of screening for AAA with ultrasonography in women aged 65 to 75 years who have ever smoked or have a family history of AAA.\nGrade I",
-  "koio:contributors": "Kgrid Team",
+  "schema:creator": {
+    "@id": "https://kgrid.org",
+    "@type": "team",
+    "schema:givenName": "Knowledge Systems Lab",
+    "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+    "schema:email": "kgrid-developers@umich.edu"
+  },
+  "dc:publisher": "Knowledge Systems Lab",
+  "dc:type": "software",
+  "dc:license": "license.md",
   "koio:keywords": [
     "Abdominal Aortic Aneurysm",
     "USPSTF",
@@ -47,14 +57,12 @@
         "API"
       ],
       "dependsOn": "knowledge",
-      "implementedBy": [
-        {
-          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
-          "@type": [
-            "Python"
-          ]
-        }
-      ]
+      "implementedBy": {
+        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
+        "@type": [
+          "Python"
+        ]
+      }
     }
   ],
   "koio:hasKnowledge": [
@@ -64,6 +72,13 @@
       "implementedBy": {
         "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
         "@type": "Function"
+      },
+      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+      "dc:format": "text/html",
+      "dc:date": "2019-12-10",
+      "schema:creator": {
+        "@type": "Organization",
+        "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
         {
