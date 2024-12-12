@@ -2,21 +2,21 @@
 
 [[package]]
 name = "abdominal-aortic-aneurysm-screening"
-version = "1.5"
+version = "1.6"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "abdominal_aortic_aneurysm_screening-1.5-py3-none-any.whl", hash = "sha256:878697a0a996787573696e8614cf752313cd91d7f40dc588bfe11a5e7baf12bc"},
+    {file = "abdominal_aortic_aneurysm_screening-1.6-py3-none-any.whl", hash = "sha256:62fde024bac78e5a4fd68e6de20a4bbc8bab72dadefd6751ea8cce3b47358163"},
 ]
 
 [package.dependencies]
-kgrid-sdk = {version = ">=0.0.5,<0.0.6", extras = ["api"]}
+kgrid-sdk = {version = ">=1,<2", extras = ["api"]}
 pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.5-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.6-py3-none-any.whl"
 
 [[package]]
 name = "annotated-types"
@@ -63,39 +63,39 @@ files = [
 
 [[package]]
 name = "cardiovascular-prevention-diet-activity"
-version = "1.6"
+version = "1.7"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "cardiovascular_prevention_diet_activity-1.6-py3-none-any.whl", hash = "sha256:ca106e6ae1f328eb4979f34827ae62f57af41edc5a1c3be0e6cf212a7fe3e9de"},
+    {file = "cardiovascular_prevention_diet_activity-1.7-py3-none-any.whl", hash = "sha256:e2514ba377dbe2755986771de960a524f6595969ba7cbb526e73ca23658bfe6f"},
 ]
 
 [package.dependencies]
-kgrid-sdk = {version = ">=0.0.5,<0.0.6", extras = ["api"]}
+kgrid-sdk = {version = ">=1,<2", extras = ["api"]}
 pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.6-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.7-py3-none-any.whl"
 
 [[package]]
 name = "cardiovascular-prevention-statin-use"
-version = "1.6"
+version = "1.7"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "cardiovascular_prevention_statin_use-1.6-py3-none-any.whl", hash = "sha256:e572e0ef52dab94b4c649ad6dfb4d30527667319df04ad8d45f9c4d2815636b6"},
+    {file = "cardiovascular_prevention_statin_use-1.7-py3-none-any.whl", hash = "sha256:1a008a83e7c7b260b69c9ba71ded7743ea8ebc8ab18861b5c8cb7ce5dac6087a"},
 ]
 
 [package.dependencies]
-kgrid-sdk = {version = ">=0.0.5,<0.0.6", extras = ["api"]}
+kgrid-sdk = {version = ">=1,<2", extras = ["api"]}
 pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.6-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.7-py3-none-any.whl"
 
 [[package]]
 name = "click"
@@ -124,21 +124,21 @@ files = [
 
 [[package]]
 name = "diabetes-screening"
-version = "1.6"
+version = "1.7"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "diabetes_screening-1.6-py3-none-any.whl", hash = "sha256:d521adb54779dce50dd328c8a0a196cdd3544d5dfd8885416f5452f8c3451e1e"},
+    {file = "diabetes_screening-1.7-py3-none-any.whl", hash = "sha256:77d5f9517e0b5eb83b12645b6d57d86f9661c63780e7ba12fa20d702d8287b9f"},
 ]
 
 [package.dependencies]
-kgrid-sdk = {version = ">=0.0.5,<0.0.6", extras = ["api"]}
+kgrid-sdk = {version = ">=1,<2", extras = ["api"]}
 pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.6-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.7-py3-none-any.whl"
 
 [[package]]
 name = "fastapi"
@@ -184,39 +184,39 @@ dotenv = ["python-dotenv"]
 
 [[package]]
 name = "high-body-mass-index"
-version = "1.6"
-description = ""
-optional = false
-python-versions = ">=3.10,<4.0"
-files = [
-    {file = "high_body_mass_index-1.6-py3-none-any.whl", hash = "sha256:c888ba48e4637713cd8af54c5de7023278fe20788b4ba688ee9cb7fa6dc527e1"},
-]
-
-[package.dependencies]
-kgrid-sdk = {version = ">=0.0.5,<0.0.6", extras = ["api"]}
-pytest = ">=8.3.3,<9.0.0"
-
-[package.source]
-type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.6-py3-none-any.whl"
-
-[[package]]
-name = "hypertension-screening"
 version = "1.7"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "hypertension_screening-1.7-py3-none-any.whl", hash = "sha256:2894a47ac0fcaa57ce1365cc5a03039aa0aa9676c705fa755ab24159608dc56e"},
+    {file = "high_body_mass_index-1.7-py3-none-any.whl", hash = "sha256:323086dba3ca0be568dc10a7d06e411422b9b981b4db88ab7cbba899c97958e5"},
 ]
 
 [package.dependencies]
-kgrid-sdk = {version = ">=0.0.5,<0.0.6", extras = ["api"]}
+kgrid-sdk = {version = ">=1,<2", extras = ["api"]}
 pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.7-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.7-py3-none-any.whl"
+
+[[package]]
+name = "hypertension-screening"
+version = "1.8"
+description = ""
+optional = false
+python-versions = ">=3.10,<4.0"
+files = [
+    {file = "hypertension_screening-1.8-py3-none-any.whl", hash = "sha256:87f8a6ed3e42cd5e2be85a383e5e5f4e9f77b494805d312cc5529109eec81cde"},
+]
+
+[package.dependencies]
+kgrid-sdk = {version = ">=1,<2", extras = ["api"]}
+pytest = ">=8.3.3,<9.0.0"
+
+[package.source]
+type = "url"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.8-py3-none-any.whl"
 
 [[package]]
 name = "idna"
@@ -273,13 +273,13 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kgrid-sdk"
-version = "0.0.5"
+version = "1.0.0"
 description = "SDK for KGrid 2.0 Knowledge objects"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "kgrid_sdk-0.0.5-py3-none-any.whl", hash = "sha256:c9d4eacea7d52606e64834b9caaad39f8a3834f663fdbbec19c30bfd781d6870"},
-    {file = "kgrid_sdk-0.0.5.tar.gz", hash = "sha256:e1498aa6ab8d3d7410a06f2ce1b51921af113fa2e93206197aff818e0c8a8cd2"},
+    {file = "kgrid_sdk-1.0.0-py3-none-any.whl", hash = "sha256:4bbd5907d00f4d5f6a11a8defed1bb885a381768a8f7d65135badda8391b9ae7"},
+    {file = "kgrid_sdk-1.0.0.tar.gz", hash = "sha256:78922853f5fea13e3678a61f803a51b543da137795cc66e5df1ae3c3ef1a320d"},
 ]
 
 [package.dependencies]
@@ -386,39 +386,39 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pregnancy-healthy-weight-gain"
-version = "1.6"
-description = ""
-optional = false
-python-versions = ">=3.10,<4.0"
-files = [
-    {file = "pregnancy_healthy_weight_gain-1.6-py3-none-any.whl", hash = "sha256:e14fc97d9fb652ff23a8987d85de7bdc047540c9543da7a87a35c2b42aeddbe7"},
-]
-
-[package.dependencies]
-kgrid-sdk = ">=0.0.5,<0.0.6"
-pytest = ">=8.3.3,<9.0.0"
-
-[package.source]
-type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/pregnancy-healthy-weight-gain/dist/pregnancy_healthy_weight_gain-1.6-py3-none-any.whl"
-
-[[package]]
-name = "prevent-obesity-morbidity-mortality"
 version = "1.7"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "prevent_obesity_morbidity_mortality-1.7-py3-none-any.whl", hash = "sha256:09570b96b152f43acf3a3e3e0967a49ebf1655b92e01d772358067c8097e60f7"},
+    {file = "pregnancy_healthy_weight_gain-1.7-py3-none-any.whl", hash = "sha256:487a60bfc3f87724df5508a3b2ac13f810a6d709f9e6e9eebf31abf0b7b085ad"},
 ]
 
 [package.dependencies]
-kgrid-sdk = ">=0.0.5,<0.0.6"
+kgrid-sdk = ">=1,<2"
 pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/prevent-obesity-morbidity-mortality/dist/prevent_obesity_morbidity_mortality-1.7-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/pregnancy-healthy-weight-gain/dist/pregnancy_healthy_weight_gain-1.7-py3-none-any.whl"
+
+[[package]]
+name = "prevent-obesity-morbidity-mortality"
+version = "1.8"
+description = ""
+optional = false
+python-versions = ">=3.10,<4.0"
+files = [
+    {file = "prevent_obesity_morbidity_mortality-1.8-py3-none-any.whl", hash = "sha256:db1fe5d59b1cb2f67028ca7a675efd7c1e50cf8add612b94b637d328f14cd491"},
+]
+
+[package.dependencies]
+kgrid-sdk = ">=1,<2"
+pytest = ">=8.3.3,<9.0.0"
+
+[package.source]
+type = "url"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/prevent-obesity-morbidity-mortality/dist/prevent_obesity_morbidity_mortality-1.8-py3-none-any.whl"
 
 [[package]]
 name = "pydantic"
@@ -613,26 +613,26 @@ files = [
 
 [[package]]
 name = "uspstf-knowledgebase"
-version = "0.1.7"
+version = "0.1.8"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "uspstf_knowledgebase-0.1.7-py3-none-any.whl", hash = "sha256:b4a5001156a6c55fa1a7bd87281933414ad71b69f467b7b4d178f5f3c1e570fa"},
+    {file = "uspstf_knowledgebase-0.1.8-py3-none-any.whl", hash = "sha256:1f8531a23162b3e90251aec648067cc45d826c72ac885c36c05fca4b12bdd6e0"},
 ]
 
 [package.dependencies]
-abdominal_aortic_aneurysm_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.5-py3-none-any.whl"}
-cardiovascular_prevention_diet_activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.6-py3-none-any.whl"}
-cardiovascular_prevention_statin_use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.6-py3-none-any.whl"}
-diabetes_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.6-py3-none-any.whl"}
-high_body_mass_index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.6-py3-none-any.whl"}
-hypertension_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.7-py3-none-any.whl"}
-kgrid-sdk = ">=0.0.5,<0.0.6"
+abdominal_aortic_aneurysm_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.6-py3-none-any.whl"}
+cardiovascular_prevention_diet_activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.7-py3-none-any.whl"}
+cardiovascular_prevention_statin_use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.7-py3-none-any.whl"}
+diabetes_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.7-py3-none-any.whl"}
+high_body_mass_index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.7-py3-none-any.whl"}
+hypertension_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.8-py3-none-any.whl"}
+kgrid-sdk = ">=1,<2"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid/python-sdk/releases/download/1.0/uspstf_knowledgebase-0.1.7-py3-none-any.whl"
+url = "https://github.com/kgrid/python-sdk/releases/download/1.0/uspstf_knowledgebase-0.1.8-py3-none-any.whl"
 
 [[package]]
 name = "werkzeug"
@@ -654,4 +654,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8d983935f32b1f5d09d70f388fcf82724ccfe872e273e11c6e1a589f2cdea05a"
+content-hash = "4e4c0c6608f16175d2fa55d20d6fd32d5b9fcc942bbe3d2aae1cd178b6f1d39b"

@@ -106,9 +106,9 @@
   ],
   "koio:hasDocumentation": [
     {
-      "@id": "https://colab.research.google.com/drive/1bTMBU_naqDB6jVfQ6g00C8E4WUnwTNB0?usp=sharing",
+      "@id": "https://colab.research.google.com/drive/1Ua3Kkc9HeeH1UbTQ6ab1GZ_sMIkdk8_f?usp=sharing",
       "@type": "koio:Documentation",
-      "dc:title": "Using the Prediabetes and Type 2 Diabetes Screening Knowledge Object: A Step-by-Step Tutorial",
+      "dc:title": "Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial",
       "dc:description": "This Google Colab tutorial demonstrates three different ways to use the diabetes-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
     },
     {
