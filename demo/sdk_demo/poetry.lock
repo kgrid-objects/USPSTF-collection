@@ -16,7 +16,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.7-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.7-py3-none-any.whl"
 
 [[package]]
 name = "annotated-types"
@@ -77,7 +77,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.8-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.8-py3-none-any.whl"
 
 [[package]]
 name = "cardiovascular-prevention-statin-use"
@@ -95,7 +95,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.8-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.8-py3-none-any.whl"
 
 [[package]]
 name = "click"
@@ -138,7 +138,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.8-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/diabetes-screening/dist/diabetes_screening-1.8-py3-none-any.whl"
 
 [[package]]
 name = "fastapi"
@@ -198,7 +198,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.8-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/high-body-mass-index/dist/high_body_mass_index-1.8-py3-none-any.whl"
 
 [[package]]
 name = "hypertension-screening"
@@ -216,7 +216,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.9-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/hypertension-screening/dist/hypertension_screening-1.9-py3-none-any.whl"
 
 [[package]]
 name = "idna"
@@ -400,7 +400,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/pregnancy-healthy-weight-gain/dist/pregnancy_healthy_weight_gain-1.8-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/pregnancy-healthy-weight-gain/dist/pregnancy_healthy_weight_gain-1.8-py3-none-any.whl"
 
 [[package]]
 name = "prevent-obesity-morbidity-mortality"
@@ -418,7 +418,7 @@ pytest = ">=8.3.3,<9.0.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/prevent-obesity-morbidity-mortality/dist/prevent_obesity_morbidity_mortality-1.9-py3-none-any.whl"
+url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/prevent-obesity-morbidity-mortality/dist/prevent_obesity_morbidity_mortality-1.9-py3-none-any.whl"
 
 [[package]]
 name = "pydantic"
@@ -613,26 +613,26 @@ files = [
 
 [[package]]
 name = "uspstf-knowledgebase"
-version = "0.1.9"
+version = "0.1.10"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "uspstf_knowledgebase-0.1.9-py3-none-any.whl", hash = "sha256:45f5912cd75376433827912c610eeb1ccb77d849bc0e6c27ce12c356ce45f189"},
+    {file = "uspstf_knowledgebase-0.1.10-py3-none-any.whl", hash = "sha256:489061e750a4ed7476b734bcf215dd0ebd232cdbb1ab2c756ac0708368eaf713"},
 ]
 
 [package.dependencies]
-abdominal_aortic_aneurysm_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.7-py3-none-any.whl"}
-cardiovascular_prevention_diet_activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.8-py3-none-any.whl"}
-cardiovascular_prevention_statin_use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.8-py3-none-any.whl"}
-diabetes_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/diabetes-screening/dist/diabetes_screening-1.8-py3-none-any.whl"}
-high_body_mass_index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/high-body-mass-index/dist/high_body_mass_index-1.8-py3-none-any.whl"}
-hypertension_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/testSDK/hypertension-screening/dist/hypertension_screening-1.9-py3-none-any.whl"}
+abdominal_aortic_aneurysm_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.7-py3-none-any.whl"}
+cardiovascular_prevention_diet_activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.8-py3-none-any.whl"}
+cardiovascular_prevention_statin_use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.8-py3-none-any.whl"}
+diabetes_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/diabetes-screening/dist/diabetes_screening-1.8-py3-none-any.whl"}
+high_body_mass_index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/high-body-mass-index/dist/high_body_mass_index-1.8-py3-none-any.whl"}
+hypertension_screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/hypertension-screening/dist/hypertension_screening-1.9-py3-none-any.whl"}
 kgrid-sdk = ">=1.1,<2.0"
 
 [package.source]
 type = "url"
-url = "https://github.com/kgrid/python-sdk/releases/download/1.0/uspstf_knowledgebase-0.1.9-py3-none-any.whl"
+url = "https://github.com/kgrid/python-sdk/releases/download/1.0/uspstf_knowledgebase-0.1.10-py3-none-any.whl"
 
 [[package]]
 name = "werkzeug"
@@ -654,4 +654,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "46c5e800e5d0bafbe99617b01cc6ff4249c270be94febc243134b4b6df9c84ce"
+content-hash = "56b9db857bea52105b912a196cd2cb725c2aaf2593f4da175a8c1169deeaf3a7"
