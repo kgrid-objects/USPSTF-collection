@@ -120,8 +120,9 @@
             //const metadata = JSON.parse(localStorage.getItem('metadata'));
             const params = new URLSearchParams(window.location.search);
             const metadata = JSON.parse(decodeURIComponent(params.get('data')));
+            const baseIRI = JSON.parse(decodeURIComponent(params.get('base')));
             // Use jsonld.js to expand the metadata
-            const expanded = await jsonld.expand(metadata);
+            const expanded = await jsonld.expand(metadata, { base: baseIRI });
             console.log('Expanded Metadata:', expanded[0]);
             const metadataDiv = document.getElementById('metadata');
             const docSection = document.getElementById('doc-section');
@@ -206,7 +207,7 @@
             } else {
                 console.warn('The variable "services" is not an array or is undefined.');
             }
-                
+
             const documentations = findItem(metadata, 'koio:hasDocumentation');
             if (documentations && documentations.length > 0) {
                 let docHTML = `<h2>Documentation</h2>`;
