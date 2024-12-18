@@ -119,10 +119,10 @@
         (async () => {
             //const metadata = JSON.parse(localStorage.getItem('metadata'));
             const params = new URLSearchParams(window.location.search);
-            const metadata = JSON.parse(decodeURIComponent(params.get('data')));
+            const Originalmetadata = JSON.parse(decodeURIComponent(params.get('data')));
             const baseIRI = params.get('base')
             // Use jsonld.js to expand the metadata
-            const expanded = await jsonld.expand(metadata, { base: baseIRI });
+            const metadata = await jsonld.expand(Originalmetadata, { base: baseIRI });
             console.log('Expanded Metadata:', expanded[0]);
             const metadataDiv = document.getElementById('metadata');
             const docSection = document.getElementById('doc-section');
@@ -132,10 +132,10 @@
                 <h1>${metadata["dc:title"]}</h1> 
                 ${metadata["dc:description"].replace(/\n/g, "<br>") }<br/><br/>
 
-                <!-- <p><strong>Id:</strong> ${expanded[0]["@id"]}</p> -->
+                <!-- <p><strong>Id:</strong> ${metadata[0]["@id"]}</p> -->
                 <p><strong>Id:</strong> ${metadata["@id"]}</p>
                 <p><strong>Identifier:</strong>  ${metadata["dc:identifier"] }</p>
-                <p><strong>Type:</strong> <a href='${expanded[0]["@type"]}'> ${metadata["@type"] }</a></p>
+                <p><strong>Type:</strong> <a href='${metadata[0]["@type"]}'> ${metadata["@type"] }</a></p>
                 <p><strong>Version:</strong>  ${metadata["dc:version"] }</p>
                 <p><strong>Date:</strong>  ${metadata["dc:date"] }</p>
                 <p><strong>KGrid model version:</strong> ${metadata["koio:kgrid"]}</p>
