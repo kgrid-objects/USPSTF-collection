@@ -11,9 +11,12 @@
         .then(response => response.json())
         .then(async (metadata) => {
             // Save metadata to localStorage
-            localStorage.setItem('metadata', JSON.stringify(metadata));
+            //localStorage.setItem('metadata', JSON.stringify(metadata));
+            //alert(JSON.stringify(JSON.parse(localStorage.getItem('metadata'))));
             // Redirect to the target page
-            window.location.href = 'https://kgrid-objects.github.io/USPSTF-collection/KOInfoPage.html';
+            const metadataString = encodeURIComponent(JSON.stringify(metadata));
+            window.location.href = `https://kgrid-objects.github.io/USPSTF-collection/KOInfoPage.html?data=${metadataString}`;
+            //alert(JSON.stringify(metadata));
         })
         .catch(error => console.error('Error fetching metadata:', error));
     </script>

@@ -117,7 +117,9 @@
             return results;
         }
         (async () => {
-            const metadata = JSON.parse(localStorage.getItem('metadata'));
+            //const metadata = JSON.parse(localStorage.getItem('metadata'));
+            const params = new URLSearchParams(window.location.search);
+            const metadata = JSON.parse(decodeURIComponent(params.get('data')));
             // Use jsonld.js to expand the metadata
             const expanded = await jsonld.expand(metadata);
             console.log('Expanded Metadata:', expanded[0]);
