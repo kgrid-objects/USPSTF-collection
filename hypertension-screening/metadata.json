@@ -68,7 +68,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "hypertension_screening/hypertension_screening.py",
         "@type": "Function"

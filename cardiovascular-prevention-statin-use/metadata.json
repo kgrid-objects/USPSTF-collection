@@ -69,7 +69,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
         "@type": "Function"

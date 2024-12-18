@@ -30,7 +30,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "pregnancy_healthy_weight_gain/pregnancy_healthy_weight_gain.py",
         "@type": "Function"

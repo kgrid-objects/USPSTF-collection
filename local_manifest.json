@@ -70,7 +70,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
           "@type": "Function"
@@ -189,7 +189,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "diabetes_screening/diabetes_screening.py",
           "@type": "Function"
@@ -308,7 +308,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "high_body_mass_index/high_body_mass_index.py",
           "@type": "Function"
@@ -428,7 +428,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
           "@type": "Function"
@@ -552,7 +552,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "hypertension_screening/hypertension_screening.py",
           "@type": "Function"
@@ -637,7 +637,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
           "@type": "Function"
@@ -708,7 +708,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "pregnancy_healthy_weight_gain/pregnancy_healthy_weight_gain.py",
           "@type": "Function"
@@ -826,7 +826,7 @@
     "koio:hasKnowledge": [
       {
         "@id": "knowledge",
-        "@type": "Knowledge",
+        "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
           "@type": "Function"

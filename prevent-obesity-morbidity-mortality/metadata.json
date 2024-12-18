@@ -32,7 +32,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
         "@type": "Function"

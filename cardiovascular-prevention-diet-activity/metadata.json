@@ -70,7 +70,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
         "@type": "Function"

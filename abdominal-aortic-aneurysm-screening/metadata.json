@@ -68,7 +68,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
         "@type": "Function"

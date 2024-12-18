@@ -69,7 +69,7 @@
   "koio:hasKnowledge": [
     {
       "@id": "knowledge",
-      "@type": "Knowledge",
+      "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "high_body_mass_index/high_body_mass_index.py",
         "@type": "Function"
