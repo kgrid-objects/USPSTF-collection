@@ -122,8 +122,8 @@
             const Originalmetadata = JSON.parse(decodeURIComponent(params.get('data')));
             const baseIRI = params.get('base')
             // Use jsonld.js to expand the metadata
-            const metadata = await jsonld.expand(Originalmetadata, { base: baseIRI });
-            console.log('Expanded Metadata:', expanded[0]);
+            const metadata = await jsonld.expand(Originalmetadata, { base: baseIRI })[0];
+            console.log('Expanded Metadata:', metadata);
             const metadataDiv = document.getElementById('metadata');
             const docSection = document.getElementById('doc-section');
             const testSection = document.getElementById('test-section');
