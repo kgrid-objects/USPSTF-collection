@@ -119,12 +119,11 @@
         (async () => {
             //const metadata = JSON.parse(localStorage.getItem('metadata'));
             const params = new URLSearchParams(window.location.search);
-            const Originalmetadata = JSON.parse(decodeURIComponent(params.get('data')));
+            const metadata = JSON.parse(decodeURIComponent(params.get('data')));
             const baseIRI = params.get('base')
             // Use jsonld.js to expand the metadata
-            const exoandedMetadata = await jsonld.expand(Originalmetadata, { base: baseIRI });
-            metadata = exoandedMetadata[0]
-            console.log('Expanded Metadata:', metadata);
+            const expanded = await jsonld.expand(metadata, { base: baseIRI });
+            console.log('Expanded Metadata:', expanded[0]);
             const metadataDiv = document.getElementById('metadata');
             const docSection = document.getElementById('doc-section');
             const testSection = document.getElementById('test-section');
@@ -133,10 +132,10 @@
                 <h1>${metadata["dc:title"]}</h1> 
                 ${metadata["dc:description"].replace(/\n/g, "<br>") }<br/><br/>
 
-                <!-- <p><strong>Id:</strong> ${metadata[0]["@id"]}</p> -->
+                <!-- <p><strong>Id:</strong> ${expanded[0]["@id"]}</p> -->
                 <p><strong>Id:</strong> ${metadata["@id"]}</p>
                 <p><strong>Identifier:</strong>  ${metadata["dc:identifier"] }</p>
-                <p><strong>Type:</strong> <a href='${metadata[0]["@type"]}'> ${metadata["@type"] }</a></p>
+                <p><strong>Type:</strong> <a href='${expanded[0]["@type"]}'> ${metadata["@type"] }</a></p>
                 <p><strong>Version:</strong>  ${metadata["dc:version"] }</p>
                 <p><strong>Date:</strong>  ${metadata["dc:date"] }</p>
                 <p><strong>KGrid model version:</strong> ${metadata["koio:kgrid"]}</p>
@@ -167,17 +166,26 @@
             // Iterate over the services and add a section for each
             const services = metadata["koio:hasService"];
             if (Array.isArray(services)) {
-                services.forEach(service => {
-                    let serviceHTML = `
-                        <p><strong>Type:</strong> ${service["@type"].join(', ')}</p>
-                        <p><strong>Depends on:</strong><a href="#Knowledge"> ${service["dependsOn"]}</a></p>
-                        <p><strong>Implemented by:</strong> <a href="${service["implementedBy"]["@id"]}">${service["implementedBy"]["@id"]}</a> (type: ${service["implementedBy"]["@type"]})</p>
-                        <br/>
-                    `;
+                for (const service of services)  {   
 
-                    // Append the service section to the metadataDiv
-                    metadataDiv.innerHTML += serviceHTML;
-                });
+                    
+                    let serviceHTML ="";
+                    // Expand using jsonld.expand
+                        console.log(' Service:', service);
+                        const implementedByExpanded = await jsonld.expand(service["implementedBy"], { base: baseIRI });
+                        console.log('Expanded Service:', implementedByExpanded);
+                    
+                        serviceHTML = `
+                            <p><strong>Type:</strong> ${service["@type"].join(', ')}</p>
+                            <p><strong>Depends on:</strong><a href="#Knowledge"> ${service["dependsOn"]}</a></p>
+                            <p><strong>Implemented by:</strong> <a href="${implementedByExpanded[0]["@id"]}">${service["implementedBy"]["@id"]}</a> (type: ${service["implementedBy"]["@type"]})</p>
+                            <br/>
+                        `;
+                        // Append the service section to the metadataDiv
+                        metadataDiv.innerHTML += serviceHTML;
+
+
+                }
             } else {
                 console.warn('The variable "services" is not an array or is undefined.');
             }
@@ -185,11 +193,12 @@
             metadataDiv.innerHTML += "<h2 id='Knowledge'> Knowledge </h2>";
             const knowledges = metadata["koio:hasKnowledge"];
             if (Array.isArray(knowledges)) {
-                knowledges.forEach(knowledge => {
+                for (const knowledge of knowledges)  {  
+                    const implementedByExpanded = await jsonld.expand(knowledge["implementedBy"], { base: baseIRI });
                     let knowledgeHTML = `                    
                         <p><strong>Id:</strong> ${knowledge["@id"]}</p>
                         <p><strong>Type:</strong> ${knowledge["@type"]}</p>
-                        <p><strong>Implemented by:</strong> <a href="${knowledge["implementedBy"]["@id"]}">${knowledge["implementedBy"]["@id"]} </a> (type: ${knowledge["implementedBy"]["@type"]})</p>
+                        <p><strong>Implemented by:</strong> <a href="${implementedByExpanded[0]["@id"]}">${knowledge["implementedBy"]["@id"]} </a> (type: ${knowledge["implementedBy"]["@type"]})</p>
                         <p><strong>Source:</strong><a href='${knowledge["dc:source"]}' target="_blank"> ${knowledge["dc:source"]}</a></p>
                         <p><strong>Format:</strong> ${knowledge["dc:format"]}</p>
                         <p><strong>Date:</strong> ${knowledge["dc:date"]}</p>
@@ -204,7 +213,7 @@
 
                     // Append the service section to the metadataDiv
                     metadataDiv.innerHTML += knowledgeHTML;
-                });
+                }
             } else {
                 console.warn('The variable "services" is not an array or is undefined.');
             }
@@ -212,12 +221,13 @@
             const documentations = findItem(metadata, 'koio:hasDocumentation');
             if (documentations && documentations.length > 0) {
                 let docHTML = `<h2>Documentation</h2>`;
-                documentations.forEach(doc => {
+                for (const doc of documentations)  {  
+                    const docExpanded = await jsonld.expand(doc, { base: baseIRI });
                     docHTML += `
-                        <h3><a href="${doc["@id"]}" target="_blank">${doc["dc:title"]}</a></h3>
+                        <h3><a href="${docExpanded[0]["@id"]}" target="_blank">${doc["dc:title"]}</a></h3>
                         <p>${doc["dc:description"]}</p>
                     `;
-                });
+                }
                 docSection.innerHTML = docHTML;
             } else {
                 docSection.innerHTML = `<p>No documentation available</p>`;
@@ -226,12 +236,14 @@
             const tests = findItem(metadata, 'koio:hasTest');
             if (tests.length > 0) {
                 let testHTML = `<h2>Tests</h2>`;
-                tests.forEach(test => {
+                for (const test of tests)  {  
+                    const testExpanded = await jsonld.expand(test, { base: baseIRI });
+                    
                     testHTML += `
-                        <h3><a href="${test["@id"]}" target="_blank">${test["dc:title"]}</a></h3>
+                        <h3><a href="${testExpanded[0]["@id"]}" target="_blank">${test["dc:title"]}</a></h3>
                         <p>${test["dc:description"]}</p>
                     `;
-                });
+                }
                 testSection.innerHTML = testHTML;
             } else {
                 testSection.innerHTML = `<p>No tests available</p>`;
