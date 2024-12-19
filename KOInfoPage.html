@@ -148,24 +148,31 @@
                 <p><strong>ORCID:</strong> <a href="${metadata["schema:creator"]?.['@id']?? "undefined"}" target="_blank">${metadata["schema:creator"]?.['@id']?? "undefined"}</a></p>
                 <br/>
 
+                ${metadata["schema:contributor"]
+                ? `
                 <h2>Contributor Information</h2>
                 <p><strong>Name:</strong> ${metadata["schema:contributor"]?.['schema:givenName']?? "undefined"} ${metadata["schema:contributor"]?.['schema:familyName']?? "undefined"}</p>
                 <p><strong>Affiliation:</strong> ${metadata["schema:contributor"]?.['schema:affiliation']?? "undefined"}</p>
                 <p><strong>Email:</strong> <a href="mailto:${metadata["schema:contributor"]?.['schema:email']?? "undefined"}">${metadata["schema:contributor"]?.['schema:email']?? "undefined"}</a></p>
                 <p><strong>ORCID:</strong> <a href="${metadata["schema:contributor"]?.['@id']?? "undefined"}" target="_blank">${metadata["schema:contributor"]?.['@id']?? "undefined"}</a></p>
                 <br/>
-                
+                `
+                : ""}
+                ${metadata["dc:publisher"]
+                ? `
                 <h2>Publisher Information</h2>
                 <p><strong>Publisher:</strong> ${metadata["dc:publisher"]}</p>
-                <p><strong>License:</strong> ${metadata["dc:license"]}</p>
-                <p><strong>Citation:</strong> ${metadata["dc:bibliographicCitation"]}</p>
-
-                <h2> Services </h2>
+                ${metadata["dc:license"] ? `<p><strong>License:</strong> ${metadata["dc:license"]}</p>` : ""}
+                ${metadata["dc:bibliographicCitation"] ? `<p><strong>Citation:</strong> ${metadata["dc:bibliographicCitation"]}</p>` : ""}
+                `
+                : ""}
+                
             `;
 
             // Iterate over the services and add a section for each
             const services = metadata["koio:hasService"];
             if (Array.isArray(services)) {
+                metadataDiv.innerHTML += '<h2> Services </h2>';
                 for (const service of services)  {   
 
                     
@@ -196,13 +203,13 @@
                 for (const knowledge of knowledges)  {  
                     const implementedByExpanded = await jsonld.expand(knowledge["implementedBy"], { base: baseIRI });
                     let knowledgeHTML = `                    
-                        <p><strong>Id:</strong> ${knowledge["@id"]}</p>
+                        <p><h3> ${knowledge["@id"]}</h3></p>
                         <p><strong>Type:</strong> ${knowledge["@type"]}</p>
                         <p><strong>Implemented by:</strong> <a href="${implementedByExpanded[0]["@id"]}">${knowledge["implementedBy"]["@id"]} </a> (type: ${knowledge["implementedBy"]["@type"]})</p>
-                        <p><strong>Source:</strong><a href='${knowledge["dc:source"]}' target="_blank"> ${knowledge["dc:source"]}</a></p>
-                        <p><strong>Format:</strong> ${knowledge["dc:format"]}</p>
-                        <p><strong>Date:</strong> ${knowledge["dc:date"]}</p>
-                        <h3>Creator Information</h3>
+                        ${knowledge["dc:source"] ? `<p><strong>Source:</strong><a href='${knowledge["dc:source"]}' target="_blank"> ${knowledge["dc:source"]}</a></p>` : ""}
+                        ${knowledge["dc:format"] ? `<p><strong>Format:</strong> ${knowledge["dc:format"]}</p>` : ""}
+                        ${knowledge["dc:date"] ? `<p><strong>Date:</strong> ${knowledge["dc:date"]}</p>` : ""}
+                        <h4>Creator Information</h4>
                         <p><strong>Name:</strong>  ${knowledge["schema:creator"]?.["schema:givenName"] ?? knowledge["schema:creator"]?.["schema:name"] ?? "undefined"} ${knowledge["schema:creator"]?.['schema:familyName']?? ""}</p>
                         ${knowledge["schema:creator"]?.["schema:affiliation"] ? `<p><strong>Affiliation:</strong> ${knowledge["schema:creator"]["schema:affiliation"]}</p>` : ""}
                         ${knowledge["schema:creator"]?.["schema:email"] ? `<p><strong>Email:</strong> <a href='mailto:${knowledge["schema:creator"]["schema:email"]}'>${knowledge["schema:creator"]["schema:email"]}</a></p>` : ""}
