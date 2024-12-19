@@ -209,7 +209,7 @@
                         ${knowledge["dc:source"] ? `<p><strong>Source:</strong><a href='${knowledge["dc:source"]}' target="_blank"> ${knowledge["dc:source"]}</a></p>` : ""}
                         ${knowledge["dc:format"] ? `<p><strong>Format:</strong> ${knowledge["dc:format"]}</p>` : ""}
                         ${knowledge["dc:date"] ? `<p><strong>Date:</strong> ${knowledge["dc:date"]}</p>` : ""}
-                        <h4>Creator Information</h4>
+                        <b>Creator Information:</b>
                         <p><strong>Name:</strong>  ${knowledge["schema:creator"]?.["schema:givenName"] ?? knowledge["schema:creator"]?.["schema:name"] ?? "undefined"} ${knowledge["schema:creator"]?.['schema:familyName']?? ""}</p>
                         ${knowledge["schema:creator"]?.["schema:affiliation"] ? `<p><strong>Affiliation:</strong> ${knowledge["schema:creator"]["schema:affiliation"]}</p>` : ""}
                         ${knowledge["schema:creator"]?.["schema:email"] ? `<p><strong>Email:</strong> <a href='mailto:${knowledge["schema:creator"]["schema:email"]}'>${knowledge["schema:creator"]["schema:email"]}</a></p>` : ""}
