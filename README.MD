@@ -23,23 +23,24 @@ This collection implements 8 knowledge objects, using [KGrid 2.0](https://github
 See knowledge object information page or the USPSTF page link for more detail on each knowledge object.
 
 ## Demo app
-### Demo app using a python activator knowledgebase
-The USPSTF collection [Demo App](https://kgrid-objects.github.io/USPSTF-collection/demo/), located in the [demo folder](./demo/index.html), leverages the knowledge objects in this repository via a [Python Activator Knowledgebase deployed on Heroku](https://uspstf-collection-b68f2ecc738e.herokuapp.com). This app delivers precision prevention by providing tailored preventive recommendations for individual patients. 
+### Demo app 1, using a python activator knowledgebase
+The USPSTF collection [Demo App 1](https://kgrid-objects.github.io/USPSTF-collection/demo/), located in the [demo folder](./demo/index.html), leverages the knowledge objects in this repository via a [Python Activator Knowledgebase deployed on Heroku](https://uspstf-collection-b68f2ecc738e.herokuapp.com). This app delivers precision prevention by providing tailored preventive recommendations for individual patients. 
 
-#### Running the app localy
-For development purposes, you can run a local virtual server in the `demo` folder with the following command:
+#### Running the demo app 1 localy
+This requires a running activator that activates the USPSTF knowledge objects, and the link is set in the JavaScript code of the demo app. For development purposes, open the [demo](./demo) folder in terminal and run a local virtual server with the following command:
 ```bash
 python -m http.server 8001
 ```
 
 Then access the demo page at:
 `http://localhost:8001/`
-### Demo app using an SDK-built Knowledgebase
-This demo app integrates the USPSTF Collection knowledge objects, included in a knowledgebase, directly in the code. The knowledgebase is created using the KGrid-SDK and published as a python package, eliminating the need for a separate deployment.
 
-#### Running the demo app locally in a development environment 
+### Demo app 2, using an SDK-built Knowledgebase
+This demo app integrates the USPSTF Collection knowledge objects, included in a knowledgebase, directly in the code. The knowledgebase is created using the [KGrid-SDK](https://github.com/kgrid/python-sdk?tab=readme-ov-file#create-a-collection-using-kgrid_sdkcollection) and (published as a python package)[https://pypi.org/project/kgrid-sdk/], eliminating the need for a separate deployment.
+
+#### Running the demo app 2 locally in a development environment 
 Follow these steps to run the app locally:
-1. Change the active directory to the root of the app
+1. Change the active directory to the [root of the app](./demo/sdk_demo/)
 ```bash
 cd path/to/demo/app
 ```
@@ -67,7 +68,7 @@ Then, access the demo app at http://127.0.0.1:5000 in your browser.
 
 ## How to use these knowledge objects
 ### Knowledge object information page
-To open knowledge object information page, open a knowledge object directory (we recommend using microsoft teams). Then run a localvirtual server using
+To open knowledge object information page, open a knowledge object directory (we recommend using [Visual Studio Code](https://code.visualstudio.com/)). Then run a localvirtual server using
 ```bash
 python -m http.server 8001
 ```
@@ -125,4 +126,4 @@ Then you can use the swagger editor at `http://127.0.0.1:8000` or send post requ
 
 
 ### Using the knowledge objects directly in the code 
-See the [KGrid python SDK](https://github.com/kgrid/python-sdk?tab=readme-ov-file#kgrid_sdkcollection) for an example of how to use KGrid SDK to create a knowledgebase utilizing USPSTF collection knowledge objects directly in the code and how to use the knowledgebase in an application.
+See the [KGrid python SDK](https://github.com/kgrid/python-sdk?tab=readme-ov-file#create-a-collection-using-kgrid_sdkcollection) for an example of how to use KGrid SDK to create a knowledgebase utilizing USPSTF collection knowledge objects directly in the code and how to use the knowledgebase in an application.
