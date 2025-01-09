@@ -107,6 +107,12 @@
   ],
   "koio:hasDocumentation": [
     {
+      "@id": "https://colab.research.google.com/drive/1nlYQ3U1a4uJUmyMYBFxXArEGxDy4DGpp?usp=sharing",
+      "@type": "koio:Documentation",
+      "dc:title": "Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial",
+      "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-statin-use knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+    },
+    {
       "@id": "README.md",
       "@type": "koio:Documentation",
       "dc:title": "README.md",

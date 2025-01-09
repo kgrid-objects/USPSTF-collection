@@ -107,7 +107,7 @@
       "@id": "https://colab.research.google.com/drive/1AwtrDyglFMcCE60sDDOd1FvfOCI_fhQB?usp=sharing",
       "@type": "koio:documentation",
       "dc:title": "Using the Hypertension Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
-      "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using a standalone API</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+      "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
     },
     {
       "@id": "README.md",

@@ -26,4 +26,12 @@ def test_activator_function():
         "has_never_smoked":False
         })["title"]
     
+def foo(a, b:int , **extra):
+    return a, b
+def test_args():
+    d = {
+        "a":11,
+        "b":12
+        }
+    assert foo(**d) == (11,12)
     
