@@ -1,0 +1,49 @@
+{
+    "@context": "https://kgrid.org/koio/2.0/context",
+    "@id": "USPSTF-Knowledgebase",
+    "koio:kgrid": "2",
+    "dc:title": "USPSTF Knowledgebase for Cardiovascular Disorders and Metabolic, nutritional, and Endocrine Conditions recommendations",
+    "dc:identifier": "ark:USPSTFKNOWLEDGEBASE",
+    "dc:version": "v1.0",
+    "dc:date": "2024-12-12",
+    "dc:description": "This knowledgebase includes recommendations grade A and B for adults from USPSTF recommendation categories Cardiovascular Disorders and Metabolic, nutritional, and Endocrine Conditions",
+    "schema:creator": {
+        "@id": "https://kgrid.org",
+        "@type": "team",
+        "schema:givenName": "Knowledge Systems Lab",
+        "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
+        "schema:email": "kgrid-developers@umich.edu"
+    },
+    "dc:publisher": "Knowledge Systems Lab",
+    "dc:type": "software",
+    "dc:license": "license.md",
+    "koio:keywords": [
+        "USPSTF",
+        "Recommendation",
+        "Cardiovascular",
+        "Disorders",
+        "Metabolic",
+        "Nutritional",
+        "Endocrine",
+        "Conditions"
+    ],
+    "koio:hasDocumentation": [
+        {
+            "@id": "https://colab.research.google.com/drive/1bTMBU_naqDB6jVfQ6g00C8E4WUnwTNB0?usp=sharing",
+            "@type": "koio:Documentation",
+            "dc:title": "Using the Prediabetes and Type 2 Diabetes Screening Knowledge Object: A Step-by-Step Tutorial",
+            "dc:description": "Use our Jupiter Notebook on our Google Colab page for a step-by-Step tutorial on using USPSTF knowledgebase Package."
+        },
+        {
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/topic_search_results?topic_status=P",
+            "@type": "koio:Documentation",
+            "dc:title": "USPSTF Published Recommendations"
+        },
+        {
+            "@id": "README.md",
+            "@type": "koio:Documentation",
+            "dc:title": "README.md",
+            "dc:description": "read me file."
+        }
+    ]
+}

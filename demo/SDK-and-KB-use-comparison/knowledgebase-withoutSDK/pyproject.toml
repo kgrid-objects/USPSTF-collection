@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "uspstf-knowledgebase"
+version = "0.1.12"
+description = ""
+authors = ["Farid Seifi <farid.seifi@gmail.com>"]
+readme = "README.md"
+
+include = ["metadata.json"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+abdominal-aortic-aneurysm-screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/abdominal-aortic-aneurysm-screening/dist/abdominal_aortic_aneurysm_screening-1.7-py3-none-any.whl"}
+cardiovascular-prevention-diet-activity = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/cardiovascular-prevention-diet-activity/dist/cardiovascular_prevention_diet_activity-1.8-py3-none-any.whl"}
+cardiovascular-prevention-statin-use = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/cardiovascular-prevention-statin-use/dist/cardiovascular_prevention_statin_use-1.8-py3-none-any.whl"}
+diabetes-screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/diabetes-screening/dist/diabetes_screening-1.8-py3-none-any.whl"}
+high-body-mass-index = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/high-body-mass-index/dist/high_body_mass_index-1.8-py3-none-any.whl"}
+hypertension-screening = {url = "https://github.com/kgrid-objects/USPSTF-collection/raw/refs/heads/main/hypertension-screening/dist/hypertension_screening-1.9-py3-none-any.whl"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

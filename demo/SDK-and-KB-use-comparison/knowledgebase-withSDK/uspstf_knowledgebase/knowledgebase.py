@@ -1,0 +1,18 @@
+from abdominal_aortic_aneurysm_screening import abdominal_aortic_aneurysm_screening
+from cardiovascular_prevention_diet_activity import cardiovascular_prevention_diet_activity
+from cardiovascular_prevention_statin_use import cardiovascular_prevention_statin_use
+from hypertension_screening import hypertension_screening
+from diabetes_screening import diabetes_screening
+from high_body_mass_index import high_body_mass_index
+
+from kgrid_sdk.knowledgebase import KnowledgeBase
+
+
+USPSTF_KnowledgeBase = KnowledgeBase("USPSTF Collection for Cardiovascular DisordersMetabolic, nutritional, and Endocrine Conditions")
+USPSTF_KnowledgeBase.add_knowledge_object( abdominal_aortic_aneurysm_screening )
+USPSTF_KnowledgeBase.add_knowledge_object( cardiovascular_prevention_diet_activity )
+USPSTF_KnowledgeBase.add_knowledge_object( cardiovascular_prevention_statin_use )
+USPSTF_KnowledgeBase.add_knowledge_object( hypertension_screening )
+USPSTF_KnowledgeBase.add_knowledge_object( diabetes_screening )
+USPSTF_KnowledgeBase.add_knowledge_object( high_body_mass_index )
+

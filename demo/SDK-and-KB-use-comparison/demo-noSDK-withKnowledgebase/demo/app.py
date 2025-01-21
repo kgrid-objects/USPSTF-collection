@@ -25,10 +25,3 @@ def get_result():
     result["prevent_obesity_morbidity_mortality"]=prevent_obesity_morbidity_mortality.get_obesity_recommendation(age=patient_data["age"],bmi=patient_data["bmi"])
     return jsonify(result)
 
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port,debug=True)
-    
-# export FLASK_APP=demo.app:app 
-# flask run 
- 
