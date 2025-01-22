@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Data Selector</title>
+    <script src="{{ url_for('static', filename='dist/fhir-client-v2.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  
+    <style>
+        .container {
+            display: flex;
+            justify-content: center; /* Centers content horizontally */
+            align-items:start;/* Centers content vertically */
+            width: 70%;
+            height: 100vh;
+            margin: 0 auto; /* Centers the container itself within the viewport */
+            box-sizing: border-box;
+            padding: 1rem;
+        }
+        .lcolumn {
+            width: 35%;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 2.5%;  /* Adjusts space between columns */
+            box-sizing: border-box;
+        }
+        .lcolumn button {
+
+            width: 45%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            background-color: #74818f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .lcolumn button:hover {
+            background-color: #4c7aab;
+        }
+        .lcolumn button.selected {
+            background-color: #dfa3e7;
+            border: 2px solid #b158ba;
+        }
+        .lcolumn input[type="text"],
+        .lcolumn input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        /* Optional: Style for labels */
+        .lcolumn label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .rcolumn {
+            width: 65%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .patient-info, .recommendations {
+            margin-top: 20px;
+        }
+        .patient-info input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-bottom: 5px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 1.0rem 0; 
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .card-title:hover {
+            text-decoration: underline;
+        }
+        
+        .card-content {
+            margin-top: 0.5rem;
+        }
+        
+        .card-grade {
+            font-weight: bold;
+            color: #28a745;
+        }
+        .card.gradeA {
+            background-color: #dbf9db !important; /* Card background for Grade A */
+        }
+        
+        .card.gradeA .grade-text {
+            color: #057a05; /* Text color for Grade A */
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /* Shadow effect */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 30px;
+        }
+        
+        /* Grade B */
+        .card.gradeB {
+            background-color: #dbf9db !important; /* Card background for Grade B */
+        }
+        
+        .card.gradeB .grade-text {
+            color: #057a05; /* Text color for Grade B */
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /* Shadow effect */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 30px;
+        }
+        
+        /* Grade C */
+        .card.gradeC {
+            background-color: #fafade !important; /* Card background for Grade C */
+        }
+        
+        .card.gradeC .grade-text {
+            color: #e0de22; /* Text color for Grade C */
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /* Shadow effect */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 30px;
+        }
+        
+        /* Grade D */
+        .card.gradeD {
+            background-color: #ffd9d9 !important; /* Card background for Grade D */
+        }
+        
+        .card.gradeD .grade-text {
+            color: #ff0000; /* Text color for Grade D */
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /* Shadow effect */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 30px;
+        }
+        
+        /* Grade I (Information) */
+        .card.gradeI {
+            background-color: #fff !important; /* Card background for Grade I */
+        }
+        
+        .card.gradeI .grade-text {
+            font-family: serif; /* Font family for Grade I */
+            color: #838383; /* Text color for Grade I */
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /* Shadow effect */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 30px;
+        }
+
+        .card.error {
+            background-color: #f04f4f !important; /* Card background for Grade I */
+        }
+        #loading {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          display: flex;
+          align-items: center; /* Vertically center */
+          justify-content: center; /* Horizontally center */
+          background-color: rgba(255, 255, 255, 0.8); /* Optional: Semi-transparent background */
+          z-index: 9999; /* Ensure it's above other elements */
+        }
+    
+        /* Spinner style */
+        .spinner {
+            border: 4px solid #f3f3f3; /* Light gray */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+    
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="patient" style="text-align: center;"></h1>
+    <div id="loading" style="display: none;">
+      <div class="spinner"  ></div>
+    </div>
+    <div class="container">
+      
+        <!-- Left Column: Patient Selector & Info -->
+        <div class="lcolumn" id="patient-column">
+            
+                       
+            <div class="patient-info">
+                <h2>Patient Info</h2>
+                <label>Age: <input type="text" id="age"></label>
+                <label>Gender (male=1, female=0): <input type="text" id="gender"></label>
+                <label>Has never smoked: <input type="text" id="has_never_smoked" ></label>
+                <label>Pregnant: <input type="text" id="pregnant"></label>
+                <label>Bmi: <input type="text" id="bmi"></label>
+                <label>Bmi percentile: <input type="text" id="bmi_percentile"></label>
+                <label>Has cardiovascular risk factors: <input type="text" id="has_cardiovascular_risk_factors"></label>
+                <label>Ten year CVD risk: <input type="text" id="ten_year_CVD_risk"></label>
+                <label>Hypertension: <input type="text" id="hypertension"></label>
+            </div>
+        </div>
+
+        <!-- Right Column: Recommendations -->
+        <div class="rcolumn" id="recommendations-column">
+            <h2>Recommendations</h2>
+            <div class="recommendations" id="recommendations">
+                <!-- Recommendations will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myApp = {}
+
+    FHIR.oauth2.ready()
+      .then(function (client) {
+        myApp.smart = client
+        const loadingElement = document.getElementById("loading");
+        loadingElement.style.display = "block";
+        doRequests()
+      })
+
+    async function doRequests() {
+      var toInsert = ""
+      var smokingCode;
+      var smokingStatus;
+      var hasNeverSmoked;
+      var pregnant;
+      var tenYearCVDRisk;
+      console.log(myApp.smart)
+
+      //1. get demographics
+      var patient = await fetch(myApp.smart.state.serverUrl + "/Patient/" + myApp.smart.patient.id, {
+        headers: {
+          "Accept": "application/json+fhir",
+          "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
+        }
+      }).then((res) => res.json());
+
+      //console.log(patient)
+      var birthDate = patient.birthDate;
+      var age = calculateAge(birthDate);
+      var name = patient.name[0].text;
+      var gender = patient.gender;
+      var genderCode = gender.toLowerCase() === "male" ? 1 : gender.toLowerCase() === "female" ? 0 : undefined;
+
+      const recommendationsDiv = document.getElementById('patient');
+      recommendationsDiv.innerHTML = name + ' - ' + birthDate;
+
+      //2. get weight, height, pregnancy, smoking
+      headers = {
+        "Accept": "application/fhir+json",
+        "Authorization": "Bearer " + myApp.smart.state.tokenResponse.access_token
+      }
+      var [weightObservations, heightObservations, pregnancyObservations, smokingObservations, hypertensionQ] = await Promise.all([
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=29463-7&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=8302-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=82810-3&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Observation?patient=" + myApp.smart.patient.id + "&code=72166-2&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+        fetch(myApp.smart.state.serverUrl + "/Condition?patient=" + myApp.smart.patient.id + "&code=38341003&_count=1&_sort=-date", { headers }).then((res) => res.json()),
+
+      ]);
+      console.log(pregnancyObservations)
+      const weightObservation = weightObservations.entry?.[0]?.resource;
+      var weight = weightObservation?.valueQuantity?.value
+      var weightUnit = weightObservation?.valueQuantity?.unit;
+      
+      const heightObservation = heightObservations.entry?.[0]?.resource;
+      var height = heightObservation?.valueQuantity?.value
+      var heightUnit = heightObservation?.valueQuantity?.unit;
+
+      var bmi = calculateBMIWithConversion(weight, weightUnit, height, heightUnit)
+      if (!bmi) bmi = 0;
+     
+      const smokingObservation = smokingObservations.entry?.[0]?.resource;
+      if (smokingObservation) {
+        const coding = smokingObservation.valueCodeableConcept?.coding?.[0];
+        smokingCode = coding?.code; // Extract SNOMED code
+        smokingStatus = coding?.display; // Extract human-readable description
+        if (smokingCode == "266919005") {
+          hasNeverSmoked = true
+        } else if (smokingCode != "266927001") {
+          hasNeverSmoked = false;
+        }
+      } else {
+        smokingStatus = "unknown"
+      }
+      const pregnancyObservation = pregnancyObservations.entry?.[0]?.resource;
+      if (pregnancyObservation) {
+        const coding = pregnancyObservations.valueCodeableConcept?.coding?.[0];
+        pregnancyCode = coding?.code; // Extract SNOMED code
+        pregnancyStatus = coding?.display; // Extract human-readable description
+        if (pregnancyCode == "POS") {
+          pregnant = true
+        } else{
+          pregnant = false;
+        }
+      } else {
+        pregnant = undefined;
+      }
+
+      console.log(hypertensionQ);
+      var hypertension;
+
+      //3. hasCardiovascularRiskFactors
+      const riskFactors = await getCvdRiskFactors();
+      // Set the boolean variable HasCardiovascularRiskFactors based on any risk factor
+      const hasCardiovascularRiskFactors =
+        riskFactors.age === "High Risk Age" ||   // High age risk
+        riskFactors.isSmoker ||                   // Smoking status
+        riskFactors.hypertension ||               // Hypertension
+        riskFactors.dyslipidemia ||               // Dyslipidemia
+        riskFactors.hasDiabetes;
+
+      if(hasCardiovascularRiskFactors)
+        tenYearCVDRisk=10;   //replace this with a risk calculator (temporary for demo) 
+
+      var input = {
+        "birthDate": birthDate,
+        "age": age,
+        "gender": gender,
+        "genderCode": genderCode,
+        "name": name,
+        "weight": weight,
+        "weightUnit": weightUnit,
+        "height": height,
+        "bmi": bmi,
+        "bmiPercentile": undefined,
+        "heightUnit": heightUnit,
+        "smokingStatus": smokingStatus,
+        "hasNeverSmoked": hasNeverSmoked,
+        "hasCardiovascularRiskFactors": hasCardiovascularRiskFactors,
+        "pregnant": pregnant,
+        "tenYearCVDRisk" : tenYearCVDRisk
+      }
+      console.log(input)
+      loadPatientData(input)
+    }
+
+    function calculateBMIWithConversion(weight, weightUnit, height, heightUnit) {
+      if (!(weight && weightUnit && height && heightUnit)) {
+        return undefined;
+      }
+
+      // Convert weight to kilograms if necessary
+      if (weightUnit.toLowerCase() === "lbs") {
+        weight = weight * 0.453592; // 1 lb = 0.453592 kg
+      } else if (weightUnit.toLowerCase() !== "kg") {
+        return undefined;
+      }
+
+      // Convert height to meters if necessary
+      if (heightUnit.toLowerCase() === "cm") {
+        height = height / 100; // 1 cm = 0.01 m
+      } else if (heightUnit.toLowerCase() === "in") {
+        height = height * 0.0254; // 1 inch = 0.0254 m
+      } else if (heightUnit.toLowerCase() !== "m") {
+        return undefined;
+      }
+
+      // Ensure valid height and weight
+      if (weight <= 0 || height <= 0) {
+        return undefined;
+      }
+
+      // Calculate BMI
+      const bmi = weight / (height ** 2);
+      return Math.round(bmi * 100) / 100; // Round to two decimal places
+    }
+
+    function calculateAge(birthDate) {
+      // Parse the birth date string into a Date object
+      const birthDateObj = new Date(birthDate);
+
+      // Get today's date
+      const today = new Date();
+
+      // Calculate the age
+      let age = today.getFullYear() - birthDateObj.getFullYear();
+
+      // Adjust if the birthday hasn't occurred yet this year
+      const isBirthdayPassed = (
+        today.getMonth() > birthDateObj.getMonth() ||
+        (today.getMonth() === birthDateObj.getMonth() && today.getDate() >= birthDateObj.getDate())
+      );
+
+      if (!isBirthdayPassed) {
+        age--;
+      }
+
+      return age;
+    }
+
+    async function getCvdRiskFactors() {
+      const headers = { "Accept": "application/json+fhir", "Authorization": `Bearer ${myApp.smart.state.tokenResponse.access_token}` };
+
+      // Fetch relevant observations and conditions
+      const [patient, smokingStatus, bp, hdlCholesterol, ldlCholesterol, diabetes] = await Promise.all([
+        fetch(`${myApp.smart.state.serverUrl}/Patient/${myApp.smart.patient.id}`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=72166-2`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=8480-6`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=2085-9`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Observation?patient=${myApp.smart.patient.id}&code=13457-7`, { headers }).then(res => res.json()),
+        fetch(`${myApp.smart.state.serverUrl}/Condition?patient=${myApp.smart.patient.id}&code=44054006`, { headers }).then(res => res.json())
+      ]);
+
+      // Extract and evaluate risk factors
+      const age = new Date().getFullYear() - new Date(patient.birthDate).getFullYear();
+      const isSmoker = smokingStatus?.entry?.[0]?.resource?.valueCodeableConcept?.text === "Current smoker";
+      const systolicBp = bp?.entry?.[0]?.resource?.valueQuantity?.value;
+      const hdl = hdlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
+      const ldl = ldlCholesterol?.entry?.[0]?.resource?.valueQuantity?.value;
+      const hasDiabetes = diabetes?.entry?.length > 0;
+
+      log1 = {
+        "age": age,
+        "isSmoker": isSmoker,
+        "systolicBp": systolicBp,
+        "hdl": hdl,
+        "ldl": ldl,
+        "Diabetes": diabetes
+
+      }
+      //console.log(log1);
+
+      // Determine risk factors
+      return {
+        age: age >= 45 ? "High Risk Age" : "Normal Age",
+        isSmoker,
+        hypertension: systolicBp >= 130 ? true : false,
+        dyslipidemia: hdlCholesterol < 40 || ldlCholesterol > 130,
+        hasDiabetes
+      };
+    }
+        
+            
+        
+        function loadPatientData(patient) {
+            document.getElementById('age').value = patient.age;
+            document.getElementById('gender').value = patient.gender;
+            document.getElementById('has_never_smoked').value = patient.hasNeverSmoked;
+            document.getElementById('has_cardiovascular_risk_factors').value = patient.hasCardiovascularRiskFactors;
+            document.getElementById('bmi').value = patient.bmi;
+            document.getElementById('bmi_percentile').value = patient.bmiPercentile;
+            document.getElementById('hypertension').value = patient.hypertension;
+            document.getElementById('pregnant').value = patient.pregnant;
+            document.getElementById('ten_year_CVD_risk').value = patient.tenYearCVDRisk;
+            
+            
+            // Fetch recommendations after loading the patient data
+            fetchRecommendations();
+        }
+
+        // Utility debounce function used to add delay for fetching recommendations on input text boxes
+        function debounce(func, delay) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        // Debounced fetchRecommendations function
+        const debouncedFetchRecommendations = debounce(fetchRecommendations, 500);
+
+        
+        
+        const patientInputs = document.querySelectorAll('#age, #weight, #height, #gender, #has_never_smoked, #has_cardiovascular_risk_factors, #bmi, #bmi_percentile, #hypertension, #pregnant, #ten_year_CVD_risk');
+
+        patientInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                // Remove 'active' class from all patient buttons when any input changes
+                document.querySelectorAll('.patient-button').forEach(button => {
+                    button.classList.remove('selected');
+                });
+                debouncedFetchRecommendations(); // Call your debounced function here
+            });
+        });
+
+        async function fetchRecommendations() {
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const has_never_smoked = document.getElementById('has_never_smoked').value;
+            const has_cardiovascular_risk_factors = document.getElementById('has_cardiovascular_risk_factors').value;
+            const bmi = document.getElementById('bmi').value;
+            const bmi_percentile = document.getElementById('bmi_percentile').value;
+            const hypertension = document.getElementById('hypertension').value;
+            const pregnant = document.getElementById('pregnant').value;
+            const ten_year_CVD_risk = document.getElementById('ten_year_CVD_risk').value;
+            // Clear previous recommendations
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.innerHTML = '';
+            const allRecommendations = [];
+            var result = {}
+
+            const endpointUrl = `/get_result`;
+            const loadingElement = document.getElementById("loading");
+
+            try {
+                const response = await fetch(endpointUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ age: Number(age), gender: Number(gender), has_never_smoked: toBoolean(has_never_smoked), has_cardiovascular_risk_factors: toBoolean(has_cardiovascular_risk_factors), bmi: Number(bmi), bmi_percentile: Number(bmi_percentile), hypertension: toBoolean(hypertension), pregnant: toBoolean(pregnant), ten_year_CVD_risk: Number(ten_year_CVD_risk)  })
+                });
+                
+                result = await response.json();
+                for (let key in result) {
+                    if (result.hasOwnProperty(key)) {
+                        if( result[key].inclusion == true){
+                            allRecommendations.push({
+                                endpoint: key,
+                                response: {"result":result[key]}
+                            });
+                        }
+                    }
+                }
+                /*if( result.result.inclusion )
+                    allRecommendations.push({
+                        endpoint: endpoint["@id"],
+                        response: result
+                    }); */
+
+            } catch (error) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = `card error`;
+                errorDiv.innerText = ` ${result.detail}`;
+                recommendationsDiv.appendChild(errorDiv);
+            } finally {
+              loadingElement.style.display = "none";
+            }
+            
+            
+            // Sort recommendations by grade then by title
+            const gradeOrder = { "A": 1, "B": 2, "C": 3, "D": 4, "I": 5 };
+
+            allRecommendations.sort((a, b) => {
+                const gradeComparison = gradeOrder[a.response.result.grade] - gradeOrder[b.response.result.grade];
+                if (gradeComparison !== 0) {
+                    return gradeComparison; // Sort by grade if they are different
+                }
+                return a.response.result.title.localeCompare(b.response.result.title); // Sort by title if grades are the same
+            });
+
+            // Display sorted recommendations
+            allRecommendations.forEach(item => {
+                const recommendation = document.createElement('div');
+                recommendation.innerText = `Endpoint: ${item.endpoint}\nResponse: ${JSON.stringify(item.response)}\n\n`;
+
+                const title = item.response.result.title || "No Title";
+                const description = item.response.result.recommendation || "No Description Available";
+                const grade = item.response.result.grade || "No Grade Provided";
+                
+                // Create the card
+                const card = document.createElement('div');
+                card.className = `card grade${grade}`;
+
+                // Create and append the title link
+                const titleLink = document.createElement('a');
+                titleLink.className = 'card-title';
+                titleLink.href = item.response.result.URL;
+                titleLink.target = '_blank';
+                titleLink.innerText = title;
+                card.appendChild(titleLink);
+
+                // Create and append the description
+                const descriptionElem = document.createElement('p');
+                descriptionElem.className = 'card-content';
+                descriptionElem.innerText = description;
+                card.appendChild(descriptionElem);
+
+                // Create and append the grade
+                const gradeElem = document.createElement('p');
+                                
+                // Create a bold label for "Grade:"
+                const gradeLabel = document.createElement('strong');
+                gradeLabel.innerText = 'Grade: ';
+                gradeElem.appendChild(gradeLabel);
+                
+                // Create a span element for the grade value and apply the specific grade class
+                const gradeValue = document.createElement('span');
+                gradeValue.className = 'grade-text';
+                gradeValue.innerText = grade;
+                gradeElem.appendChild(gradeValue);
+
+                // Append the grade element to the card
+                card.appendChild(gradeElem);
+
+                // Append the card to the container
+                recommendationsDiv.appendChild(card);
+            });
+
+        }
+
+        function toBoolean(value) {
+            // Convert the input to a lowercase string for case-insensitive comparison
+            const strValue = String(value).toLowerCase();
+        
+            // List of values that should be considered as false
+            const falseValues = ["false", "0", "0.0", "none"];
+        
+            // Return false if the value is in the list of falseValues; otherwise, true
+            return !falseValues.includes(strValue);
+        }
+    </script>
+</body>
+</html>
