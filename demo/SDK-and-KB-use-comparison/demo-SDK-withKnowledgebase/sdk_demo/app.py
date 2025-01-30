@@ -17,8 +17,6 @@ def index():
 @app.route("/get_result", methods=["POST"])
 def get_result():
     patient_data = request.get_json()
-
-
     result = USPSTF_KnowledgeBase.calculate_for_all(patient_data)
     
     result["pregnancy_healthy_weight_gain"]=pregnancy_healthy_weight_gain.get_pregnancy_healthy_weight_gain_recommendation(pregnant=patient_data["pregnant"])

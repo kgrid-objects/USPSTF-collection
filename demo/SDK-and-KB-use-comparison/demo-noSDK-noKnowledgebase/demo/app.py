@@ -23,7 +23,6 @@ def index():
 def get_result():
     patient_data = request.get_json()
 
-
     result = {}
     result["abdominal_aortic_aneurysm_screening"]=abdominal_aortic_aneurysm_screening.execute(patient_data)
     result["cardiovascular_prevention_diet_activity"]=cardiovascular_prevention_diet_activity.execute(patient_data)
