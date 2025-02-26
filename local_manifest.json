@@ -1,6 +1,6 @@
 [
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "cardiovascular-prevention-statin-use",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -18,8 +18,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "Statin use",
       "Cardiovascular Disease",
       "USPSTF",
@@ -27,13 +29,14 @@
     ],
     "koio:hasService": [
       {
+        "@id": "ActivatorService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
         "implementedBy": {
-          "@id": ".",
+          "@id": "cardiovascular_prevention_statin_use/",
           "@type": [
             "https://kgrid.org/specs/activationSpec.html#object",
             "Python"
@@ -41,11 +44,12 @@
         }
       },
       {
+        "@id": "CLIService",
         "@type": [
           "Service",
           "CLI"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
         "implementedBy": {
           "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
           "@type": [
@@ -54,11 +58,12 @@
         }
       },
       {
+        "@id": "APIService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
         "implementedBy": {
           "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
           "@type": [
@@ -69,7 +74,7 @@
     ],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
@@ -84,16 +89,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -108,6 +121,12 @@
     ],
     "koio:hasDocumentation": [
       {
+        "@id": "https://colab.research.google.com/drive/1nlYQ3U1a4uJUmyMYBFxXArEGxDy4DGpp?usp=sharing",
+        "@type": "koio:Documentation",
+        "dc:title": "Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial",
+        "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-statin-use knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+      },
+      {
         "@id": "README.md",
         "@type": "koio:Documentation",
         "dc:title": "README.md",
@@ -119,7 +138,7 @@
     "local_url": "cardiovascular-prevention-statin-use"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "diabetes-screening",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -137,8 +156,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "Type 2 Diabetes",
       "Prediabetes",
       "USPSTF",
@@ -146,13 +167,14 @@
     ],
     "koio:hasService": [
       {
+        "@id": "ActivatorService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "prediabetes_and_type_2_diabetes_screening",
         "implementedBy": {
-          "@id": ".",
+          "@id": "diabetes_screening/",
           "@type": [
             "https://kgrid.org/specs/activationSpec.html#object",
             "Python"
@@ -160,11 +182,12 @@
         }
       },
       {
+        "@id": "CLIService",
         "@type": [
           "Service",
           "CLI"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "prediabetes_and_type_2_diabetes_screening",
         "implementedBy": {
           "@id": "diabetes_screening/diabetes_screening.py",
           "@type": [
@@ -173,11 +196,12 @@
         }
       },
       {
+        "@id": "APIService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "prediabetes_and_type_2_diabetes_screening",
         "implementedBy": {
           "@id": "diabetes_screening/diabetes_screening.py",
           "@type": [
@@ -188,7 +212,7 @@
     ],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "prediabetes_and_type_2_diabetes_screening",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "diabetes_screening/diabetes_screening.py",
@@ -203,16 +227,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -227,6 +259,12 @@
     ],
     "koio:hasDocumentation": [
       {
+        "@id": "https://colab.research.google.com/drive/1banFELv0b--f9DnlVopgtRQhMtwwYzbS?usp=sharing",
+        "@type": "koio:documentation",
+        "dc:title": "Using the Diabetes Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
+        "dc:description": "This Google Colab tutorial demonstrates four different ways to use the diabetes-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+      },
+      {
         "@id": "README.md",
         "@type": "koio:Documentation",
         "dc:title": "README.md",
@@ -238,7 +276,7 @@
     "local_url": "diabetes-screening"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "high-body-mass-index",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -256,8 +294,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "High bmi",
       "Interventions",
       "USPSTF",
@@ -265,13 +305,14 @@
     ],
     "koio:hasService": [
       {
+        "@id": "ActivatorService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "obesity_in_children_and_adolescents_screening",
         "implementedBy": {
-          "@id": ".",
+          "@id": "high_body_mass_index/",
           "@type": [
             "https://kgrid.org/specs/activationSpec.html#object",
             "Python"
@@ -279,11 +320,12 @@
         }
       },
       {
+        "@id": "CLIService",
         "@type": [
           "Service",
           "CLI"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "obesity_in_children_and_adolescents_screening",
         "implementedBy": {
           "@id": "high_body_mass_index/high_body_mass_index.py",
           "@type": [
@@ -292,11 +334,12 @@
         }
       },
       {
+        "@id": "APIService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "obesity_in_children_and_adolescents_screening",
         "implementedBy": {
           "@id": "high_body_mass_index/high_body_mass_index.py",
           "@type": [
@@ -307,7 +350,7 @@
     ],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "obesity_in_children_and_adolescents_screening",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "high_body_mass_index/high_body_mass_index.py",
@@ -322,16 +365,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -357,7 +408,7 @@
     "local_url": "high-body-mass-index"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "cardiovascular-prevention-diet-activity",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -375,8 +426,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "Healthy diet",
       "Healthy activity",
       "Cardiovascular Disease",
@@ -385,13 +438,14 @@
     ],
     "koio:hasService": [
       {
+        "@id": "ActivatorService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
         "implementedBy": {
-          "@id": ".",
+          "@id": "cardiovascular_prevention_diet_activity/",
           "@type": [
             "https://kgrid.org/specs/activationSpec.html#object",
             "Python"
@@ -399,11 +453,12 @@
         }
       },
       {
+        "@id": "CLIService",
         "@type": [
           "Service",
           "CLI"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
         "implementedBy": {
           "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
           "@type": [
@@ -412,11 +467,12 @@
         }
       },
       {
+        "@id": "APIService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
         "implementedBy": {
           "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
           "@type": [
@@ -427,7 +483,7 @@
     ],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
@@ -442,16 +498,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -483,7 +547,7 @@
     "local_url": "cardiovascular-prevention-diet-activity"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "hypertension-screening",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -501,21 +565,24 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "hypertension",
       "USPSTF",
       "Counseling"
     ],
     "koio:hasService": [
       {
+        "@id": "ActivatorService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "hypertension_in_adults_screening",
         "implementedBy": {
-          "@id": ".",
+          "@id": "hypertension_screening/",
           "@type": [
             "https://kgrid.org/specs/activationSpec.html#object",
             "Python"
@@ -523,11 +590,12 @@
         }
       },
       {
+        "@id": "CLIService",
         "@type": [
           "Service",
           "CLI"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "hypertension_in_adults_screening",
         "implementedBy": {
           "@id": "hypertension_screening/hypertension_screening.py",
           "@type": [
@@ -536,11 +604,12 @@
         }
       },
       {
+        "@id": "APIService",
         "@type": [
           "Service",
           "API"
         ],
-        "dependsOn": "knowledge",
+        "dependsOn": "hypertension_in_adults_screening",
         "implementedBy": {
           "@id": "hypertension_screening/hypertension_screening.py",
           "@type": [
@@ -551,7 +620,7 @@
     ],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "hypertension_in_adults_screening",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "hypertension_screening/hypertension_screening.py",
@@ -566,22 +635,30 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge tests",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
           {
-            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+            "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
             "@type": "koio:documentation",
-            "dc:title": "Abdominal Aortic Aneurysm: Screening",
-            "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
+            "dc:title": "Hypertension in Adults: Screening",
+            "dc:description": "This is the USPSTF documentation webpage for Hypertension in Adults Screening recommendation."
           }
         ]
       }
@@ -591,7 +668,7 @@
         "@id": "https://colab.research.google.com/drive/1AwtrDyglFMcCE60sDDOd1FvfOCI_fhQB?usp=sharing",
         "@type": "koio:documentation",
         "dc:title": "Using the Hypertension Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
-        "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using a standalone API</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+        "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",
@@ -605,7 +682,7 @@
     "local_url": "hypertension-screening"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "prevent-obesity-morbidity-mortality",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -623,8 +700,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "Weight Loss",
       "Obesity",
       "Morbidity",
@@ -636,7 +715,7 @@
     "koio:hasService": [],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "obesity_in_adults_interventions",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
@@ -651,16 +730,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -678,7 +765,7 @@
     "local_url": "prevent-obesity-morbidity-mortality"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "pregnancy-healthy-weight-gain",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -696,8 +783,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "Pregnancy",
       "Weight gain",
       "Healthy weight",
@@ -707,7 +796,7 @@
     "koio:hasService": [],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "healthy_weight_and_weight_gain_during_pregnancy_behavioral_counseling_interventions",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "pregnancy_healthy_weight_gain/pregnancy_healthy_weight_gain.py",
@@ -722,16 +811,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -757,7 +854,7 @@
     "local_url": "pregnancy-healthy-weight-gain"
   },
   {
-    "@context": "https://kgrid.org/koio/2.0/context",
+    "@context": "https://kgrid.org/koio/2.1/context",
     "@id": "abdominal-aortic-aneurysm-screening",
     "koio:kgrid": "2",
     "@type": "koio:KnowledgeObject",
@@ -775,57 +872,17 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+      "@id": "license.md"
+    },
+    "schema:keywords": [
       "Abdominal Aortic Aneurysm",
       "USPSTF",
       "Screening"
     ],
-    "koio:hasService": [
-      {
-        "@type": [
-          "Service",
-          "API"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": {
-          "@id": ".",
-          "@type": [
-            "https://kgrid.org/specs/activationSpec.html#object",
-            "Python"
-          ]
-        }
-      },
-      {
-        "@type": [
-          "Service",
-          "CLI"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": {
-          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
-          "@type": [
-            "Python"
-          ]
-        }
-      },
-      {
-        "@type": [
-          "Service",
-          "API"
-        ],
-        "dependsOn": "knowledge",
-        "implementedBy": {
-          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
-          "@type": [
-            "Python"
-          ]
-        }
-      }
-    ],
     "koio:hasKnowledge": [
       {
-        "@id": "knowledge",
+        "@id": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
         "@type": "koio:Knowledge",
         "implementedBy": {
           "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
@@ -840,16 +897,24 @@
         },
         "koio:hasTest": [
           {
-            "@id": "tests/test_knowledge.py",
+            "@id": "test_knowledge",
             "dc:title": "Knowledge test",
             "@type": "koio:Test",
-            "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+            "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "implementedBy": {
+              "@id": "tests/test_knowledge.py",
+              "@type": "Python"
+            }
           },
           {
-            "@id": "tests/test_resources.py",
+            "@id": "test_resources",
             "@type": "koio:Test",
             "dc:title": "Implementation tests",
-            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+            "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "implementedBy": {
+              "@id": "tests/test_resources.py",
+              "@type": "Python"
+            }
           }
         ],
         "koio:hasDocumentation": [
@@ -862,12 +927,57 @@
         ]
       }
     ],
+    "koio:hasService": [
+      {
+        "@id": "ActivatorService",
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
+        "implementedBy": {
+          "@id": "abdominal_aortic_aneurysm_screening/",
+          "@type": [
+            "https://kgrid.org/specs/activationSpec.html#object",
+            "Python"
+          ]
+        }
+      },
+      {
+        "@id": "CLIService",
+        "@type": [
+          "Service",
+          "CLI"
+        ],
+        "dependsOn": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
+        "implementedBy": {
+          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      },
+      {
+        "@id": "APIService",
+        "@type": [
+          "Service",
+          "API"
+        ],
+        "dependsOn": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
+        "implementedBy": {
+          "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
+          "@type": [
+            "Python"
+          ]
+        }
+      }
+    ],
     "koio:hasDocumentation": [
       {
-        "@id": "https://colab.research.google.com/drive/1Ua3Kkc9HeeH1UbTQ6ab1GZ_sMIkdk8_f?usp=sharing",
+        "@id": "https://colab.research.google.com/drive/1bTMBU_naqDB6jVfQ6g00C8E4WUnwTNB0?usp=sharing",
         "@type": "koio:Documentation",
         "dc:title": "Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial",
-        "dc:description": "This Google Colab tutorial demonstrates three different ways to use the diabetes-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
+        "dc:description": "This Google Colab tutorial demonstrates three different ways to use the abdominal-aortic-aneurysm-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",

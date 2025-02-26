@@ -1,5 +1,5 @@
 {
-  "@context": "https://kgrid.org/koio/2.0/context",
+  "@context": "https://kgrid.org/koio/2.1/context",
   "@id": "prevent-obesity-morbidity-mortality",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
@@ -17,8 +17,10 @@
   },
   "dc:publisher": "Knowledge Systems Lab",
   "dc:type": "software",
-  "dc:license": "license.md",
-  "koio:keywords": [
+  "dc:license": {
+    "@id": "license.md"
+  },
+  "schema:keywords": [
     "Weight Loss",
     "Obesity",
     "Morbidity",
@@ -31,7 +33,7 @@
   ],
   "koio:hasKnowledge": [
     {
-      "@id": "knowledge",
+      "@id": "obesity_in_adults_interventions",
       "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "prevent_obesity_morbidity_mortality/prevent_obesity_morbidity_mortality.py",
@@ -46,16 +48,24 @@
       },
       "koio:hasTest": [
         {
-          "@id": "tests/test_knowledge.py",
+          "@id": "test_knowledge",
           "dc:title": "Knowledge test",
           "@type": "koio:Test",
-          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+          "implementedBy": {
+            "@id": "tests/test_knowledge.py",
+            "@type": "Python"
+          }
         },
         {
-          "@id": "tests/test_resources.py",
+          "@id": "test_resources",
           "@type": "koio:Test",
           "dc:title": "Implementation tests",
-          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+          "implementedBy": {
+            "@id": "tests/test_resources.py",
+            "@type": "Python"
+          }
         }
       ],
       "koio:hasDocumentation": [

@@ -16,8 +16,10 @@
     },
     "dc:publisher": "Knowledge Systems Lab",
     "dc:type": "software",
-    "dc:license": "license.md",
-    "koio:keywords": [
+    "dc:license": {
+        "@id": "license.md"
+      },
+    "schema:keywords": [
         "USPSTF",
         "Recommendation",
         "Cardiovascular",

@@ -1,5 +1,5 @@
 {
-  "@context": "https://kgrid.org/koio/2.0/context",
+  "@context": "https://kgrid.org/koio/2.1/context",
   "@id": "hypertension-screening",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
@@ -17,21 +17,24 @@
   },
   "dc:publisher": "Knowledge Systems Lab",
   "dc:type": "software",
-  "dc:license": "license.md",
-  "koio:keywords": [
+  "dc:license": {
+    "@id": "license.md"
+  },
+  "schema:keywords": [
     "hypertension",
     "USPSTF",
     "Counseling"
   ],
   "koio:hasService": [
     {
+      "@id": "ActivatorService",
       "@type": [
         "Service",
         "API"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "hypertension_in_adults_screening",
       "implementedBy": {
-        "@id": ".",
+        "@id": "hypertension_screening/",
         "@type": [
           "https://kgrid.org/specs/activationSpec.html#object",
           "Python"
@@ -39,11 +42,12 @@
       }
     },
     {
+      "@id": "CLIService",
       "@type": [
         "Service",
         "CLI"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "hypertension_in_adults_screening",
       "implementedBy": {
         "@id": "hypertension_screening/hypertension_screening.py",
         "@type": [
@@ -52,11 +56,12 @@
       }
     },
     {
+      "@id": "APIService",
       "@type": [
         "Service",
         "API"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "hypertension_in_adults_screening",
       "implementedBy": {
         "@id": "hypertension_screening/hypertension_screening.py",
         "@type": [
@@ -67,7 +72,7 @@
   ],
   "koio:hasKnowledge": [
     {
-      "@id": "knowledge",
+      "@id": "hypertension_in_adults_screening",
       "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "hypertension_screening/hypertension_screening.py",
@@ -82,22 +87,30 @@
       },
       "koio:hasTest": [
         {
-          "@id": "tests/test_knowledge.py",
+          "@id": "test_knowledge",
           "dc:title": "Knowledge tests",
-          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+          "implementedBy": {
+            "@id": "tests/test_knowledge.py",
+            "@type": "Python"
+          }
         },
         {
-          "@id": "tests/test_resources.py",
+          "@id": "test_resources",
           "dc:title": "Implementation tests",
-          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+          "implementedBy": {
+            "@id": "tests/test_resources.py",
+            "@type": "Python"
+          }
         }
       ],
       "koio:hasDocumentation": [
         {
-          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+          "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
           "@type": "koio:documentation",
-          "dc:title": "Abdominal Aortic Aneurysm: Screening",
-          "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
+          "dc:title": "Hypertension in Adults: Screening",
+          "dc:description": "This is the USPSTF documentation webpage for Hypertension in Adults Screening recommendation."
         }
       ]
     }

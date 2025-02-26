@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "high-body-mass-index"
-version = "1.8"
+version = "1.9"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"

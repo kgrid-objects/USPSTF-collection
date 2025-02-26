@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "prevent-obesity-morbidity-mortality"
-version = "1.9"
+version = "1.10"
 description = ""
 authors = ["Farid Seifi <farid.seifi@gmail.com>"]
 readme = "README.md"

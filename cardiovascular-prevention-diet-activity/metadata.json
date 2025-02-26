@@ -1,5 +1,5 @@
 {
-  "@context": "https://kgrid.org/koio/2.0/context",
+  "@context": "https://kgrid.org/koio/2.1/context",
   "@id": "cardiovascular-prevention-diet-activity",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
@@ -17,8 +17,10 @@
   },
   "dc:publisher": "Knowledge Systems Lab",
   "dc:type": "software",
-  "dc:license": "license.md",
-  "koio:keywords": [
+  "dc:license": {
+    "@id": "license.md"
+  },
+  "schema:keywords": [
     "Healthy diet",
     "Healthy activity",
     "Cardiovascular Disease",
@@ -27,13 +29,14 @@
   ],
   "koio:hasService": [
     {
+      "@id": "ActivatorService",
       "@type": [
         "Service",
         "API"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
       "implementedBy": {
-        "@id": ".",
+        "@id": "cardiovascular_prevention_diet_activity/",
         "@type": [
           "https://kgrid.org/specs/activationSpec.html#object",
           "Python"
@@ -41,11 +44,12 @@
       }
     },
     {
+      "@id": "CLIService",
       "@type": [
         "Service",
         "CLI"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
       "implementedBy": {
         "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
         "@type": [
@@ -54,11 +58,12 @@
       }
     },
     {
+      "@id": "APIService",
       "@type": [
         "Service",
         "API"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
       "implementedBy": {
         "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
         "@type": [
@@ -69,7 +74,7 @@
   ],
   "koio:hasKnowledge": [
     {
-      "@id": "knowledge",
+      "@id": "healthy_diet_and_physical_activity_for_cardiovascular_disease_prevention",
       "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "cardiovascular_prevention_diet_activity/cardiovascular_prevention_diet_activity.py",
@@ -84,16 +89,24 @@
       },
       "koio:hasTest": [
         {
-          "@id": "tests/test_knowledge.py",
+          "@id": "test_knowledge",
           "dc:title": "Knowledge test",
           "@type": "koio:Test",
-          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+          "implementedBy": {
+            "@id": "tests/test_knowledge.py",
+            "@type": "Python"
+          }
         },
         {
-          "@id": "tests/test_resources.py",
+          "@id": "test_resources",
           "@type": "koio:Test",
           "dc:title": "Implementation tests",
-          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+          "implementedBy": {
+            "@id": "tests/test_resources.py",
+            "@type": "Python"
+          }
         }
       ],
       "koio:hasDocumentation": [

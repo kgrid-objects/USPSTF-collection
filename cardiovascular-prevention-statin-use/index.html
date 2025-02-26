@@ -1,23 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computable Artifact Metadata</title>
-</head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            width: 100%;
+        }
+        .left-column {
+            width: 70%;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
 
-<body>
-    <script>
-        fetch('metadata.json')
-            .then(response => response.json())
-            .then(async (metadata) => {
-                const metadataString = encodeURIComponent(JSON.stringify(metadata));
-                const currentPageIRI = encodeURIComponent(window.location.href);
-                window.location.href = `https://kgrid.org/python-sdk/kgrid_sdk/KOInfoPage.html?data=${metadataString}&base=${currentPageIRI}`;
-            })
-            .catch(error => console.error('Error fetching metadata:', error));
-    </script>
-</body>
+        /* Right Column */
+        .right-column {
+            width: 30%;
+            background-color: #e9e9e9;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .metadata {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .metadata p {
+            margin: 5px 0;
+        }
+        .doc-section, .test-section {
+            
+            right: 20px;
+            width: 250px;
+            color: black;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+            font-size: 16px;
+        }
+        .doc-section {
+            top: 20px;
+            background-color: #97c8ed;
+        }
+        .doc-section h3 {
+            margin-top: 0;
+        }
+        .doc-section a {
+            text-decoration: underline;
+        }
+        .doc-section p {
+            margin-top: 5px;
+        }
+        
+        .test-section {
+            
+            background-color: #96d6b7;
+        }
+        .test-section h3 {
+            margin-top: 0;
+        }
+        
+        .test-section a {
+            text-decoration: underline;
+        }
+        
+        .test-section p {
+            margin-top: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+        <div class="left-column">
+            <div class="metadata" id="metadata">
+            <h1>Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication</h1>
+            <p>The USPSTF recommends that:<br>For adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year cardiovascular disease (CVD) risk of 10% or greater:<br>Initiate a statin.<br>Grade: B<br><br>For adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk of 7.5% to less than 10%:<br>Selectively offer a statin.<br>Grade: C<br><br>For adults 76 years or older:<br>The evidence is insufficient to recommend for or against starting a statin.<br>Grade: I</p>
+            <p><strong>Id:</strong> <a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use" target='_blank'> 
+                cardiovascular-prevention-statin-use
+            </a></p>
+            <p><strong>Identifier:</strong> ark:StatinUse</p>
+            <p><strong>Type:</strong> <a href="http://kgrid.org/koio#KnowledgeObject" target='_blank'>koio:KnowledgeObject</a></p>
+            <p><strong>Version:</strong> v1.8</p>
+            <p><strong>Date:</strong> 2024-12-12</p>
+            
+            <p><strong>License:</strong> 
+                    <a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/license.md" target='_blank'>
+                        license.md
+                    </a></p>
+            
+            
+            <hr>
+            <h2>Creator Information</h2>
+            <p><strong>Name:</strong> Knowledge Systems Lab
+                 </p>
+            <p><strong>Affiliation:</strong> Knowledge Systems Lab, University of Michigan Medical School</p>
+            <p><strong>Email:</strong> 
+                <a href="mailto:kgrid-developers@umich.edu" target='_blank'>
+                    kgrid-developers@umich.edu
+                </a>
+            </p>
+            <p><strong>Website:</strong> 
+                <a href="https://kgrid.org" target='_blank'>
+                    https://kgrid.org
+                </a>
+            </p>
 
-</html>
+            
+            <hr>
+            <h2>Services</h2>
+            
+                <p><h3> ActivatorService</h3></p>
+                <p><strong>Type:</strong> Service</p>
+                <p><strong>Depends on:</strong> statin_use_for_the_primary_prevention_of_cardiovascular_disease</p>
+                <p><strong>Implemented by:</strong> 
+                    
+                        <a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/" target='_blank'>
+                            https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/ActivatorService
+                        </a>
+                                         
+                </p>
+            
+                <p><h3> CLIService</h3></p>
+                <p><strong>Type:</strong> Service</p>
+                <p><strong>Depends on:</strong> statin_use_for_the_primary_prevention_of_cardiovascular_disease</p>
+                <p><strong>Implemented by:</strong> 
+                    
+                        <a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py" target='_blank'>
+                            cardiovascular_prevention_statin_use.py
+                        </a>                                 
+                                         
+                </p>
+            
+                <p><h3> APIService</h3></p>
+                <p><strong>Type:</strong> Service</p>
+                <p><strong>Depends on:</strong> statin_use_for_the_primary_prevention_of_cardiovascular_disease</p>
+                <p><strong>Implemented by:</strong> 
+                    
+                        <a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py" target='_blank'>
+                            cardiovascular_prevention_statin_use.py
+                        </a>                                 
+                                         
+                </p>
+            
+            
+            
+            
+            
+            <hr>
+            <h2>Knowledge</h2>
+            
+                <p><h3> statin_use_for_the_primary_prevention_of_cardiovascular_disease</h3></p>
+                <p><strong>Type:</strong> koio:Knowledge</p>
+                
+                
+                
+                <p><strong>Implemented by:</strong> 
+                <ul>
+                
+                    <li>
+                    <a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py" target='_blank'>
+                        cardiovascular_prevention_statin_use.py
+                    </a>(type: Function)
+                    </li>
+                
+                </ul>
+                </p>
+                
+                
+                <p><strong>Source:</strong> 
+                    <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart" target='_blank'>
+                        https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart
+                    </a>
+                </p>
+                
+                
+                <p><strong>Format:</strong> 
+                    text/html
+                </p>
+                
+                
+                <p><strong>Date:</strong> 
+                    2022-08-23
+                </p>
+                
+                <b>Creator Information:</b>
+                
+                <p><strong>Name:</strong> 
+                     U.S. Preventive Services Task Force
+                </p>
+                
+                
+                
+                
+            
+            
+        </div>            
+        </div>
+        <div class="right-column">
+            <div class="doc-section" id="doc-section">
+            
+                <h2>Documentation</h2>
+                
+                    <h3><a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart" target='_blank'>Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication</a></h3>
+                    <p>This is the USPSTF documentation webpage for cardiovascular disease prevention statin use recommendation.</p>
+                
+                    <h3><a href="https://colab.research.google.com/drive/1nlYQ3U1a4uJUmyMYBFxXArEGxDy4DGpp?usp=sharing" target='_blank'>Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial</a></h3>
+                    <p>This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-statin-use knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul></p>
+                
+                    <h3><a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/README.md" target='_blank'>README.md</a></h3>
+                    <p>read me file.</p>
+                
+            
+        </div>
+
+            <div class="test-section" id="test-section">
+            
+                <h2>Tests</h2>
+                
+                    <h3><a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/tests/test_knowledge.py" target='_blank'>Knowledge test</a></h3>
+                    <p>These tests are written to test the accuracy of the knowledge implementation.</p>
+                
+                    <h3><a href="https://github.com/kgrid-objects/USPSTF-collection/blob/main/cardiovascular-prevention-statin-use/tests/test_resources.py" target='_blank'>Implementation tests</a></h3>
+                    <p>These tests are written to test the use of superclass KO to implement this knowledge object.</p>
+                
+            
+            </div>
+        </div>
+        </div>
+    </body>
+    </html>
+    

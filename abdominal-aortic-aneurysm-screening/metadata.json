@@ -1,5 +1,5 @@
 {
-  "@context": "https://kgrid.org/koio/2.0/context",
+  "@context": "https://kgrid.org/koio/2.1/context",
   "@id": "abdominal-aortic-aneurysm-screening",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
@@ -17,63 +17,23 @@
   },
   "dc:publisher": "Knowledge Systems Lab",
   "dc:type": "software",
-  "dc:license": "license.md",
-  "koio:keywords": [
+  "dc:license": {
+    "@id": "license.md"
+  },
+  "schema:keywords": [
     "Abdominal Aortic Aneurysm",
     "USPSTF",
     "Screening"
   ],
-  "koio:hasService": [
-    {
-      "@type": [
-        "Service",
-        "API"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": {
-        "@id": ".",
-        "@type": [
-          "https://kgrid.org/specs/activationSpec.html#object",
-          "Python"
-        ]
-      }
-    },
-    {
-      "@type": [
-        "Service",
-        "CLI"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": {
-        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
-        "@type": [
-          "Python"
-        ]
-      }
-    },
-    {
-      "@type": [
-        "Service",
-        "API"
-      ],
-      "dependsOn": "knowledge",
-      "implementedBy": {
-        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
-        "@type": [
-          "Python"
-        ]
-      }
-    }
-  ],
   "koio:hasKnowledge": [
     {
-      "@id": "knowledge",
+      "@id": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
       "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
         "@type": "Function"
       },
-      "dc:source":"https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
+      "dc:source": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
       "dc:format": "text/html",
       "dc:date": "2019-12-10",
       "schema:creator": {
@@ -82,16 +42,24 @@
       },
       "koio:hasTest": [
         {
-          "@id": "tests/test_knowledge.py",
+          "@id": "test_knowledge",
           "dc:title": "Knowledge test",
           "@type": "koio:Test",
-          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+          "implementedBy": {
+            "@id": "tests/test_knowledge.py",
+            "@type": "Python"
+          }
         },
         {
-          "@id": "tests/test_resources.py",
+          "@id": "test_resources",
           "@type": "koio:Test",
           "dc:title": "Implementation tests",
-          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+          "implementedBy": {
+            "@id": "tests/test_resources.py",
+            "@type": "Python"
+          }
         }
       ],
       "koio:hasDocumentation": [
@@ -102,6 +70,51 @@
           "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
         }
       ]
+    }
+  ],
+  "koio:hasService": [
+    {
+      "@id": "ActivatorService",
+      "@type": [
+        "Service",
+        "API"
+      ],
+      "dependsOn": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
+      "implementedBy": {
+        "@id": "abdominal_aortic_aneurysm_screening/",
+        "@type": [
+          "https://kgrid.org/specs/activationSpec.html#object",
+          "Python"
+        ]
+      }
+    },
+    {
+      "@id": "CLIService",
+      "@type": [
+        "Service",
+        "CLI"
+      ],
+      "dependsOn": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
+      "implementedBy": {
+        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
+        "@type": [
+          "Python"
+        ]
+      }
+    },
+    {
+      "@id": "APIService",
+      "@type": [
+        "Service",
+        "API"
+      ],
+      "dependsOn": "Primary_Care_Screening_for_Abdominal_Aortic_Aneurysm",
+      "implementedBy": {
+        "@id": "abdominal_aortic_aneurysm_screening/abdominal_aortic_aneurysm_screening.py",
+        "@type": [
+          "Python"
+        ]
+      }
     }
   ],
   "koio:hasDocumentation": [

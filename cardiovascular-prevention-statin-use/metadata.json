@@ -1,5 +1,5 @@
 {
-  "@context": "https://kgrid.org/koio/2.0/context",
+  "@context": "https://kgrid.org/koio/2.1/context",
   "@id": "cardiovascular-prevention-statin-use",
   "koio:kgrid": "2",
   "@type": "koio:KnowledgeObject",
@@ -17,8 +17,10 @@
   },
   "dc:publisher": "Knowledge Systems Lab",
   "dc:type": "software",
-  "dc:license": "license.md",
-  "koio:keywords": [
+  "dc:license": {
+    "@id": "license.md"
+  },
+  "schema:keywords": [
     "Statin use",
     "Cardiovascular Disease",
     "USPSTF",
@@ -26,13 +28,14 @@
   ],
   "koio:hasService": [
     {
+      "@id": "ActivatorService",
       "@type": [
         "Service",
         "API"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
       "implementedBy": {
-        "@id": ".",
+        "@id": "cardiovascular_prevention_statin_use/",
         "@type": [
           "https://kgrid.org/specs/activationSpec.html#object",
           "Python"
@@ -40,11 +43,12 @@
       }
     },
     {
+      "@id": "CLIService",
       "@type": [
         "Service",
         "CLI"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
       "implementedBy": {
         "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
         "@type": [
@@ -53,11 +57,12 @@
       }
     },
     {
+      "@id": "APIService",
       "@type": [
         "Service",
         "API"
       ],
-      "dependsOn": "knowledge",
+      "dependsOn": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
       "implementedBy": {
         "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
         "@type": [
@@ -68,7 +73,7 @@
   ],
   "koio:hasKnowledge": [
     {
-      "@id": "knowledge",
+      "@id": "statin_use_for_the_primary_prevention_of_cardiovascular_disease",
       "@type": "koio:Knowledge",
       "implementedBy": {
         "@id": "cardiovascular_prevention_statin_use/cardiovascular_prevention_statin_use.py",
@@ -83,16 +88,24 @@
       },
       "koio:hasTest": [
         {
-          "@id": "tests/test_knowledge.py",
+          "@id": "test_knowledge",
           "dc:title": "Knowledge test",
           "@type": "koio:Test",
-          "dc:description": "These tests are written to test the accuracy of the knowledge implementation."
+          "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+          "implementedBy": {
+            "@id": "tests/test_knowledge.py",
+            "@type": "Python"
+          }
         },
         {
-          "@id": "tests/test_resources.py",
+          "@id": "test_resources",
           "@type": "koio:Test",
           "dc:title": "Implementation tests",
-          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object."
+          "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+          "implementedBy": {
+            "@id": "tests/test_resources.py",
+            "@type": "Python"
+          }
         }
       ],
       "koio:hasDocumentation": [
