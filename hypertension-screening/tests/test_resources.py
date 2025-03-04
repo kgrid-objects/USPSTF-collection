@@ -1,7 +1,7 @@
 from hypertension_screening import hypertension_screening
 from hypertension_screening import apply
 
-version = "v1.9"
+version = "v1.10"
 def test_get_version():
     assert version == hypertension_screening.get_version()
 

@@ -1,7 +1,7 @@
 
 from high_body_mass_index import high_body_mass_index
 from high_body_mass_index import apply
-version = "v1.8"
+version = "v1.9"
 def test_get_version():  
     assert version == high_body_mass_index.get_version()
     

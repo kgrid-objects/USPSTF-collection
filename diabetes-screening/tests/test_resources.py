@@ -1,7 +1,7 @@
 
 from diabetes_screening import diabetes_screening
 from diabetes_screening import apply
-version = "v1.8"
+version = "v1.9"
 def test_get_version():  
     assert version == diabetes_screening.get_version()
     

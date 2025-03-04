@@ -1,6 +1,6 @@
 
 from pregnancy_healthy_weight_gain import pregnancy_healthy_weight_gain
-version = "v1.8"
+version = "v1.9"
 def test_get_version():  
     assert version == pregnancy_healthy_weight_gain.get_version()
     
