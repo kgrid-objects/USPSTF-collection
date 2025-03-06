@@ -10,7 +10,7 @@
   "dc:description": "Adults with a BMI ≥30:\nThe USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.\nGrade: B",
   "schema:creator": {
     "@id": "https://kgrid.org",
-    "@type": "team",
+    "@type": "schema:Organization",
     "schema:givenName": "Knowledge Systems Lab",
     "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
     "schema:email": "kgrid-developers@umich.edu"
@@ -43,7 +43,7 @@
       "dc:format": "text/html",
       "dc:date": "2018-09-18",
       "schema:creator": {
-        "@type": "Organization",
+        "@type": "schema:Organization",
         "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
@@ -71,7 +71,7 @@
       "koio:hasDocumentation": [
         {
           "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
-          "@type": "koio:Documentation",
+          "@type": "InformationArtifact",
           "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
           "dc:description": "This is the USPSTF documentation webpage for Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults Behavioral Interventions recommendation."
         }

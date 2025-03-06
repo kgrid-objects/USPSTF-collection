@@ -29,21 +29,21 @@
         "Endocrine",
         "Conditions"
     ],
-    "koio:hasDocumentation": [
+    "hasDocumentation": [
         {
             "@id": "https://colab.research.google.com/drive/1bTMBU_naqDB6jVfQ6g00C8E4WUnwTNB0?usp=sharing",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Using the Prediabetes and Type 2 Diabetes Screening Knowledge Object: A Step-by-Step Tutorial",
             "dc:description": "Use our Jupiter Notebook on our Google Colab page for a step-by-Step tutorial on using USPSTF knowledgebase Package."
         },
         {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/topic_search_results?topic_status=P",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "USPSTF Published Recommendations"
         },
         {
             "@id": "README.md",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "README.md",
             "dc:description": "read me file."
         }

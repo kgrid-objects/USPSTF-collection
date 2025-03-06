@@ -10,7 +10,7 @@
   "dc:description": "Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A",
   "schema:creator": {
     "@id": "https://kgrid.org",
-    "@type": "team",
+    "@type": "schema:Organization",
     "schema:givenName": "Knowledge Systems Lab",
     "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
     "schema:email": "kgrid-developers@umich.edu"
@@ -82,7 +82,7 @@
       "dc:format": "text/html",
       "dc:date": "2021-04-27",
       "schema:creator": {
-        "@type": "Organization",
+        "@type": "schema:Organization",
         "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
@@ -90,6 +90,7 @@
           "@id": "test_knowledge",
           "dc:title": "Knowledge tests",
           "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+          "@type": "koio:Test",
           "implementedBy": {
             "@id": "tests/test_knowledge.py",
             "@type": "Python"
@@ -99,6 +100,7 @@
           "@id": "test_resources",
           "dc:title": "Implementation tests",
           "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+          "@type": "koio:Test",
           "implementedBy": {
             "@id": "tests/test_resources.py",
             "@type": "Python"
@@ -108,7 +110,7 @@
       "koio:hasDocumentation": [
         {
           "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
-          "@type": "koio:documentation",
+          "@type": "InformationArtifact",
           "dc:title": "Hypertension in Adults: Screening",
           "dc:description": "This is the USPSTF documentation webpage for Hypertension in Adults Screening recommendation."
         }
@@ -118,13 +120,13 @@
   "koio:hasDocumentation": [
     {
       "@id": "https://colab.research.google.com/drive/1AwtrDyglFMcCE60sDDOd1FvfOCI_fhQB?usp=sharing",
-      "@type": "koio:documentation",
+      "@type": "InformationArtifact",
       "dc:title": "Using the Hypertension Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
       "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
     },
     {
       "@id": "README.md",
-      "@type": "koio:documentation",
+      "@type": "InformationArtifact",
       "dc:title": "README.md",
       "dc:description": "read me file."
     }

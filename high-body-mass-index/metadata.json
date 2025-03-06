@@ -10,7 +10,7 @@
   "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (≥95th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
   "schema:creator": {
     "@id": "https://kgrid.org",
-    "@type": "team",
+    "@type": "schema:Organization",
     "schema:givenName": "Knowledge Systems Lab",
     "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
     "schema:email": "kgrid-developers@umich.edu"
@@ -83,7 +83,7 @@
       "dc:format": "text/html",
       "dc:date": "2024-06-18",
       "schema:creator": {
-        "@type": "Organization",
+        "@type": "schema:Organization",
         "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
@@ -111,7 +111,7 @@
       "koio:hasDocumentation": [
         {
           "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
-          "@type": "koio:Documentation",
+          "@type": "InformationArtifact",
           "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
           "dc:description": "This is the USPSTF documentation webpage for High Body Mass Index in Children and Adolescents Interventions recommendation."
         }
@@ -121,7 +121,7 @@
   "koio:hasDocumentation": [
     {
       "@id": "README.md",
-      "@type": "koio:Documentation",
+      "@type": "InformationArtifact",
       "dc:title": "README.md",
       "dc:description": "read me file."
     }

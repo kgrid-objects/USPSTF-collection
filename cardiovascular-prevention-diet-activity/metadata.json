@@ -10,7 +10,7 @@
   "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
   "schema:creator": {
     "@id": "https://kgrid.org",
-    "@type": "team",
+    "@type": "schema:Organization",
     "schema:givenName": "Knowledge Systems Lab",
     "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
     "schema:email": "kgrid-developers@umich.edu"
@@ -84,7 +84,7 @@
       "dc:format": "text/html",
       "dc:date": "2020-11-24",
       "schema:creator": {
-        "@type": "Organization",
+        "@type": "schema:Organization",
         "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
@@ -112,7 +112,7 @@
       "koio:hasDocumentation": [
         {
           "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
-          "@type": "koio:Documentation",
+          "@type": "InformationArtifact",
           "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
           "dc:description": "This is the USPSTF documentation webpage for Healthy Diet and Physical Activity for Cardiovascular Disease Prevention recommendation."
         }
@@ -122,13 +122,13 @@
   "koio:hasDocumentation": [
     {
       "@id": "https://colab.research.google.com/drive/1r6PodT5n75qKLBbtTWIC1dNwwz3FrVWr?usp=sharing",
-      "@type": "koio:Documentation",
+      "@type": "InformationArtifact",
       "dc:title": "Using the Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors Knowledge Object: A Step-by-Step Tutorial",
       "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-diet-activity knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
     },
     {
       "@id": "README.md",
-      "@type": "koio:Documentation",
+      "@type": "InformationArtifact",
       "dc:title": "README.md",
       "dc:description": "read me file."
     }

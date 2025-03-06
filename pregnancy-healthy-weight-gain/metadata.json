@@ -10,7 +10,7 @@
   "dc:description": "For pregnant adolescents and adults:\nThe USPSTF recommends that clinicians offer effective behavioral counseling interventions aimed at promoting healthy weight gain and preventing excess gestational weight gain in pregnancy.\nGrade B",
   "schema:creator": {
     "@id": "https://kgrid.org",
-    "@type": "team",
+    "@type": "schema:Organization",
     "schema:givenName": "Knowledge Systems Lab",
     "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
     "schema:email": "kgrid-developers@umich.edu"
@@ -41,7 +41,7 @@
       "dc:format": "text/html",
       "dc:date": "2021-05-25",
       "schema:creator": {
-        "@type": "Organization",
+        "@type": "schema:Organization",
         "schema:name": "U.S. Preventive Services Task Force"
       },
       "koio:hasTest": [
@@ -69,7 +69,7 @@
       "koio:hasDocumentation": [
         {
           "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-weight-and-weight-gain-during-pregnancy-behavioral-counseling-interventions",
-          "@type": "koio:Documentation",
+          "@type": "InformationArtifact",
           "dc:title": "Healthy Weight and Weight Gain In Pregnancy: Behavioral Counseling Interventions",
           "dc:description": "This is the USPSTF documentation webpage for Healthy Weight and Weight Gain In Pregnancy Behavioral Counseling Interventions recommendation."
         }
@@ -79,7 +79,7 @@
   "koio:hasDocumentation": [
     {
       "@id": "README.md",
-      "@type": "koio:Documentation",
+      "@type": "InformationArtifact",
       "dc:title": "README.md",
       "dc:description": "read me file."
     }

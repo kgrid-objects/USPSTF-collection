@@ -11,7 +11,7 @@
     "dc:description": "The USPSTF recommends that:\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year cardiovascular disease (CVD) risk of 10% or greater:\nInitiate a statin.\nGrade: B\n\nFor adults aged 40 to 75 years who have 1 or more cardiovascular risk factors (ie, dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year CVD risk of 7.5% to less than 10%:\nSelectively offer a statin.\nGrade: C\n\nFor adults 76 years or older:\nThe evidence is insufficient to recommend for or against starting a statin.\nGrade: I",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -84,7 +84,7 @@
         "dc:format": "text/html",
         "dc:date": "2022-08-23",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -112,7 +112,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/statin-use-in-adults-preventive-medication#fullrecommendationstart",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Statin Use for the Primary Prevention of Cardiovascular Disease in Adults: Preventive Medication",
             "dc:description": "This is the USPSTF documentation webpage for cardiovascular disease prevention statin use recommendation."
           }
@@ -122,13 +122,13 @@
     "koio:hasDocumentation": [
       {
         "@id": "https://colab.research.google.com/drive/1nlYQ3U1a4uJUmyMYBFxXArEGxDy4DGpp?usp=sharing",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial",
         "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-statin-use knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
@@ -149,7 +149,7 @@
     "dc:description": "Adults aged 35 to 70 years who have overweight or obesity:\n The USPSTF recommends screening for prediabetes and type 2 diabetes.  Clinicians should offer or refer patients with prediabetes to effective preventive interventions.\nGrade: B",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -222,7 +222,7 @@
         "dc:format": "text/html",
         "dc:date": "2021-08-24",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -250,7 +250,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/screening-for-prediabetes-and-type-2-diabetes",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Prediabetes and Type 2 Diabetes: Screening",
             "dc:description": "This is the USPSTF documentation webpage for Prediabetes and Type 2 Diabetes Screening recommendation."
           }
@@ -260,13 +260,13 @@
     "koio:hasDocumentation": [
       {
         "@id": "https://colab.research.google.com/drive/1banFELv0b--f9DnlVopgtRQhMtwwYzbS?usp=sharing",
-        "@type": "koio:documentation",
+        "@type": "InformationArtifact",
         "dc:title": "Using the Diabetes Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
         "dc:description": "This Google Colab tutorial demonstrates four different ways to use the diabetes-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
@@ -287,7 +287,7 @@
     "dc:description": "Children and adolescents 6 years or older:\nThe USPSTF recommends that clinicians should provide or refer children and adolescents 6 years or older with a high body mass index (BMI) (\u226595th percentile for age and sex) to comprehensive, intensive behavioral interventions.\nGrade: B",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -360,7 +360,7 @@
         "dc:format": "text/html",
         "dc:date": "2024-06-18",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -388,7 +388,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-children-and-adolescents-screening",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "High Body Mass Index in Children and Adolescents: Interventions",
             "dc:description": "This is the USPSTF documentation webpage for High Body Mass Index in Children and Adolescents Interventions recommendation."
           }
@@ -398,7 +398,7 @@
     "koio:hasDocumentation": [
       {
         "@id": "README.md",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
@@ -419,7 +419,7 @@
     "dc:description": "The USPSTF recommends that:\nFor adults 18 years or older at increased risk of cardiovascular disease (CVD):\nProvide behavioral counseling to promote a healthy diet and physical activity.\nGrade: B",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -493,7 +493,7 @@
         "dc:format": "text/html",
         "dc:date": "2020-11-24",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -521,7 +521,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/healthy-diet-and-physical-activity-counseling-adults-with-high-risk-of-cvd",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors: Behavioral Counseling Interventions",
             "dc:description": "This is the USPSTF documentation webpage for Healthy Diet and Physical Activity for Cardiovascular Disease Prevention recommendation."
           }
@@ -531,13 +531,13 @@
     "koio:hasDocumentation": [
       {
         "@id": "https://colab.research.google.com/drive/1r6PodT5n75qKLBbtTWIC1dNwwz3FrVWr?usp=sharing",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "Using the Healthy Diet and Physical Activity for Cardiovascular Disease Prevention in Adults With Cardiovascular Risk Factors Knowledge Object: A Step-by-Step Tutorial",
         "dc:description": "This Google Colab tutorial demonstrates three different ways to use the cardiovascular-prevention-diet-activity knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
@@ -558,7 +558,7 @@
     "dc:description": "Adults 18 years or older without known hypertension:\nThe USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.\nGrade: A",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -630,7 +630,7 @@
         "dc:format": "text/html",
         "dc:date": "2021-04-27",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -638,6 +638,7 @@
             "@id": "test_knowledge",
             "dc:title": "Knowledge tests",
             "dc:description": "These tests are written to test the accuracy of the knowledge implementation.",
+            "@type": "koio:Test",
             "implementedBy": {
               "@id": "tests/test_knowledge.py",
               "@type": "Python"
@@ -647,6 +648,7 @@
             "@id": "test_resources",
             "dc:title": "Implementation tests",
             "dc:description": "These tests are written to test the use of superclass KO to implement this knowledge object.",
+            "@type": "koio:Test",
             "implementedBy": {
               "@id": "tests/test_resources.py",
               "@type": "Python"
@@ -656,7 +658,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
-            "@type": "koio:documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Hypertension in Adults: Screening",
             "dc:description": "This is the USPSTF documentation webpage for Hypertension in Adults Screening recommendation."
           }
@@ -666,13 +668,13 @@
     "koio:hasDocumentation": [
       {
         "@id": "https://colab.research.google.com/drive/1AwtrDyglFMcCE60sDDOd1FvfOCI_fhQB?usp=sharing",
-        "@type": "koio:documentation",
+        "@type": "InformationArtifact",
         "dc:title": "Using the Hypertension Screening in Adults Knowledge Object: A Step-by-Step Tutorial",
         "dc:description": "This Google Colab tutorial demonstrates four different ways to use the hypertension-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",
-        "@type": "koio:documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
@@ -693,7 +695,7 @@
     "dc:description": "Adults with a BMI \u226530:\nThe USPSTF recommends that clinicians offer or refer to intensive, multicomponent behavioral interventions.\nGrade: B",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -725,7 +727,7 @@
         "dc:format": "text/html",
         "dc:date": "2018-09-18",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -753,7 +755,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/obesity-in-adults-interventions",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults: Behavioral Interventions",
             "dc:description": "This is the USPSTF documentation webpage for Weight Loss to Prevent Obesity-Related Morbidity and Mortality in Adults Behavioral Interventions recommendation."
           }
@@ -776,7 +778,7 @@
     "dc:description": "For pregnant adolescents and adults:\nThe USPSTF recommends that clinicians offer effective behavioral counseling interventions aimed at promoting healthy weight gain and preventing excess gestational weight gain in pregnancy.\nGrade B",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -806,7 +808,7 @@
         "dc:format": "text/html",
         "dc:date": "2021-05-25",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -834,7 +836,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/healthy-weight-and-weight-gain-during-pregnancy-behavioral-counseling-interventions",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Healthy Weight and Weight Gain In Pregnancy: Behavioral Counseling Interventions",
             "dc:description": "This is the USPSTF documentation webpage for Healthy Weight and Weight Gain In Pregnancy Behavioral Counseling Interventions recommendation."
           }
@@ -844,7 +846,7 @@
     "koio:hasDocumentation": [
       {
         "@id": "README.md",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
@@ -865,7 +867,7 @@
     "dc:description": "The USPSTF recommends that:\nFor men aged 65 to 75 years who have ever smoked:\nPerform 1-time screening for abdominal aortic aneurysm (AAA) with ultrasonography in men who have a history of smoking.\nGrade B\n\nFor men aged 65 to 75 years who have never smoked:\nSelectively offer screening to men who do not have a history of smoking, rather than routinely screening all men in this group\nGrade C\n\nFor women who have never smoked and have no family history of AAA:\nDo not screen women who have never smoked and do not have a family history of AAA.\nGrade D\n\nFor women aged 65 to 75 years who have ever smoked or have a family history of AAA:\nEvidence is insufficient to assess the balance of benefits and harms of screening for AAA with ultrasonography in women aged 65 to 75 years who have ever smoked or have a family history of AAA.\nGrade I",
     "schema:creator": {
       "@id": "https://kgrid.org",
-      "@type": "team",
+      "@type": "schema:Organization",
       "schema:givenName": "Knowledge Systems Lab",
       "schema:affiliation": "Knowledge Systems Lab, University of Michigan Medical School",
       "schema:email": "kgrid-developers@umich.edu"
@@ -892,7 +894,7 @@
         "dc:format": "text/html",
         "dc:date": "2019-12-10",
         "schema:creator": {
-          "@type": "Organization",
+          "@type": "schema:Organization",
           "schema:name": "U.S. Preventive Services Task Force"
         },
         "koio:hasTest": [
@@ -920,7 +922,7 @@
         "koio:hasDocumentation": [
           {
             "@id": "https://www.uspreventiveservicestaskforce.org/uspstf/index.php/recommendation/abdominal-aortic-aneurysm-screening",
-            "@type": "koio:Documentation",
+            "@type": "InformationArtifact",
             "dc:title": "Abdominal Aortic Aneurysm: Screening",
             "dc:description": "This is the USPSTF documentation webpage for Abdominal Aortic Aneurysm Screening recommendation."
           }
@@ -975,13 +977,13 @@
     "koio:hasDocumentation": [
       {
         "@id": "https://colab.research.google.com/drive/1bTMBU_naqDB6jVfQ6g00C8E4WUnwTNB0?usp=sharing",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "Using USPSTF Knowledgebase Package: A Step-by-Step Tutorial",
         "dc:description": "This Google Colab tutorial demonstrates three different ways to use the abdominal-aortic-aneurysm-screening knowledge object:<ul><li>using the built-in command-line interface (CLI) service</li><li>using the python activator</li><li>using the knowledge object's knowledge representation directly in the code</li></ul>"
       },
       {
         "@id": "README.md",
-        "@type": "koio:Documentation",
+        "@type": "InformationArtifact",
         "dc:title": "README.md",
         "dc:description": "read me file."
       }
